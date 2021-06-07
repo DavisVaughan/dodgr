@@ -74,7 +74,7 @@ points, and associated vectors of densities." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.8.001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.8.011</span>
       </span>
     </div>
 
@@ -156,7 +156,7 @@ calculated (see Details)</p></td>
     <tr>
       <th>k</th>
       <td><p>Width of exponential spatial interaction function (exp (-d / k)),
-in units of 'd', specified in one of 3 forms: (i) a single vlaue; (ii) a
+in units of 'd', specified in one of 3 forms: (i) a single value; (ii) a
 vector of independent values for each origin point (with same length as
 'from' points); or (iii) an equivalent matrix with each column holding values
 for each 'from' point, so 'nrow(k)==length(from)'. See Note.</p></td>
@@ -204,7 +204,7 @@ flows are aggregated. To remove any such effect, set <code>tol = 0</code>.</p></
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Modified version of graph with additonal <code>flow</code> column added.</p>
+    <p>Modified version of graph with additional <code>flow</code> column added.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     <p>Spatial Interaction models are often fitted through trialling a range
@@ -230,7 +230,7 @@ sum of two, or greater than the sum of densities.</p>
 <p>With <code>norm_sums = TRUE</code>, the sum of network flows (<code><a href='https://rdrr.io/r/base/sum.html'>sum(output$flow)</a></code>) should
 equal the sum of origin densities (<code><a href='https://rdrr.io/r/base/sum.html'>sum(dens_from)</a></code>). This may nevertheless
 not always be the case, because origin points may simply be too far from any
-denstination (<code>to</code>) points for an exponential model to yield non-zero values
+destination (<code>to</code>) points for an exponential model to yield non-zero values
 anywhere in a network within machine tolerance. Such cases may result in sums
 of output flows being less than sums of input densities.</p>
 
