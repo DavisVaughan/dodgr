@@ -76,7 +76,7 @@ will be bisected at every junction point." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.8.012</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.8.016</span>
       </span>
     </div>
 
@@ -95,7 +95,7 @@ will be bisected at every junction point." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/ATFutures/dodgr">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -147,8 +147,8 @@ will be bisected at every junction point.</p>
     <pre class="examples"><div class='input'><span class='va'>hw</span> <span class='op'>&lt;-</span> <span class='fu'><a href='weight_streetnet.html'>weight_streetnet</a></span> <span class='op'>(</span><span class='va'>hampi</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>hw</span><span class='op'>)</span> <span class='co'># 5,729 edges</span>
 </div><div class='output co'>#&gt; [1] 5973</div><div class='input'><span class='va'>xy</span> <span class='op'>&lt;-</span> <span class='fu'>dodgr_to_sf</span> <span class='op'>(</span><span class='va'>hw</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span> <span class='op'>(</span><span class='va'>xy</span><span class='op'>)</span> <span class='co'># 764 edges; 14 attributes</span>
-</div><div class='output co'>#&gt; [1] 664  16</div></pre>
+</div><div class='output co'>#&gt; <span class='message'>Loading required namespace: sf</span></div><div class='output co'>#&gt; <span class='error'>Error in loadNamespace(x): there is no package called ‘sf’</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span> <span class='op'>(</span><span class='va'>xy</span><span class='op'>)</span> <span class='co'># 764 edges; 14 attributes</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'xy' not found</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

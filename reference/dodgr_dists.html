@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.8.012</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.8.016</span>
       </span>
     </div>
 
@@ -91,7 +91,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/ATFutures/dodgr">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -254,7 +254,7 @@ or threads. This number can be reduced by specifying a value via
 <span class='co'># shopping malls and the like). These may or may not be connected, so it may</span>
 <span class='co'># be necessary to filter out particular levels</span>
 <span class='va'>index</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span> <span class='op'>(</span><span class='op'>!</span> <span class='op'>(</span><span class='va'>essen</span><span class='op'>$</span><span class='va'>level</span> <span class='op'>==</span> <span class='st'>"-1"</span> <span class='op'>|</span> <span class='va'>essen</span><span class='op'>$</span><span class='va'>level</span> <span class='op'>==</span> <span class='st'>"1"</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># for example</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span> <span class='op'>(</span><span class='va'><a href='https://r-spatial.github.io/sf/'>sf</a></span><span class='op'>)</span> <span class='co'># needed for following sub-select operation</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span> <span class='op'>(</span><span class='va'>sf</span><span class='op'>)</span> <span class='co'># needed for following sub-select operation</span>
 <span class='va'>essen</span> <span class='op'>&lt;-</span> <span class='va'>essen</span> <span class='op'>[</span><span class='va'>index</span>, <span class='op'>]</span>
 <span class='va'>graph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='weight_streetnet.html'>weight_streetnet</a></span> <span class='op'>(</span><span class='va'>essen</span>, wt_profile <span class='op'>=</span> <span class='st'>"foot"</span><span class='op'>)</span>
 <span class='va'>graph</span> <span class='op'>&lt;-</span> <span class='va'>graph</span> <span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>$</span><span class='va'>component</span> <span class='op'>==</span> <span class='fl'>1</span><span class='op'>)</span>, <span class='op'>]</span>

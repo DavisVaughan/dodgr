@@ -74,7 +74,7 @@ bicycle, moped, motorcycle, motorcar, goods, hgv, psv)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.8.012</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.8.016</span>
       </span>
     </div>
 
@@ -93,7 +93,7 @@ bicycle, moped, motorcycle, motorcar, goods, hgv, psv)." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/ATFutures/dodgr">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -285,7 +285,7 @@ the full graph prior to any modification of columns.</p>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span> <span class='op'>(</span><span class='va'>stplanr</span><span class='op'>)</span>
 <span class='co'># merge all of the 'routes_fast' lines into a single network</span>
 <span class='va'>r</span> <span class='op'>&lt;-</span> <span class='fu'>overline</span> <span class='op'>(</span><span class='va'>routes_fast</span>, attrib <span class='op'>=</span> <span class='st'>"length"</span>, buff_dist <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
-<span class='va'>r</span> <span class='op'>&lt;-</span> <span class='fu'>sf</span><span class='fu'>::</span><span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_as_sf.html'>st_as_sf</a></span> <span class='op'>(</span><span class='va'>r</span>, crs <span class='op'>=</span> <span class='fl'>4326</span><span class='op'>)</span>
+<span class='va'>r</span> <span class='op'>&lt;-</span> <span class='fu'>sf</span><span class='fu'>::</span><span class='fu'>st_as_sf</span> <span class='op'>(</span><span class='va'>r</span>, crs <span class='op'>=</span> <span class='fl'>4326</span><span class='op'>)</span>
 <span class='co'># We need to specify both a `type` and `id` column for the</span>
 <span class='co'># \link{weight_streetnet} function.</span>
 <span class='va'>r</span><span class='op'>$</span><span class='va'>type</span> <span class='op'>&lt;-</span> <span class='fl'>1</span>
