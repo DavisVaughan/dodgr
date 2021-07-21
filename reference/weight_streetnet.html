@@ -74,7 +74,7 @@ bicycle, moped, motorcycle, motorcar, goods, hgv, psv)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.8.029</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.8.035</span>
       </span>
     </div>
 
@@ -247,7 +247,11 @@ turning across oncoming traffic. Resultant graphs are fundamentally different
 from the default for distance-based routing. The result of
 <code>weight_streetnet(..., turn_penalty = TRUE)</code> should thus <em>only</em> be used
 to submit to the <a href='dodgr_times.html'>dodgr_times</a> function, and not for any other <code>dodgr</code>
-functions nor forms of network analysis.</p>
+functions nor forms of network analysis. Setting <code>turn_penalty = TRUE</code> is
+only possible for networks extracted with <a href='dodgr_streetnet_sc.html'>dodgr_streetnet_sc</a>, and will
+also honour turn restrictions specified in Open Street Map (unless the
+"penalties" table of <a href='weighting_profiles.html'>weighting_profiles</a> has <code>restrictions = FALSE</code> for
+a specified <code>wt_profile</code>).</p>
 <p>The resultant graph includes only those edges for which the given
 weighting profile specifies finite edge weights. Any edges of types not
 present in a given weighting profile are automatically removed from the
