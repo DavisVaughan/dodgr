@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.8.045</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.8.047</span>
       </span>
     </div>
 
@@ -358,7 +358,7 @@
 <div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">graph_sub</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dodgr_sample.html">dodgr_sample</a></span> <span class="op">(</span><span class="va">graph</span>, nverts <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span> <span class="op">(</span><span class="va">graph_sub</span><span class="op">)</span></code></pre></div>
-<pre><code>## [1] 197</code></pre>
+<pre><code>## [1] 199</code></pre>
 <p>The random sample has around twice as many edges as vertices, in accordance with the statistics calculated above.</p>
 <div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span> <span class="op">(</span><span class="fu"><a href="../reference/dodgr_vertices.html">dodgr_vertices</a></span> <span class="op">(</span><span class="va">graph_sub</span><span class="op">)</span><span class="op">)</span></code></pre></div>
@@ -448,10 +448,10 @@
 <pre><code>## Loading required namespace: igraph</code></pre>
 <pre><code>##                                                                                   test
 ## 6       d &lt;- dodgr_dists(graph_contracted, from = from_id, to = to_id, heap = "BHeap")
+## 11        d &lt;- dodgr_dists(graph_contracted, from = from_id, to = to_id, heap = "set")
 ## 7       d &lt;- dodgr_dists(graph_contracted, from = from_id, to = to_id, heap = "FHeap")
 ## 8     d &lt;- dodgr_dists(graph_contracted, from = from_id, to = to_id, heap = "TriHeap")
 ## 10     d &lt;- dodgr_dists(graph_contracted, from = from_id, to = to_id, heap = "Heap23")
-## 11        d &lt;- dodgr_dists(graph_contracted, from = from_id, to = to_id, heap = "set")
 ## 9  d &lt;- dodgr_dists(graph_contracted, from = from_id, to = to_id, heap = "TriHeapExt")
 ## 1                  d &lt;- dodgr_dists(graph, from = from_id, to = to_id, heap = "BHeap")
 ## 12                  d &lt;- igraph::distances(igr, v = from_id, to = to_id, mode = "out")
@@ -460,18 +460,18 @@
 ## 5                 d &lt;- dodgr_dists(graph, from = from_id, to = to_id, heap = "Heap23")
 ## 4             d &lt;- dodgr_dists(graph, from = from_id, to = to_id, heap = "TriHeapExt")
 ##    replications elapsed relative user.self sys.self user.child sys.child
-## 6             1   0.004     1.00     0.004    0.000          0         0
-## 7             1   0.004     1.00     0.004    0.000          0         0
-## 8             1   0.004     1.00     0.005    0.001          0         0
-## 10            1   0.004     1.00     0.005    0.001          0         0
-## 11            1   0.004     1.00     0.003    0.000          0         0
-## 9             1   0.005     1.25     0.005    0.000          0         0
-## 1             1   0.010     2.50     0.012    0.000          0         0
-## 12            1   0.010     2.50     0.010    0.000          0         0
-## 2             1   0.013     3.25     0.020    0.001          0         0
-## 3             1   0.014     3.50     0.021    0.000          0         0
-## 5             1   0.014     3.50     0.022    0.000          0         0
-## 4             1   0.024     6.00     0.022    0.000          0         0</code></pre>
+## 6             1   0.003    1.000     0.005    0.000          0         0
+## 11            1   0.004    1.333     0.004    0.001          0         0
+## 7             1   0.005    1.667     0.007    0.000          0         0
+## 8             1   0.006    2.000     0.007    0.001          0         0
+## 10            1   0.006    2.000     0.008    0.000          0         0
+## 9             1   0.007    2.333     0.008    0.000          0         0
+## 1             1   0.010    3.333     0.014    0.001          0         0
+## 12            1   0.015    5.000     0.014    0.000          0         0
+## 2             1   0.018    6.000     0.030    0.001          0         0
+## 3             1   0.018    6.000     0.030    0.000          0         0
+## 5             1   0.019    6.333     0.032    0.000          0         0
+## 4             1   0.031   10.333     0.031    0.000          0         0</code></pre>
 <p>The key column of that <code>data.frame</code> is <code>relative</code>, which quantifies the relative performance of each test in relation to the best which is given a score of 1. <code>dodgr</code> using the default <code>heap = "BHeap"</code>, which is a binary heap priority queue, performs faster than <a href="https://igraph.org"><code>igraph</code></a> <span class="citation">(Csardi and Nepusz 2006)</span> for these graphs. Different kind of graphs will perform differently with different priority queue structures, and this function enables users to empirically discern the optimal heap for their kind of graph.</p>
 <p>Note, however, that this is not an entirely fair comparison, because <code>dodgr</code> calculates dual-weighted distances, whereas <a href="https://igraph.org"><code>igraph</code></a>—and indeed all other <strong>R</strong> packages—only directly calculate distances based on a single set of weights. Implementing dual-weighted routing in these cases requires explicitly re-tracing all paths and summing the second set of weights along each path. A time comparison in that case would be very strongly in favour of <code>dodgr</code>. Moreover, <code>dodgr</code> can convert graphs to contracted form through removing redundant vertices, as detailed in the following section. Doing so greatly improves performance with respect to <a href="https://igraph.org"><code>igraph</code></a>.</p>
 <p>For those wishing to do explicit comparisons themselves, the following code generates the <a href="https://igraph.org"><code>igraph</code></a> equivalent of <a href="https://atfutures.github.io/dodgr/reference/dodgr_distances.html"><code>dodgr_distances()</code></a>, although of course for single-weighted graphs only:</p>
@@ -506,11 +506,11 @@
                        <span class="va">d2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dodgr_dists.html">dodgr_dists</a></span> <span class="op">(</span><span class="va">graph</span>, from <span class="op">=</span> <span class="va">from</span>, to <span class="op">=</span> <span class="va">to</span><span class="op">)</span>,
                        replications <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
 <pre><code>##                                             test replications elapsed relative
-## 2 d2 &lt;- dodgr_dists(graph, from = from, to = to)            2   0.043    6.143
-## 1   d2 &lt;- dodgr_dists(grc, from = from, to = to)            2   0.007    1.000
+## 2 d2 &lt;- dodgr_dists(graph, from = from, to = to)            2   0.040        5
+## 1   d2 &lt;- dodgr_dists(grc, from = from, to = to)            2   0.008        1
 ##   user.self sys.self user.child sys.child
-## 2     0.054    0.001          0         0
-## 1     0.008    0.001          0         0</code></pre>
+## 2     0.052    0.001          0         0
+## 1     0.008    0.000          0         0</code></pre>
 <p>And contracting the graph has a similar effect of speeding up pairwise routing between these 100 points. All routing algorithms scale non-linearly with size, and relative improvements in efficiency will be even greater for larger graphs.</p>
 <div id="routing-on-contracted-graphs" class="section level2">
 <h2 class="hasAnchor">
@@ -524,12 +524,12 @@
 <div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">verts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span> <span class="op">(</span><span class="fu"><a href="../reference/dodgr_vertices.html">dodgr_vertices</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span><span class="op">$</span><span class="va">id</span>, size <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span> <span class="op">(</span><span class="va">verts</span><span class="op">)</span> <span class="co"># a character vector</span></code></pre></div>
-<pre><code>## [1] "7799711104" "980469030"  "2398957713" "2588155714" "1376768581"
-## [6] "7794286104"</code></pre>
+<pre><code>## [1] "3907790726" "571423823"  "2195424951" "2608076473" "2588155731"
+## [6] "4337842067"</code></pre>
 <div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">grc</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dodgr_contract_graph.html">dodgr_contract_graph</a></span> <span class="op">(</span><span class="va">graph</span>, <span class="va">verts</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span> <span class="op">(</span><span class="va">grc</span><span class="op">)</span></code></pre></div>
-<pre><code>## [1] 950</code></pre>
+<pre><code>## [1] 948</code></pre>
 <p>Retaining the nominated vertices yields a graph with considerably more edges than the fully contracted graph excluding these vertices. The <a href="https://atfutures.github.io/dodgr/reference/dodgr_distances.html"><code>dodgr_distances()</code></a> function can be applied to the latter graph to obtain accurate distances precisely routed between these points, yet using the speed advantages of graph contraction.</p>
 </div>
 </div>
@@ -567,30 +567,32 @@
 <p>The result (<code>dp</code>) is a list of 10 items, each of which contains 5 vectors. An example is,</p>
 <div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dp</span> <span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></code></pre></div>
-<pre><code>##  [1] "2195424912" "980469030"  "1143452117" "2588155736" "1143452537"
-##  [6] "5351394459" "977472658"  "1715830667" "977472699"  "1715805316"
-## [11] "980499691"  "5351394458" "977473069"  "977472926"  "977472850" 
-## [16] "977472947"  "977472717"  "977472755"  "977473123"  "5351394453"
-## [21] "977472618"  "5351394452" "5351394451" "977472990"  "5351394449"
-## [26] "5351394450" "977473143"  "977472907"  "977473010"  "977472776" 
-## [31] "977472811"  "4552228189" "2627480728" "6410121123" "977473047" 
-## [36] "977472677"  "1388483621" "1388482095" "977490113"  "977490073" 
-## [41] "1388481878" "1388482427" "1388482128" "1388482818" "1388483505"
-## [46] "977490091"  "1388482641" "1388481994" "1388483314" "977490139" 
-## [51] "1388483597" "977490076"  "1388482737" "1388482060" "2718045832"
-## [56] "2195424937"</code></pre>
+<pre><code>##  [1] "3697942894" "3697942893" "2627428641" "2627428645" "2627428643"
+##  [6] "3921512068" "2627428642" "2627428640" "2627428636" "2608163935"
+## [11] "2627428648" "2627428650" "2608163925" "2608163923" "2608163921"
+## [16] "2608163920" "2608163919" "2608163918" "2608163917" "2608163916"
+## [21] "2608163915" "2608163914" "2608163913" "2608163908" "2608163907"
+## [26] "2608163906" "2608163903" "2608163902" "2608163900" "2608163899"
+## [31] "2608163898" "2608163897" "2608163896" "2608163895" "2608163894"
+## [36] "2608163893" "3921512085" "3921512080" "3921512084" "3921512083"
+## [41] "3921512082" "3921512081" "2608076457" "2608076455" "2608076453"
+## [46] "2608076451" "3921512086" "2608076449" "2608076447" "2608076439"
+## [51] "2608076437" "2608076428" "2608076427" "2608076425" "2608076422"
+## [56] "2608076421" "2608076419" "2608076417" "2608076413" "980499593" 
+## [61] "2608159680" "2608159681" "2608159683" "2608159686" "2608159687"
+## [66] "2608159690"</code></pre>
 <p>For spatial graphs, the coordinates of these paths can be obtained by extracting the vertices with <code><a href="../reference/dodgr_vertices.html">dodgr_vertices()</a></code> and matching the vertex IDs:</p>
 <div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">verts</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dodgr_vertices.html">dodgr_vertices</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span>
 <span class="va">path1</span> <span class="op">&lt;-</span> <span class="va">verts</span> <span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/match.html">match</a></span> <span class="op">(</span><span class="va">dp</span> <span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, <span class="va">verts</span><span class="op">$</span><span class="va">id</span><span class="op">)</span>, <span class="op">]</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span> <span class="op">(</span><span class="va">path1</span><span class="op">)</span></code></pre></div>
-<pre><code>##              id        x        y component   n
-## 1342 2195424912 76.45642 15.33999         2 682
-## 1344  980469030 76.45567 15.34024         2 683
-## 1346 1143452117 76.45474 15.34049         2 684
-## 1348 2588155736 76.45444 15.34058         2 685
-## 1350 1143452537 76.45427 15.34065         2 686
-## 1352 5351394459 76.45408 15.34073         2 687</code></pre>
+<pre><code>##              id        x        y component    n
+## 4918 3697942894 76.46234 15.34360         2 2444
+## 4916 3697942893 76.46197 15.34374         2 2443
+## 1940 2627428641 76.46181 15.34393         2  980
+## 1942 2627428645 76.46187 15.34370         2  981
+## 1944 2627428643 76.46182 15.34357         2  982
+## 1946 3921512068 76.46173 15.34351         2  983</code></pre>
 <p>Paths calculated on contracted graphs will of course have fewer vertices than those calculated on full graphs.</p>
 </div>
 <div id="bibliography" class="section level1 unnumbered">

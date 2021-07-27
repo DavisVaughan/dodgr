@@ -75,7 +75,7 @@ version dervied from those." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.8.045</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.8.047</span>
       </span>
     </div>
 
@@ -253,6 +253,20 @@ restrictions on access are generally specified by specifying a value for the
 key of "access". Include "access" in <code>keep_cols</code> will ensure these values are
 retained in the <code>dodgr</code> version, from which ways with specified values can
 easily be removed or modified, as demonstrated in the examples.</p>
+<p>The additional Open Street Map (OSM) keys which can be used to specify
+restrictions are which are automatically extracted with
+<a href='dodgr_streetnet_sc.html'>dodgr_streetnet_sc</a>, and so may be added to the <code>keep_cols</code> argument,
+include:</p><ul>
+<li><p>"highway"</p></li>
+<li><p>"restriction"</p></li>
+<li><p>"access"</p></li>
+<li><p>"bicycle"</p></li>
+<li><p>"motorcar"</p></li>
+<li><p>"motor_vehicle"</p></li>
+<li><p>"vehicle"</p></li>
+<li><p>"toll"</p></li>
+</ul>
+
 <p>Restrictions and time-penalties on turns can be implemented from such
 objects by setting <code>turn_penalty = TRUE</code>. Resultant graphs are fundamentally
 different from the default for distance-based routing. The result of
