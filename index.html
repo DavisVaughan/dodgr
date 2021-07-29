@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.8.048</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.8.049</span>
       </span>
     </div>
 
@@ -88,7 +88,7 @@
 <p>Four aspects. First, while other packages exist for calculating distances on directed graphs, notably <a href="https://igraph.org/r/"><code>igraph</code></a>, even that otherwise fabulous package does not (readily) permit analysis of <em>dual-weighted</em> graphs. Dual-weighted graphs have two sets of weights for each edge, so routing can be evaluated with one set of weights, while distances can be calculated with the other. A canonical example is a street network, where <em>weighted distances</em> are assigned depending on mode of transport (for example, weighted distances for pedestrians on multi-lane vehicular roads are longer than equivalent distances along isolated walking paths), yet the desired output remains direct, unweighted distances. Accurate calculation of distances on street networks requires a dual-weighted representation. In <strong>R</strong>, <code>dodgr</code> is currently the only package that offers this functionality (without excessive data wrangling).</p>
 <p>Second, while <a href="https://igraph.org/r/"><code>igraph</code></a> and almost all other routing packages are primarily designed for one-to-one routing, <code>dodgr</code> is specifically designed for many-to-many routing, and will generally outperform equivalent packages in large routing tasks.</p>
 <p>Third, <code>dodgr</code> goes beyond the functionality of comparable packages through including routines to aggregate flows throughout a network, through specifying origins, destinations, and flow densities between each pair of points. Alternatively, flows can be aggregated according to a network dispersal model from a set of origin points and associated densities, and a user-specified dispersal model.</p>
-<p>Fourth and finally, <code>dodgr</code> implements highly realistic and fully-customisable profiles for routing through street networks with various modes of transport, and using either distance- or time-based routing. Routing can include such factors as waiting times at traffic lights, delays for turning across oncoming traffic, and the effects of elevation on both cyclists and pedestrians, as described in the dedicated vignette on <a href="https://atfutures.github.io/dodgr/articles/times.html">street networks and time-based routing</a>.</p>
+<p>Fourth and finally, <code>dodgr</code> implements highly realistic and fully-customisable profiles for routing through street networks with various modes of transport, and using either distance- or time-based routing. Routing can include such factors as waiting times at traffic lights, delays for turning across oncoming traffic, access restrictions, and the effects of elevation on both cyclists and pedestrians. See the dedicated vignette on <a href="https://atfutures.github.io/dodgr/articles/times.html">street networks and time-based routing</a> for more detail.</p>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -584,7 +584,7 @@
 <td align="right">1</td>
 <td align="right">95.358362</td>
 <td align="right">119.197952</td>
-<td align="right">0.0342374</td>
+<td align="right">0.0519552</td>
 </tr>
 <tr class="even">
 <td align="right">1</td>
@@ -602,7 +602,7 @@
 <td align="right">1</td>
 <td align="right">95.358362</td>
 <td align="right">119.197952</td>
-<td align="right">0.0976399</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="right">1</td>
@@ -620,7 +620,7 @@
 <td align="right">1</td>
 <td align="right">6.399843</td>
 <td align="right">7.999803</td>
-<td align="right">0.0342374</td>
+<td align="right">0.0519552</td>
 </tr>
 <tr class="even">
 <td align="right">1</td>
@@ -638,7 +638,7 @@
 <td align="right">1</td>
 <td align="right">6.399843</td>
 <td align="right">7.999803</td>
-<td align="right">0.0976399</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="right">1</td>
@@ -656,7 +656,7 @@
 <td align="right">1</td>
 <td align="right">6.715106</td>
 <td align="right">8.393882</td>
-<td align="right">0.0342374</td>
+<td align="right">0.0519552</td>
 </tr>
 <tr class="even">
 <td align="right">1</td>
@@ -674,7 +674,7 @@
 <td align="right">1</td>
 <td align="right">6.715106</td>
 <td align="right">8.393882</td>
-<td align="right">0.0976399</td>
+<td align="right">0.0000000</td>
 </tr>
 </tbody>
 </table>
