@@ -73,7 +73,7 @@ edge-based form." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.8.049</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.8.057</span>
       </span>
     </div>
 
@@ -124,6 +124,7 @@ edge-based form.</p>
   contract <span class='op'>=</span> <span class='cn'>TRUE</span>,
   edges <span class='op'>=</span> <span class='cn'>TRUE</span>,
   column <span class='op'>=</span> <span class='st'>"d_weighted"</span>,
+  vert_wts <span class='op'>=</span> <span class='cn'>NULL</span>,
   dist_threshold <span class='op'>=</span> <span class='cn'>NULL</span>,
   heap <span class='op'>=</span> <span class='st'>"BHeap"</span>
 <span class='op'>)</span></pre>
@@ -156,6 +157,13 @@ centrality is calculated for vertices, returning the equivalent of
       <th>column</th>
       <td><p>Column of graph defining the edge properties used to calculate
 centrality (see Note).</p></td>
+    </tr>
+    <tr>
+      <th>vert_wts</th>
+      <td><p>Optional vector of same length as
+dodgr_vertices(graph) to enable centrality to be calculated in
+weighted form, such that centrality measured from each vertex will be
+weighted by the specified amount.</p></td>
     </tr>
     <tr>
       <th>dist_threshold</th>
@@ -197,7 +205,7 @@ specifying a value via
     <pre class="examples"><div class='input'><span class='va'>graph_full</span> <span class='op'>&lt;-</span> <span class='fu'><a href='weight_streetnet.html'>weight_streetnet</a></span> <span class='op'>(</span><span class='va'>hampi</span><span class='op'>)</span>
 <span class='va'>graph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dodgr_contract_graph.html'>dodgr_contract_graph</a></span> <span class='op'>(</span><span class='va'>graph_full</span><span class='op'>)</span>
 <span class='va'>graph</span> <span class='op'>&lt;-</span> <span class='fu'>dodgr_centrality</span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>)</span>
-<span class='co'># 'graph' is then the contracted graph with an additional 'centrality' column</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in dodgr_centrality(graph): vert_wts must be a vector of same length as nrow (dodgr_vertices (graph))</span></div><div class='input'><span class='co'># 'graph' is then the contracted graph with an additional 'centrality' column</span>
 <span class='co'># Same calculation via 'igraph':</span>
 <span class='va'>igr</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dodgr_to_igraph.html'>dodgr_to_igraph</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='message'>Loading required namespace: igraph</span></div><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span> <span class='op'>(</span><span class='va'><a href='https://igraph.org'>igraph</a></span><span class='op'>)</span>
@@ -216,7 +224,7 @@ specifying a value via
 <span class='co'># 'dodgr_to_sf()' is also useful for many visualisation routines.</span>
 <span class='va'>graph_sf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='merge_directed_graph.html'>merge_directed_graph</a></span> <span class='op'>(</span><span class='va'>graph_full</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
     <span class='fu'><a href='dodgr_to_sf.html'>dodgr_to_sf</a></span> <span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Loading required namespace: sf</span></div><div class='output co'>#&gt; <span class='message'>old-style crs object detected; please recreate object with a recent sf::st_crs()</span></div><div class='input'>
+</div><div class='output co'>#&gt; <span class='error'>Error in merge_directed_graph(graph_full): col_names [flow] do not match columns in graph</span></div><div class='input'>
 <span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span> <span class='op'>(</span><span class='va'>mapview</span><span class='op'>)</span>
 <span class='va'>centrality</span> <span class='op'>&lt;-</span> <span class='va'>graph_sf</span><span class='op'>$</span><span class='va'>centrality</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span> <span class='op'>(</span><span class='va'>graph_sf</span><span class='op'>$</span><span class='va'>centrality</span><span class='op'>)</span>
