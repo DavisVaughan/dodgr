@@ -73,7 +73,7 @@ edge-based form." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.8.059</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.8.060</span>
       </span>
     </div>
 
@@ -160,8 +160,8 @@ centrality (see Note).</p></td>
     </tr>
     <tr>
       <th>vert_wts</th>
-      <td><p>Optional vector of same length as
-dodgr_vertices(graph) to enable centrality to be calculated in
+      <td><p>Optional vector of length equal to number of vertices
+(<code><a href='https://rdrr.io/r/base/nrow.html'>nrow(dodgr_vertices(graph))</a></code>), to enable centrality to be calculated in
 weighted form, such that centrality measured from each vertex will be
 weighted by the specified amount.</p></td>
     </tr>
