@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.8.076</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.8.077</span>
       </span>
     </div>
 
@@ -102,25 +102,18 @@
 ## 4        1       4 2398958028 76.47621 15.34174  339318502 76.47612 15.34173
 ## 5        1       5 2398958028 76.47621 15.34174 1427116077 76.47628 15.34179
 ## 6        1       6 1427116077 76.47628 15.34179 2398958028 76.47621 15.34174
-##            d d_weighted highway   way_id component      time time_weighted
-## 1 129.972181 129.972181    path 28565950         1 93.579970     93.579970
-## 2 129.972181 129.972181    path 28565950         1 93.579970     93.579970
-## 3   8.888670   8.888670    path 28565950         1  6.399842      6.399842
-## 4   8.888670   8.888670    path 28565950         1  6.399842      6.399842
-## 5   9.326536   9.326536    path 28565950         1  6.715106      6.715106
-## 6   9.326536   9.326536    path 28565950         1  6.715106      6.715106
-##        flow
-## 1 0.1529307
-## 2 0.0000000
-## 3 0.1529307
-## 4 0.0000000
-## 5 0.1529307
-## 6 0.0000000</code></pre>
+##            d d_weighted highway   way_id component      time time_weighted flow
+## 1 129.972181 129.972181    path 28565950         1 93.579970     93.579970    0
+## 2 129.972181 129.972181    path 28565950         1 93.579970     93.579970    0
+## 3   8.888670   8.888670    path 28565950         1  6.399842      6.399842    0
+## 4   8.888670   8.888670    path 28565950         1  6.399842      6.399842    0
+## 5   9.326536   9.326536    path 28565950         1  6.715106      6.715106    0
+## 6   9.326536   9.326536    path 28565950         1  6.715106      6.715106    0</code></pre>
 <p>Most flows are zero because they have only been calculated between very few points in the graph.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span> <span class="op">(</span><span class="va">graph_f</span><span class="op">$</span><span class="va">flow</span><span class="op">)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-## 0.00000 0.00000 0.00000 0.03752 0.00000 2.05660</code></pre>
+## 0.00000 0.00000 0.00000 0.04711 0.00000 1.07299</code></pre>
 </div>
 <div id="flow-dispersal" class="section level2">
 <h2 class="hasAnchor">
@@ -131,7 +124,7 @@
 <span class="va">graph_f</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dodgr_flows_disperse.html">dodgr_flows_disperse</a></span> <span class="op">(</span><span class="va">graph</span>, from <span class="op">=</span> <span class="va">from</span>, dens <span class="op">=</span> <span class="va">dens</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span> <span class="op">(</span><span class="va">graph_f</span><span class="op">$</span><span class="va">flow</span><span class="op">)</span></code></pre></div>
 <pre><code>##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
-## 0.0000000 0.0000000 0.0002055 0.0014678 0.0014719 0.0450113</code></pre>
+## 0.0000000 0.0000000 0.0001776 0.0014678 0.0014813 0.0427807</code></pre>
 </div>
 <div id="merging-directed-flows" class="section level2">
 <h2 class="hasAnchor">
@@ -143,7 +136,7 @@
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span> <span class="op">(</span><span class="va">graph_f</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span> <span class="op">(</span><span class="va">graph_undir</span><span class="op">)</span> <span class="co"># the latter is much smaller</span></code></pre></div>
 <pre><code>## [1] 6813</code></pre>
-<pre><code>## [1] 3317</code></pre>
+<pre><code>## [1] 3332</code></pre>
 <p>The resultant graph can readily be merged with the original graph to regain the original data on vertex coordinates through</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">graph</span> <span class="op">&lt;-</span> <span class="va">graph</span> <span class="op">[</span><span class="va">graph_undir</span><span class="op">$</span><span class="va">edge_id</span>, <span class="op">]</span>
