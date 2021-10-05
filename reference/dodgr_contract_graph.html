@@ -73,7 +73,7 @@ vertices." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.9.005</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.10.018</span>
       </span>
     </div>
 
@@ -144,13 +144,18 @@ These must match the <code>from</code> and <code>to</code> columns of <code>grap
 number of columns, but with each row representing an edge between two
 junction vertices (or between the submitted <code>verts</code>, which may or may not be
 junctions).</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other modification: 
+<code><a href='dodgr_components.html'>dodgr_components</a>()</code>,
+<code><a href='dodgr_uncontract_graph.html'>dodgr_uncontract_graph</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>graph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='weight_streetnet.html'>weight_streetnet</a></span> <span class='op'>(</span><span class='va'>hampi</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>)</span> <span class='co'># 5,973</span>
 </div><div class='output co'>#&gt; [1] 6813</div><div class='input'><span class='va'>graph</span> <span class='op'>&lt;-</span> <span class='fu'>dodgr_contract_graph</span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>)</span> <span class='co'># 662</span>
-</div><div class='output co'>#&gt; [1] 756</div></pre>
+</div><div class='output co'>#&gt; [1] 760</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pipe operator — %&gt;% • dodgr</title>
+<title>Transform a result from 'dodgr_dists_categorical' to summary statistics — summary.dodgr_dists_categorical • dodgr</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Pipe operator — %&gt;%" />
-<meta property="og:description" content="Pipe operator" />
+<meta property="og:title" content="Transform a result from 'dodgr_dists_categorical' to summary statistics — summary.dodgr_dists_categorical" />
+<meta property="og:description" content="Transform a result from 'dodgr_dists_categorical' to summary statistics" />
 
 
 
@@ -108,18 +108,34 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Pipe operator</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ATFutures/dodgr/blob/master/R/dodgr-package.R'><code>R/dodgr-package.R</code></a></small>
-    <div class="hidden name"><code>pipe.Rd</code></div>
+    <h1>Transform a result from 'dodgr_dists_categorical' to summary statistics</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ATFutures/dodgr/blob/master/R/dists-categorical.R'><code>R/dists-categorical.R</code></a></small>
+    <div class="hidden name"><code>summary.dodgr_dists_categorical.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Pipe operator</p>
+    <p>Transform a result from 'dodgr_dists_categorical' to summary statistics</p>
     </div>
 
-    <pre class="usage"><span class='va'>lhs</span> <span class='op'>%&gt;%</span> <span class='va'>rhs</span></pre>
+    <pre class="usage"><span class='co'># S3 method for dodgr_dists_categorical</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>object</th>
+      <td><p>A 'dodgr_dists_categorical' object</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Extra parameters currently not used</p></td>
+    </tr>
+    </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>The summary statistics (invisibly)</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

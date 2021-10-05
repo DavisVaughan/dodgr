@@ -76,7 +76,7 @@ will be bisected at every junction point." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.9.005</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.10.018</span>
       </span>
     </div>
 
@@ -142,13 +142,20 @@ will be bisected at every junction point.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     <p>Requires the <span class="pkg">sf</span> package to be installed.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other conversion: 
+<code><a href='dodgr_to_igraph.html'>dodgr_to_igraph</a>()</code>,
+<code><a href='dodgr_to_sfc.html'>dodgr_to_sfc</a>()</code>,
+<code><a href='dodgr_to_tidygraph.html'>dodgr_to_tidygraph</a>()</code>,
+<code><a href='igraph_to_dodgr.html'>igraph_to_dodgr</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>hw</span> <span class='op'>&lt;-</span> <span class='fu'><a href='weight_streetnet.html'>weight_streetnet</a></span> <span class='op'>(</span><span class='va'>hampi</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>hw</span><span class='op'>)</span> <span class='co'># 5,729 edges</span>
 </div><div class='output co'>#&gt; [1] 6813</div><div class='input'><span class='va'>xy</span> <span class='op'>&lt;-</span> <span class='fu'>dodgr_to_sf</span> <span class='op'>(</span><span class='va'>hw</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='message'>old-style crs object detected; please recreate object with a recent sf::st_crs()</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span> <span class='op'>(</span><span class='va'>xy</span><span class='op'>)</span> <span class='co'># 764 edges; 14 attributes</span>
-</div><div class='output co'>#&gt; [1] 756  16</div></pre>
+</div><div class='output co'>#&gt; [1] 760  16</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -75,7 +75,7 @@ on to the original graph, as demonstrated in the example." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.9.005</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.10.018</span>
       </span>
     </div>
 
@@ -138,13 +138,18 @@ on to the original graph, as demonstrated in the example.</p>
 
     <p>A single <code>data.frame</code> representing the equivalent original,
 uncontracted graph.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other modification: 
+<code><a href='dodgr_components.html'>dodgr_components</a>()</code>,
+<code><a href='dodgr_contract_graph.html'>dodgr_contract_graph</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>graph0</span> <span class='op'>&lt;-</span> <span class='fu'><a href='weight_streetnet.html'>weight_streetnet</a></span> <span class='op'>(</span><span class='va'>hampi</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span> <span class='op'>(</span><span class='va'>graph0</span><span class='op'>)</span> <span class='co'># 5,845</span>
 </div><div class='output co'>#&gt; [1] 6813</div><div class='input'><span class='va'>graph1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dodgr_contract_graph.html'>dodgr_contract_graph</a></span> <span class='op'>(</span><span class='va'>graph0</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span> <span class='op'>(</span><span class='va'>graph1</span><span class='op'>)</span> <span class='co'># 686</span>
-</div><div class='output co'>#&gt; [1] 756</div><div class='input'><span class='va'>graph2</span> <span class='op'>&lt;-</span> <span class='fu'>dodgr_uncontract_graph</span> <span class='op'>(</span><span class='va'>graph1</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 760</div><div class='input'><span class='va'>graph2</span> <span class='op'>&lt;-</span> <span class='fu'>dodgr_uncontract_graph</span> <span class='op'>(</span><span class='va'>graph1</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span> <span class='op'>(</span><span class='va'>graph2</span><span class='op'>)</span> <span class='co'># 5,845</span>
 </div><div class='output co'>#&gt; [1] 6813</div><div class='input'>
 <span class='co'># Insert new data on to the contracted graph and uncontract it:</span>
