@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.10.025</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.10.027</span>
       </span>
     </div>
 
@@ -70,7 +70,7 @@
       <h1 data-toc-skip>dodgr flows</h1>
                         <h4 class="author">Mark Padgham</h4>
             
-            <h4 class="date">2021-10-05</h4>
+            <h4 class="date">2021-10-07</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ATFutures/dodgr/blob/master/vignettes/flows.Rmd"><code>vignettes/flows.Rmd</code></a></small>
       <div class="hidden name"><code>flows.Rmd</code></div>
@@ -113,7 +113,7 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span> <span class="op">(</span><span class="va">graph_f</span><span class="op">$</span><span class="va">flow</span><span class="op">)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-## 0.00000 0.00000 0.00000 0.04883 0.00000 1.04092</code></pre>
+## 0.00000 0.00000 0.00000 0.03915 0.00000 1.70185</code></pre>
 </div>
 <div id="flow-dispersal" class="section level2">
 <h2 class="hasAnchor">
@@ -124,7 +124,7 @@
 <span class="va">graph_f</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dodgr_flows_disperse.html">dodgr_flows_disperse</a></span> <span class="op">(</span><span class="va">graph</span>, from <span class="op">=</span> <span class="va">from</span>, dens <span class="op">=</span> <span class="va">dens</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span> <span class="op">(</span><span class="va">graph_f</span><span class="op">$</span><span class="va">flow</span><span class="op">)</span></code></pre></div>
 <pre><code>##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
-## 0.000e+00 0.000e+00 8.017e-05 1.468e-03 1.562e-03 3.208e-02</code></pre>
+## 0.0000000 0.0000000 0.0002628 0.0014678 0.0017947 0.0231566</code></pre>
 </div>
 <div id="merging-directed-flows" class="section level2">
 <h2 class="hasAnchor">
