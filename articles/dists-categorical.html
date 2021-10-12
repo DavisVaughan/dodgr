@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.11.015</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.11.016</span>
       </span>
     </div>
 
@@ -70,7 +70,7 @@
       <h1 data-toc-skip>Aggregating distances along categories of edges</h1>
                         <h4 class="author">Mark Padgham</h4>
             
-            <h4 class="date">2021-10-10</h4>
+            <h4 class="date">2021-10-12</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ATFutures/dodgr/blob/master/vignettes/dists-categorical.Rmd"><code>vignettes/dists-categorical.Rmd</code></a></small>
       <div class="hidden name"><code>dists-categorical.Rmd</code></div>
@@ -141,7 +141,7 @@
 <pre><code>##         path      primary  residential    secondary      service        steps 
 ## 0.5132842476 0.0160102898 0.0004094485 0.1561022988 0.0606827519 0.0018216218 
 ##        track unclassified 
-## 0.1017598199 0.0000000000</code></pre>
+## 0.1017598199 0.1499295217</code></pre>
 <p>Queries with <code>proportions_only = TRUE</code> are constructed in a different way in the underlying C++ code, with the main difference being that the full list of matrices is not stored, and these queries will generally use considerably less memory. For most jobs, this should translate to faster queries, as illustrated in the following benchmark:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">bench</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/bench/man/mark.html">mark</a></span> <span class="op">(</span>full <span class="op">=</span> <span class="fu"><a href="../reference/dodgr_dists_categorical.html">dodgr_dists_categorical</a></span> <span class="op">(</span><span class="va">graph</span>, <span class="va">from</span>, <span class="va">to</span><span class="op">)</span>,
@@ -151,8 +151,8 @@
 <pre><code>## # A tibble: 2 × 3
 ##   expression   min median
 ##   &lt;bch:expr&gt; &lt;dbl&gt;  &lt;dbl&gt;
-## 1 full       1.09   1.09 
-## 2 prop_only  0.463  0.474</code></pre>
+## 1 full       1.36   1.36 
+## 2 prop_only  0.500  0.500</code></pre>
 </div>
 <div id="proportional-distances-within-a-threshold-distance" class="section level1">
 <h1 class="hasAnchor">
@@ -202,9 +202,9 @@
 <pre><code>## # A tibble: 3 × 3
 ##   expression   min median
 ##   &lt;bch:expr&gt; &lt;dbl&gt;  &lt;dbl&gt;
-## 1 full       1.06   1.06 
-## 2 prop_only  0.458  0.464
-## 3 dlimit     0.116  0.119</code></pre>
+## 1 full       1.39   1.39 
+## 2 prop_only  0.494  0.498
+## 3 dlimit     0.115  0.116</code></pre>
 <p>Finally, note that the efficiency of distance-threshold queries scales non-linearly with increases in <code>dlimit</code>, with queries quickly becoming less efficient for larger values of <code>dlimit</code>.</p>
 </div>
   </div>
