@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.11.018</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.11.019</span>
       </span>
     </div>
 
@@ -70,7 +70,7 @@
       <h1 data-toc-skip>Aggregating distances along categories of edges</h1>
                         <h4 class="author">Mark Padgham</h4>
             
-            <h4 class="date">2021-10-17</h4>
+            <h4 class="date">2021-10-18</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ATFutures/dodgr/blob/master/vignettes/dists-categorical.Rmd"><code>vignettes/dists-categorical.Rmd</code></a></small>
       <div class="hidden name"><code>dists-categorical.Rmd</code></div>
@@ -151,8 +151,8 @@
 <pre><code>## # A tibble: 2 × 3
 ##   expression   min median
 ##   &lt;bch:expr&gt; &lt;dbl&gt;  &lt;dbl&gt;
-## 1 full       1.11   1.11 
-## 2 prop_only  0.441  0.452</code></pre>
+## 1 full       1.10   1.10 
+## 2 prop_only  0.527  0.527</code></pre>
 </div>
 <div id="proportional-distances-within-a-threshold-distance" class="section level1">
 <h1 class="hasAnchor">
@@ -202,9 +202,9 @@
 <pre><code>## # A tibble: 3 × 3
 ##   expression   min median
 ##   &lt;bch:expr&gt; &lt;dbl&gt;  &lt;dbl&gt;
-## 1 full       1.12   1.12 
-## 2 prop_only  0.441  0.442
-## 3 dlimit     0.113  0.114</code></pre>
+## 1 full       1.11   1.11 
+## 2 prop_only  0.504  0.504
+## 3 dlimit     0.121  0.123</code></pre>
 <p>Finally, note that the efficiency of distance-threshold queries scales non-linearly with increases in <code>dlimit</code>, with queries quickly becoming less efficient for larger values of <code>dlimit</code>.</p>
 </div>
   </div>
