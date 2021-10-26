@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.12</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.12.017</span>
       </span>
     </div>
 
@@ -111,6 +111,99 @@
       <small>Source: <a href='https://github.com/ATFutures/dodgr/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="v-021200x" class="section level1">
+<h1 class="page-header" data-toc-text="0.2.12.00">
+<a href="#v-021200x" class="anchor"></a>v 0.2.12.00X<small> Unreleased </small>
+</h1>
+<p>Minor changes:</p>
+<ul>
+<li>Add example code for <code>dodgr_dists_categorical</code>
+</li>
+</ul>
+</div>
+    <div id="v-0212" class="section level1">
+<h1 class="page-header" data-toc-text="0.2.12">
+<a href="#v-0212" class="anchor"></a>v 0.2.12<small> 2021-10-18 </small>
+</h1>
+<p>Minor changes:</p>
+<ul>
+<li>Bug fix for <code>dists_categorical(proportions_only = TRUE)</code> to ensure all edge types are aggregated (final type was previously not aggregated).</li>
+</ul>
+</div>
+    <div id="v-0211" class="section level1">
+<h1 class="page-header" data-toc-text="0.2.11">
+<a href="#v-0211" class="anchor"></a>v 0.2.11<small> 2021-10-07 </small>
+</h1>
+<p>Major changes:</p>
+<ul>
+<li>New <code>dodgr_dists_categorical</code> function + accompanying vignette</li>
+</ul>
+</div>
+    <div id="v-029" class="section level1">
+<h1 class="page-header" data-toc-text="0.2.9">
+<a href="#v-029" class="anchor"></a>v 0.2.9<small> 2021-08-07 </small>
+</h1>
+<p>Major changes:</p>
+<ul>
+<li>
+<code>weight_streetnet</code> now includes turn restrictions when input data are extracted with <code>dodgr_streetnet_sc</code> (<a href='https://github.com/ATFutures/dodgr/issues/136'>#136</a> thanks to <a href='https://github.com/edzer'>@edzer</a>)</li>
+<li>Turn restrictions also added as additional column of <code>weighting_profiles$penalties</code>
+</li>
+<li>
+<code><a href="../reference/dodgr_streetnet_sc.html">dodgr_streetnet_sc()</a></code> now extracts many additional features useful for controlling access restrictions (see <a href='https://github.com/ATFutures/dodgr/issues/159'>#159</a>)</li>
+<li>
+<code>dodgr_centrality</code> has new <code>vert_wts</code> parameter to weight centrality by user-specified weights (<a href='https://github.com/ATFutures/dodgr/issues/162'>#162</a>)</li>
+</ul>
+<p>Minor changes:</p>
+<ul>
+<li>Bug fix when submitting contracted graphs to dodgr_to_sf (<a href='https://github.com/ATFutures/dodgr/issues/155'>#155</a> thanks to <a href='https://github.com/agila5'>@agila5</a>)</li>
+<li>Fix (internal) process_bbox function for vector inputs (<a href='https://github.com/ATFutures/dodgr/issues/156'>#156</a> thanks to <a href='https://github.com/agila5'>@agila5</a>@)</li>
+</ul>
+</div>
+    <div id="v-028" class="section level1">
+<h1 class="page-header" data-toc-text="0.2.8">
+<a href="#v-028" class="anchor"></a>v 0.2.8<small> 2021-01-30 </small>
+</h1>
+<p>Minor changes:</p>
+<ul>
+<li>Bug fix (<a href='https://github.com/ATFutures/dodgr/issues/142'>#142</a>) in <code><a href="../reference/dodgr_flows_disperse.html">dodgr_flows_disperse()</a></code> thanks for <a href='https://github.com/romainFr'>@romainFr</a></li>
+<li>Fix <code>keep_cols</code> param in <code><a href="../reference/weight_streetnet.html">weight_streetnet()</a></code>; <a href='https://github.com/ATFutures/dodgr/issues/140'>#140</a> thanks to <a href='https://github.com/agila5'>@agila5</a></li>
+<li>Return component vector as <code>integer</code> not <code>numeric</code>
+</li>
+</ul>
+</div>
+    <div id="v-027" class="section level1">
+<h1 class="page-header" data-toc-text="0.2.7">
+<a href="#v-027" class="anchor"></a>v 0.2.7<small> 2020-05-05 </small>
+</h1>
+<p>Minor changes:</p>
+<ul>
+<li>UBSAN Bug fix</li>
+</ul>
+</div>
+    <div id="v-026" class="section level1">
+<h1 class="page-header" data-toc-text="0.2.6">
+<a href="#v-026" class="anchor"></a>v 0.2.6<small> 2020-04-17 </small>
+</h1>
+<p>Major changes:</p>
+<ul>
+<li>Added new <code>dodgr_centrality</code> function, and associated helper functions.</li>
+<li>Added new <code>dodgr_flows_si</code> function</li>
+<li>Added new parameter <code>norm_sums</code> to <code>dodgr_flows_aggregate</code>
+</li>
+<li>
+<code>merge_directed_flows</code> renamed to <code>merge_directed_graph</code>, with added option of specifying columns to merge.</li>
+<li>Added new <code>pairwise</code> parameter to <code>dodgr_distances</code>; see issue <a href='https://github.com/ATFutures/dodgr/issues/127'>#127</a></li>
+<li>Added new function <code>dodgr_insert_vertex</code> to add new vertices to graph; see <a href='https://github.com/ATFutures/dodgr/issues/40'>#40</a></li>
+<li>Removed “radix” heap option</li>
+</ul>
+<p>Minor changes:</p>
+<ul>
+<li>switch off examples that caused previous CRAN failures</li>
+<li>fix bug in <code>dodgr_dists</code> when number of from points &gt;&gt; number of to points</li>
+<li>fix bug in <code>weight_streetnet.sc</code> that prevented <code>keep_cols</code> from working</li>
+</ul>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
