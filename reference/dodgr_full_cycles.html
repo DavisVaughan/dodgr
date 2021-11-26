@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.12.019</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.12.022</span>
       </span>
     </div>
 
@@ -163,16 +163,16 @@ calculating fundamental cycles on a full (non-contracted) graph.</p>
 <code><a href='write_dodgr_wt_profile.html'>write_dodgr_wt_profile</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='va'>net</span> <span class='op'>&lt;-</span> <span class='fu'><a href='weight_streetnet.html'>weight_streetnet</a></span> <span class='op'>(</span><span class='va'>hampi</span><span class='op'>)</span>
-<span class='va'>graph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dodgr_contract_graph.html'>dodgr_contract_graph</a></span> <span class='op'>(</span><span class='va'>net</span><span class='op'>)</span>
-<span class='va'>cyc1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dodgr_fundamental_cycles.html'>dodgr_fundamental_cycles</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>)</span>
-<span class='va'>cyc2</span> <span class='op'>&lt;-</span> <span class='fu'>dodgr_full_cycles</span> <span class='op'>(</span><span class='va'>net</span><span class='op'>)</span>
-<span class='op'>}</span>
-<span class='co'># cyc2 has same number of cycles, but each one is generally longer, through</span>
-<span class='co'># including all points intermediate to junctions; cyc1 has cycles composed of</span>
-<span class='co'># junction points only.</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='va'>net</span> <span class='op'>&lt;-</span> <span class='fu'><a href='weight_streetnet.html'>weight_streetnet</a></span> <span class='op'>(</span><span class='va'>hampi</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>graph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dodgr_contract_graph.html'>dodgr_contract_graph</a></span> <span class='op'>(</span><span class='va'>net</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>cyc1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dodgr_fundamental_cycles.html'>dodgr_fundamental_cycles</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>cyc2</span> <span class='op'>&lt;-</span> <span class='fu'>dodgr_full_cycles</span> <span class='op'>(</span><span class='va'>net</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+<span class='r-in'><span class='co'># cyc2 has same number of cycles, but each one is generally longer, through</span></span>
+<span class='r-in'><span class='co'># including all points intermediate to junctions; cyc1 has cycles composed of</span></span>
+<span class='r-in'><span class='co'># junction points only.</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.12.019</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.12.022</span>
       </span>
     </div>
 
@@ -214,21 +214,21 @@ in <code>graph</code>.</p>
 <code><a href='dodgr_times.html'>dodgr_times</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>graph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='weight_streetnet.html'>weight_streetnet</a></span> <span class='op'>(</span><span class='va'>hampi</span><span class='op'>)</span>
-<span class='va'>from</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>$</span><span class='va'>from_id</span>, size <span class='op'>=</span> <span class='fl'>100</span><span class='op'>)</span>
-<span class='va'>to</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>$</span><span class='va'>to_id</span>, size <span class='op'>=</span> <span class='fl'>50</span><span class='op'>)</span>
-<span class='va'>dp</span> <span class='op'>&lt;-</span> <span class='fu'>dodgr_paths</span> <span class='op'>(</span><span class='va'>graph</span>, from <span class='op'>=</span> <span class='va'>from</span>, to <span class='op'>=</span> <span class='va'>to</span><span class='op'>)</span>
-<span class='co'># dp is a list with 100 items, and each of those 100 items has 30 items, each</span>
-<span class='co'># of which is a single path listing all vertiex IDs as taken from `graph`.</span>
-
-<span class='co'># it is also possible to calculate paths between pairwise start and end</span>
-<span class='co'># points</span>
-<span class='va'>from</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>$</span><span class='va'>from_id</span>, size <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span>
-<span class='va'>to</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>$</span><span class='va'>to_id</span>, size <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span>
-<span class='va'>dp</span> <span class='op'>&lt;-</span> <span class='fu'>dodgr_paths</span> <span class='op'>(</span><span class='va'>graph</span>, from <span class='op'>=</span> <span class='va'>from</span>, to <span class='op'>=</span> <span class='va'>to</span>, pairwise <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-<span class='co'># dp is a list of 5 items, each of which just has a single path between each</span>
-<span class='co'># pairwise from and to point.</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>graph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='weight_streetnet.html'>weight_streetnet</a></span> <span class='op'>(</span><span class='va'>hampi</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>from</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>$</span><span class='va'>from_id</span>, size <span class='op'>=</span> <span class='fl'>100</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>to</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>$</span><span class='va'>to_id</span>, size <span class='op'>=</span> <span class='fl'>50</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>dp</span> <span class='op'>&lt;-</span> <span class='fu'>dodgr_paths</span> <span class='op'>(</span><span class='va'>graph</span>, from <span class='op'>=</span> <span class='va'>from</span>, to <span class='op'>=</span> <span class='va'>to</span><span class='op'>)</span></span>
+<span class='r-in'><span class='co'># dp is a list with 100 items, and each of those 100 items has 30 items, each</span></span>
+<span class='r-in'><span class='co'># of which is a single path listing all vertiex IDs as taken from `graph`.</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># it is also possible to calculate paths between pairwise start and end</span></span>
+<span class='r-in'><span class='co'># points</span></span>
+<span class='r-in'><span class='va'>from</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>$</span><span class='va'>from_id</span>, size <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>to</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>$</span><span class='va'>to_id</span>, size <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>dp</span> <span class='op'>&lt;-</span> <span class='fu'>dodgr_paths</span> <span class='op'>(</span><span class='va'>graph</span>, from <span class='op'>=</span> <span class='va'>from</span>, to <span class='op'>=</span> <span class='va'>to</span>, pairwise <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-in'><span class='co'># dp is a list of 5 items, each of which just has a single path between each</span></span>
+<span class='r-in'><span class='co'># pairwise from and to point.</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

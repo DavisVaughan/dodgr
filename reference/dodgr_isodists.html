@@ -74,7 +74,7 @@ defining multiple isodistances." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.12.019</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.12.022</span>
       </span>
     </div>
 
@@ -177,11 +177,11 @@ specifying a value via
 <code><a href='dodgr_times.html'>dodgr_times</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>graph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='weight_streetnet.html'>weight_streetnet</a></span> <span class='op'>(</span><span class='va'>hampi</span><span class='op'>)</span>
-<span class='va'>from</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>$</span><span class='va'>from_id</span>, size <span class='op'>=</span> <span class='fl'>100</span><span class='op'>)</span>
-<span class='va'>dlim</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span> <span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>5</span>, <span class='fl'>10</span>, <span class='fl'>20</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>100</span>
-<span class='va'>d</span> <span class='op'>&lt;-</span> <span class='fu'>dodgr_isodists</span> <span class='op'>(</span><span class='va'>graph</span>, from <span class='op'>=</span> <span class='va'>from</span>, <span class='va'>dlim</span><span class='op'>)</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>graph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='weight_streetnet.html'>weight_streetnet</a></span> <span class='op'>(</span><span class='va'>hampi</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>from</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>$</span><span class='va'>from_id</span>, size <span class='op'>=</span> <span class='fl'>100</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>dlim</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span> <span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>5</span>, <span class='fl'>10</span>, <span class='fl'>20</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>100</span></span>
+<span class='r-in'><span class='va'>d</span> <span class='op'>&lt;-</span> <span class='fu'>dodgr_isodists</span> <span class='op'>(</span><span class='va'>graph</span>, from <span class='op'>=</span> <span class='va'>from</span>, <span class='va'>dlim</span><span class='op'>)</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

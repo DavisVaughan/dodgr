@@ -80,7 +80,7 @@ weighted network." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.12.019</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.12.022</span>
       </span>
     </div>
 
@@ -165,13 +165,13 @@ if it has not previously been automatically cached.</p>
 <code><a href='dodgr_load_streetnet.html'>dodgr_load_streetnet</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>net</span> <span class='op'>&lt;-</span> <span class='fu'><a href='weight_streetnet.html'>weight_streetnet</a></span> <span class='op'>(</span><span class='va'>hampi</span><span class='op'>)</span>
-<span class='va'>f</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span> <span class='op'>(</span><span class='op'>)</span>, <span class='st'>"streetnet.Rds"</span><span class='op'>)</span>
-<span class='fu'>dodgr_save_streetnet</span> <span class='op'>(</span><span class='va'>net</span>, <span class='va'>f</span><span class='op'>)</span>
-<span class='fu'><a href='clear_dodgr_cache.html'>clear_dodgr_cache</a></span> <span class='op'>(</span><span class='op'>)</span> <span class='co'># rm cached objects from tempdir</span>
-<span class='co'># at some later time, or in a new R session:</span>
-<span class='va'>net</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dodgr_load_streetnet.html'>dodgr_load_streetnet</a></span> <span class='op'>(</span><span class='va'>f</span><span class='op'>)</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>net</span> <span class='op'>&lt;-</span> <span class='fu'><a href='weight_streetnet.html'>weight_streetnet</a></span> <span class='op'>(</span><span class='va'>hampi</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>f</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span> <span class='op'>(</span><span class='op'>)</span>, <span class='st'>"streetnet.Rds"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>dodgr_save_streetnet</span> <span class='op'>(</span><span class='va'>net</span>, <span class='va'>f</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='clear_dodgr_cache.html'>clear_dodgr_cache</a></span> <span class='op'>(</span><span class='op'>)</span> <span class='co'># rm cached objects from tempdir</span></span>
+<span class='r-in'><span class='co'># at some later time, or in a new R session:</span></span>
+<span class='r-in'><span class='va'>net</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dodgr_load_streetnet.html'>dodgr_load_streetnet</a></span> <span class='op'>(</span><span class='va'>f</span><span class='op'>)</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

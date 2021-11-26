@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.12.019</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.12.022</span>
       </span>
     </div>
 
@@ -172,14 +172,17 @@ vertices split into two edges either side of new vertex.</p>
 <code><a href='write_dodgr_wt_profile.html'>write_dodgr_wt_profile</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>graph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='weight_streetnet.html'>weight_streetnet</a></span> <span class='op'>(</span><span class='va'>hampi</span><span class='op'>)</span>
-<span class='va'>e1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>)</span>, <span class='fl'>1</span><span class='op'>)</span>
-<span class='va'>v1</span> <span class='op'>&lt;-</span> <span class='va'>graph</span><span class='op'>$</span><span class='va'>from_id</span> <span class='op'>[</span><span class='va'>e1</span><span class='op'>]</span>
-<span class='va'>v2</span> <span class='op'>&lt;-</span> <span class='va'>graph</span><span class='op'>$</span><span class='va'>to_id</span> <span class='op'>[</span><span class='va'>e1</span><span class='op'>]</span>
-<span class='co'># insert new vertex in the middle of that randomly-selected edge:</span>
-<span class='va'>graph2</span> <span class='op'>&lt;-</span> <span class='fu'>dodgr_insert_vertex</span> <span class='op'>(</span><span class='va'>graph</span>, <span class='va'>v1</span>, <span class='va'>v2</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Loading required namespace: geodist</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>)</span>; <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span> <span class='op'>(</span><span class='va'>graph2</span><span class='op'>)</span> <span class='co'># new edges added to graph2</span>
-</div><div class='output co'>#&gt; [1] 6813</div><div class='output co'>#&gt; [1] 6815</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>graph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='weight_streetnet.html'>weight_streetnet</a></span> <span class='op'>(</span><span class='va'>hampi</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>e1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>)</span>, <span class='fl'>1</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>v1</span> <span class='op'>&lt;-</span> <span class='va'>graph</span><span class='op'>$</span><span class='va'>from_id</span> <span class='op'>[</span><span class='va'>e1</span><span class='op'>]</span></span>
+<span class='r-in'><span class='va'>v2</span> <span class='op'>&lt;-</span> <span class='va'>graph</span><span class='op'>$</span><span class='va'>to_id</span> <span class='op'>[</span><span class='va'>e1</span><span class='op'>]</span></span>
+<span class='r-in'><span class='co'># insert new vertex in the middle of that randomly-selected edge:</span></span>
+<span class='r-in'><span class='va'>graph2</span> <span class='op'>&lt;-</span> <span class='fu'>dodgr_insert_vertex</span> <span class='op'>(</span><span class='va'>graph</span>, <span class='va'>v1</span>, <span class='va'>v2</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Loading required namespace: geodist</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>)</span>; <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span> <span class='op'>(</span><span class='va'>graph2</span><span class='op'>)</span> <span class='co'># new edges added to graph2</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 6813</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 6815</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

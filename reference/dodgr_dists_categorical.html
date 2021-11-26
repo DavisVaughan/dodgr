@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.12.019</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.12.022</span>
       </span>
     </div>
 
@@ -210,40 +210,46 @@ directly stored.</p>
 <code><a href='dodgr_times.html'>dodgr_times</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Prepare a graph for categorical routing by including an "edge_type" column</span>
-<span class='va'>graph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='weight_streetnet.html'>weight_streetnet</a></span> <span class='op'>(</span><span class='va'>hampi</span>, wt_profile <span class='op'>=</span> <span class='st'>"foot"</span><span class='op'>)</span>
-<span class='va'>graph</span> <span class='op'>&lt;-</span> <span class='va'>graph</span> <span class='op'>[</span><span class='va'>graph</span><span class='op'>$</span><span class='va'>component</span> <span class='op'>==</span> <span class='fl'>1</span>, <span class='op'>]</span>
-<span class='va'>graph</span><span class='op'>$</span><span class='va'>edge_type</span> <span class='op'>&lt;-</span> <span class='va'>graph</span><span class='op'>$</span><span class='va'>highway</span>
-<span class='co'># Define start and end points for categorical distances; using all vertices</span>
-<span class='co'># here.</span>
-<span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>$</span><span class='va'>edge_type</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># Number of categories</span>
-</div><div class='output co'>#&gt; [1] 8</div><div class='input'><span class='va'>v</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dodgr_vertices.html'>dodgr_vertices</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>)</span>
-<span class='va'>from</span> <span class='op'>&lt;-</span> <span class='va'>to</span> <span class='op'>&lt;-</span> <span class='va'>v</span><span class='op'>$</span><span class='va'>id</span>
-<span class='va'>d</span> <span class='op'>&lt;-</span> <span class='fu'>dodgr_dists_categorical</span> <span class='op'>(</span><span class='va'>graph</span>, <span class='va'>from</span>, <span class='va'>to</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span> <span class='op'>(</span><span class='va'>d</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "list"                    "dodgr_dists_categorical"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span> <span class='op'>(</span><span class='va'>d</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 9</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span> <span class='op'>(</span><span class='va'>d</span>, <span class='va'>dim</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;      distances path primary residential secondary service steps track
-#&gt; [1,]      2270 2270    2270        2270      2270    2270  2270  2270
-#&gt; [2,]      2270 2270    2270        2270      2270    2270  2270  2270
-#&gt;      unclassified
-#&gt; [1,]         2270
-#&gt; [2,]         2270</div><div class='input'><span class='co'># 9 distance matrices, all of same dimensions, first of which is standard</span>
-<span class='co'># distance matrix</span>
-<span class='co'># s &lt;- summary (d) # print summary as proportions along each "edge_type"</span>
-<span class='co'># or directly calculate proportions only</span>
-<span class='fu'>dodgr_dists_categorical</span> <span class='op'>(</span><span class='va'>graph</span>, <span class='va'>from</span>, <span class='va'>to</span>,
-                         proportions_only <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;         path      primary  residential    secondary      service        steps 
-#&gt; 0.5132842476 0.0160102898 0.0004094485 0.1561022988 0.0606827519 0.0018216218 
-#&gt;        track unclassified 
-#&gt; 0.1017598199 0.1499295217 </div><div class='input'>
-<span class='co'># The 'dlimit' parameter can be used to calculate total distances along each</span>
-<span class='co'># category of edges from a set of points:</span>
-<span class='va'>dlimit</span> <span class='op'>&lt;-</span> <span class='fl'>2000</span> <span class='co'># in metres</span>
-<span class='va'>d</span> <span class='op'>&lt;-</span> <span class='fu'>dodgr_dists_categorical</span> <span class='op'>(</span><span class='va'>graph</span>, <span class='va'>from</span>, dlimit <span class='op'>=</span> <span class='va'>dlimit</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span> <span class='op'>(</span><span class='va'>d</span><span class='op'>)</span> <span class='co'># length(from), length(unique(edge_type)) + 1</span>
-</div><div class='output co'>#&gt; [1] 2270    9</div></pre>
+    <pre class="examples"><span class='r-in'><span class='co'># Prepare a graph for categorical routing by including an "edge_type" column</span></span>
+<span class='r-in'><span class='va'>graph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='weight_streetnet.html'>weight_streetnet</a></span> <span class='op'>(</span><span class='va'>hampi</span>, wt_profile <span class='op'>=</span> <span class='st'>"foot"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>graph</span> <span class='op'>&lt;-</span> <span class='va'>graph</span> <span class='op'>[</span><span class='va'>graph</span><span class='op'>$</span><span class='va'>component</span> <span class='op'>==</span> <span class='fl'>1</span>, <span class='op'>]</span></span>
+<span class='r-in'><span class='va'>graph</span><span class='op'>$</span><span class='va'>edge_type</span> <span class='op'>&lt;-</span> <span class='va'>graph</span><span class='op'>$</span><span class='va'>highway</span></span>
+<span class='r-in'><span class='co'># Define start and end points for categorical distances; using all vertices</span></span>
+<span class='r-in'><span class='co'># here.</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>$</span><span class='va'>edge_type</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># Number of categories</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 8</span>
+<span class='r-in'><span class='va'>v</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dodgr_vertices.html'>dodgr_vertices</a></span> <span class='op'>(</span><span class='va'>graph</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>from</span> <span class='op'>&lt;-</span> <span class='va'>to</span> <span class='op'>&lt;-</span> <span class='va'>v</span><span class='op'>$</span><span class='va'>id</span></span>
+<span class='r-in'><span class='va'>d</span> <span class='op'>&lt;-</span> <span class='fu'>dodgr_dists_categorical</span> <span class='op'>(</span><span class='va'>graph</span>, <span class='va'>from</span>, <span class='va'>to</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span> <span class='op'>(</span><span class='va'>d</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "list"                    "dodgr_dists_categorical"</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span> <span class='op'>(</span><span class='va'>d</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 9</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span> <span class='op'>(</span><span class='va'>d</span>, <span class='va'>dim</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      distances path primary residential secondary service steps track</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,]      2270 2270    2270        2270      2270    2270  2270  2270</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [2,]      2270 2270    2270        2270      2270    2270  2270  2270</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      unclassified</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,]         2270</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [2,]         2270</span>
+<span class='r-in'><span class='co'># 9 distance matrices, all of same dimensions, first of which is standard</span></span>
+<span class='r-in'><span class='co'># distance matrix</span></span>
+<span class='r-in'><span class='co'># s &lt;- summary (d) # print summary as proportions along each "edge_type"</span></span>
+<span class='r-in'><span class='co'># or directly calculate proportions only</span></span>
+<span class='r-in'><span class='fu'>dodgr_dists_categorical</span> <span class='op'>(</span><span class='va'>graph</span>, <span class='va'>from</span>, <span class='va'>to</span>,</span>
+<span class='r-in'>                         proportions_only <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>         path      primary  residential    secondary      service        steps </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 0.5132842476 0.0160102898 0.0004094485 0.1561022988 0.0606827519 0.0018216218 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        track unclassified </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 0.1017598199 0.1499295217 </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># The 'dlimit' parameter can be used to calculate total distances along each</span></span>
+<span class='r-in'><span class='co'># category of edges from a set of points:</span></span>
+<span class='r-in'><span class='va'>dlimit</span> <span class='op'>&lt;-</span> <span class='fl'>2000</span> <span class='co'># in metres</span></span>
+<span class='r-in'><span class='va'>d</span> <span class='op'>&lt;-</span> <span class='fu'>dodgr_dists_categorical</span> <span class='op'>(</span><span class='va'>graph</span>, <span class='va'>from</span>, dlimit <span class='op'>=</span> <span class='va'>dlimit</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span> <span class='op'>(</span><span class='va'>d</span><span class='op'>)</span> <span class='co'># length(from), length(unique(edge_type)) + 1</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 2270    9</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
