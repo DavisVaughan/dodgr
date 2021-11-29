@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.12.023</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.12.024</span>
       </span>
     </div>
 
@@ -70,7 +70,7 @@
       <h1 data-toc-skip>Aggregating distances along categories of edges</h1>
                         <h4 class="author">Mark Padgham</h4>
             
-            <h4 class="date">2021-11-26</h4>
+            <h4 class="date">2021-11-29</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ATFutures/dodgr/blob/master/vignettes/dists-categorical.Rmd"><code>vignettes/dists-categorical.Rmd</code></a></small>
       <div class="hidden name"><code>dists-categorical.Rmd</code></div>
@@ -151,8 +151,8 @@
 <pre><code>## # A tibble: 2 × 3
 ##   expression   min median
 ##   &lt;bch:expr&gt; &lt;dbl&gt;  &lt;dbl&gt;
-## 1 full       0.981  0.981
-## 2 prop_only  0.358  0.361</code></pre>
+## 1 full       1.07   1.07 
+## 2 prop_only  0.431  0.432</code></pre>
 </div>
 <div id="proportional-distances-within-a-threshold-distance" class="section level1">
 <h1 class="hasAnchor">
@@ -200,11 +200,11 @@
              dlimit <span class="op">=</span> <span class="fu"><a href="../reference/dodgr_dists_categorical.html">dodgr_dists_categorical</a></span> <span class="op">(</span><span class="va">graph</span>, <span class="va">from</span>, dlimit <span class="op">=</span> <span class="fl">2000</span><span class="op">)</span>,
              check <span class="op">=</span> <span class="cn">FALSE</span>, time_unit <span class="op">=</span> <span class="st">"s"</span><span class="op">)</span> <span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
-##   expression    min median
-##   &lt;bch:expr&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-## 1 full       0.990  0.990 
-## 2 prop_only  0.355  0.355 
-## 3 dlimit     0.0885 0.0901</code></pre>
+##   expression   min median
+##   &lt;bch:expr&gt; &lt;dbl&gt;  &lt;dbl&gt;
+## 1 full       1.11   1.11 
+## 2 prop_only  0.439  0.440
+## 3 dlimit     0.109  0.111</code></pre>
 <p>Finally, note that the efficiency of distance-threshold queries scales non-linearly with increases in <code>dlimit</code>, with queries quickly becoming less efficient for larger values of <code>dlimit</code>.</p>
 </div>
   </div>
