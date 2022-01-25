@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.12.031</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.12.033</span>
       </span>
     </div>
 
@@ -72,7 +72,7 @@
       <h1 data-toc-skip>Aggregating distances along categories of edges</h1>
                         <h4 data-toc-skip class="author">Mark Padgham</h4>
             
-            <h4 data-toc-skip class="date">2022-01-14</h4>
+            <h4 data-toc-skip class="date">2022-01-25</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ATFutures/dodgr/blob/HEAD/vignettes/dists-categorical.Rmd" class="external-link"><code>vignettes/dists-categorical.Rmd</code></a></small>
       <div class="hidden name"><code>dists-categorical.Rmd</code></div>
@@ -82,9 +82,9 @@
     
     
 <p>The <a href="https://atfutures.github.io/dodgr/reference/dodgr_dists_categorical.html" class="external-link"><code>dodgr_dists_categorical</code> function</a> enables multiple distances to be aggregated along distinct categories of edges with a single query. This is particularly useful to examine information on proportions of total distances routed along different edge categories. The following three sub-sections describe the three main uses and interfaces of the <a href="https://atfutures.github.io/dodgr/reference/dodgr_dists_categorical.html" class="external-link"><code>dodgr_dists_categorical</code> function</a>. Each of these requires an input <code>graph</code> to have an additional column named <code>"edge_type"</code>, which labels discrete categories of edges. These can be any kind of discrete labels at all, from integer values to character labels or factors. The labels are retained in the result, as demonstrated below.</p>
-<div class="section level1">
-<h1 id="full-distance-information-for-edge-categories">1 Full Distance Information for Edge Categories<a class="anchor" aria-label="anchor" href="#full-distance-information-for-edge-categories"></a>
-</h1>
+<div class="section level2">
+<h2 id="full-distance-information-for-edge-categories">1 Full Distance Information for Edge Categories<a class="anchor" aria-label="anchor" href="#full-distance-information-for-edge-categories"></a>
+</h2>
 <p>The “default” interface of the <a href="https://atfutures.github.io/dodgr/reference/dodgr_dists_categorical.html" class="external-link"><code>dodgr_dists_categorical</code> function</a> requires the same three mandatory parameters as <a href="https://atfutures.github.io/dodgr/reference/dodgr_dists.html" class="external-link"><code>dodgr_distances</code></a>, of</p>
 <ol style="list-style-type: decimal">
 <li>A weighted <code>graph</code> on which the distances are to be calculated;</li>
@@ -133,9 +133,9 @@
 <span class="co">##   track: 0.1017</span>
 <span class="co">##   unclassified: 0</span></code></pre>
 </div>
-<div class="section level1">
-<h1 id="proportional-distances-along-each-edge-category">2. Proportional Distances along each Edge Category<a class="anchor" aria-label="anchor" href="#proportional-distances-along-each-edge-category"></a>
-</h1>
+<div class="section level2">
+<h2 id="proportional-distances-along-each-edge-category">2. Proportional Distances along each Edge Category<a class="anchor" aria-label="anchor" href="#proportional-distances-along-each-edge-category"></a>
+</h2>
 <p>If <code>summary</code> results like those immediately above are all that is desired, without any additional information from the full distance matrices, then a <code>proportions_only</code> parameter can be used to directly return those:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/dodgr_dists_categorical.html">dodgr_dists_categorical</a></span> <span class="op">(</span><span class="va">graph</span>, <span class="va">from</span>, <span class="va">to</span>,
@@ -153,12 +153,12 @@
 <pre><code><span class="co">## <span style="color: #949494;"># A tibble: 2 × 3</span></span>
 <span class="co">##   expression   min median</span>
 <span class="co">##   <span style="color: #949494; font-style: italic;">&lt;bch:expr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">## <span style="color: #BCBCBC;">1</span> full       0.975  0.975</span>
-<span class="co">## <span style="color: #BCBCBC;">2</span> prop_only  0.353  0.355</span></code></pre>
+<span class="co">## <span style="color: #BCBCBC;">1</span> full       0.962  0.962</span>
+<span class="co">## <span style="color: #BCBCBC;">2</span> prop_only  0.348  0.351</span></code></pre>
 </div>
-<div class="section level1">
-<h1 id="proportional-distances-within-a-threshold-distance">3. Proportional Distances within a Threshold Distance<a class="anchor" aria-label="anchor" href="#proportional-distances-within-a-threshold-distance"></a>
-</h1>
+<div class="section level2">
+<h2 id="proportional-distances-within-a-threshold-distance">3. Proportional Distances within a Threshold Distance<a class="anchor" aria-label="anchor" href="#proportional-distances-within-a-threshold-distance"></a>
+</h2>
 <p>The third and final use of the <a href="https://atfutures.github.io/dodgr/reference/dodgr_dists_categorical.html" class="external-link"><code>dodgr_dists_categorical</code> function</a> is through the <code>dlimit</code> parameter, used to specify a distance threshold below which categorical distances are to be aggregated. This is useful to examine relative proportions of different edges types necessary in travelling in any and all directions away from each point or vertex of a graph.</p>
 <p>When a <code>dlimit</code> parameter is specified, the <code>to</code> parameter is ignored, and distances are aggregated along all possible routes away from each <code>from</code> point, out to the specified <code>dlimit</code>. The value of <code>dlimit</code> must be specified relative to the edge distance values contained in the input graph. For spatial graphs obtained with <a href="https://atfutures.github.io/dodgr/reference/dodgr_streetnet.html" class="external-link"><code>dodgr_streetnet()</code> or <code>dodgr_streetnet_sc()</code></a>, for example, as well as the internal <a href="https://atfutures.github.io/dodgr/reference/hampi.html" class="external-link"><code>hampi</code> data</a>, these distances are in metres, and so <code>dlimit</code> must be specified in metres.</p>
 <p>The result in then a single matrix in which each row represents one of the <code>from</code> points, and there is one column of aggregate distances for each edge type, plus an initial column of overall distances. The following code illustrates:</p>
@@ -204,9 +204,9 @@
 <pre><code><span class="co">## <span style="color: #949494;"># A tibble: 3 × 3</span></span>
 <span class="co">##   expression    min median</span>
 <span class="co">##   <span style="color: #949494; font-style: italic;">&lt;bch:expr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">## <span style="color: #BCBCBC;">1</span> full       1.00   1.00  </span>
-<span class="co">## <span style="color: #BCBCBC;">2</span> prop_only  0.352  0.357 </span>
-<span class="co">## <span style="color: #BCBCBC;">3</span> dlimit     0.092<span style="text-decoration: underline;">1</span> 0.092<span style="text-decoration: underline;">9</span></span></code></pre>
+<span class="co">## <span style="color: #BCBCBC;">1</span> full       0.972  0.972 </span>
+<span class="co">## <span style="color: #BCBCBC;">2</span> prop_only  0.348  0.350 </span>
+<span class="co">## <span style="color: #BCBCBC;">3</span> dlimit     0.090<span style="text-decoration: underline;">0</span> 0.090<span style="text-decoration: underline;">6</span></span></code></pre>
 <p>Finally, note that the efficiency of distance-threshold queries scales non-linearly with increases in <code>dlimit</code>, with queries quickly becoming less efficient for larger values of <code>dlimit</code>.</p>
 </div>
   </div>
@@ -228,7 +228,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
