@@ -1,5 +1,7 @@
 # v 0.2.13.00X
 
+Minor changes:
+
 # v 0.2.13
 
 Major changes:
