@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.13.005</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.13.006</span>
       </span>
     </div>
 
@@ -72,7 +72,7 @@
       <h1 data-toc-skip>Aggregating distances along categories of edges</h1>
                         <h4 data-toc-skip class="author">Mark Padgham</h4>
             
-            <h4 data-toc-skip class="date">2022-04-26</h4>
+            <h4 data-toc-skip class="date">2022-05-02</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ATFutures/dodgr/blob/HEAD/vignettes/dists-categorical.Rmd" class="external-link"><code>vignettes/dists-categorical.Rmd</code></a></small>
       <div class="hidden name"><code>dists-categorical.Rmd</code></div>
@@ -124,13 +124,13 @@
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span> <span class="op">(</span><span class="va">d</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## Proportional distances along each kind of edge:</span>
-<span class="co">##   path: 0.5134</span>
+<span class="co">##   path: 0.5135</span>
 <span class="co">##   primary: 0.0162</span>
 <span class="co">##   residential: 4e-04</span>
-<span class="co">##   secondary: 0.1561</span>
+<span class="co">##   secondary: 0.1558</span>
 <span class="co">##   service: 0.0607</span>
 <span class="co">##   steps: 0.0018</span>
-<span class="co">##   track: 0.1017</span>
+<span class="co">##   track: 0.1018</span>
 <span class="co">##   unclassified: 0</span></code></pre>
 <p>Those statistics clearly highlight the fact that Hampi is a pedestrian town - most ways are either paths or tracks, with a new “secondary” ways for access vehicles.</p>
 </div>
@@ -142,9 +142,9 @@
 <code class="sourceCode R"><span class="fu"><a href="../reference/dodgr_dists_categorical.html">dodgr_dists_categorical</a></span> <span class="op">(</span><span class="va">graph</span>, <span class="va">from</span>, <span class="va">to</span>,
                          proportions_only <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">##         path      primary  residential    secondary      service        steps </span>
-<span class="co">## 0.5132842476 0.0160102898 0.0004094485 0.1561022988 0.0606827519 0.0018216218 </span>
+<span class="co">## 0.5133387472 0.0159931421 0.0004095266 0.1558683424 0.0607239796 0.0018185703 </span>
 <span class="co">##        track unclassified </span>
-<span class="co">## 0.1017598199 0.1499295217</span></code></pre>
+<span class="co">## 0.1018482816 0.1499994102</span></code></pre>
 <p>Queries with <code>proportions_only = TRUE</code> are constructed in a different way in the underlying C++ code that avoids storing the full list of matrices in memory. For most jobs, this should translate to faster queries, as illustrated in the following benchmark:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">bench</span><span class="fu">::</span><span class="fu"><a href="http://bench.r-lib.org/reference/mark.html" class="external-link">mark</a></span> <span class="op">(</span>full <span class="op">=</span> <span class="fu"><a href="../reference/dodgr_dists_categorical.html">dodgr_dists_categorical</a></span> <span class="op">(</span><span class="va">graph</span>, <span class="va">from</span>, <span class="va">to</span><span class="op">)</span>,
@@ -154,8 +154,8 @@
 <pre><code><span class="co">## <span style="color: #949494;"># A tibble: 2 × 3</span></span>
 <span class="co">##   expression   min median</span>
 <span class="co">##   <span style="color: #949494; font-style: italic;">&lt;bch:expr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">## <span style="color: #BCBCBC;">1</span> full       1.06   1.06 </span>
-<span class="co">## <span style="color: #BCBCBC;">2</span> prop_only  0.410  0.413</span></code></pre>
+<span class="co">## <span style="color: #BCBCBC;">1</span> full       0.986  0.986</span>
+<span class="co">## <span style="color: #BCBCBC;">2</span> prop_only  0.347  0.348</span></code></pre>
 <p>The default value of <code>proportions_only = FALSE</code> should be used only if additional information from the distance matrices themselves is required or desired. Examples of such additional information include parameters quantifying the distributions of the various distance metrics, as further examined below.</p>
 </div>
 <div class="section level2">
@@ -172,17 +172,17 @@
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span> <span class="op">(</span><span class="va">d</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">##             distance     path primary residential secondary   service steps</span>
-<span class="co">## 339318500  10085.921 7931.597       0           0         0 2069.0068     0</span>
-<span class="co">## 339318502   4143.007 3527.852       0           0         0  615.1548     0</span>
-<span class="co">## 2398958028  4160.784 3545.630       0           0         0  615.1548     0</span>
-<span class="co">## 1427116077  4179.437 3564.283       0           0         0  615.1548     0</span>
-<span class="co">## 7799710916  6201.269 5418.331       0           0         0  782.9384     0</span>
-<span class="co">## 339318503   6225.570 5610.415       0           0         0  615.1548     0</span>
+<span class="co">## 339318500  12081.132 9374.439       0           0         0 2621.8834     0</span>
+<span class="co">## 339318502   4136.047 3520.947       0           0         0  615.1004     0</span>
+<span class="co">## 2398958028  4153.829 3538.728       0           0         0  615.1004     0</span>
+<span class="co">## 1427116077  6172.783 5142.914       0           0         0  963.0322     0</span>
+<span class="co">## 7799710916  4191.254 3576.153       0           0         0  615.1004     0</span>
+<span class="co">## 339318503   6211.668 5596.568       0           0         0  615.1004     0</span>
 <span class="co">##            track unclassified</span>
-<span class="co">## 339318500      0     85.31705</span>
+<span class="co">## 339318500      0     84.80908</span>
 <span class="co">## 339318502      0      0.00000</span>
 <span class="co">## 2398958028     0      0.00000</span>
-<span class="co">## 1427116077     0      0.00000</span>
+<span class="co">## 1427116077     0     66.83674</span>
 <span class="co">## 7799710916     0      0.00000</span>
 <span class="co">## 339318503      0      0.00000</span></code></pre>
 <p>The row names of the resultant <code>data.frame</code> are the vertex identifiers specified in the <code>from</code> parameter. Such results can easily be combined with spatial information on the vertices obtained from the <a href="https://atfutures.github.io/dodgr/reference/dodgr_vertices.html" class="external-link"><code>dodgr_vertices()</code> function</a> to generate spatial maps of relative proportions around each point in a graph or network. Summary statistics can also readily be extracted, for example,</p>
@@ -204,11 +204,11 @@
              dlimit <span class="op">=</span> <span class="fu"><a href="../reference/dodgr_dists_categorical.html">dodgr_dists_categorical</a></span> <span class="op">(</span><span class="va">graph</span>, <span class="va">from</span>, dlimit <span class="op">=</span> <span class="fl">2000</span><span class="op">)</span>,
              check <span class="op">=</span> <span class="cn">FALSE</span>, time_unit <span class="op">=</span> <span class="st">"s"</span><span class="op">)</span> <span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></code></pre></div>
 <pre><code><span class="co">## <span style="color: #949494;"># A tibble: 3 × 3</span></span>
-<span class="co">##   expression   min median</span>
-<span class="co">##   <span style="color: #949494; font-style: italic;">&lt;bch:expr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">## <span style="color: #BCBCBC;">1</span> full       1.07   1.07 </span>
-<span class="co">## <span style="color: #BCBCBC;">2</span> prop_only  0.416  0.421</span>
-<span class="co">## <span style="color: #BCBCBC;">3</span> dlimit     0.109  0.112</span></code></pre>
+<span class="co">##   expression    min median</span>
+<span class="co">##   <span style="color: #949494; font-style: italic;">&lt;bch:expr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="co">## <span style="color: #BCBCBC;">1</span> full       0.987  0.987 </span>
+<span class="co">## <span style="color: #BCBCBC;">2</span> prop_only  0.351  0.352 </span>
+<span class="co">## <span style="color: #BCBCBC;">3</span> dlimit     0.090<span style="text-decoration: underline;">7</span> 0.091<span style="text-decoration: underline;">3</span></span></code></pre>
 <p>Finally, note that the efficiency of distance-threshold queries scales non-linearly with increases in <code>dlimit</code>, with queries quickly becoming less efficient for larger values of <code>dlimit</code>.</p>
 </div>
   </div>
