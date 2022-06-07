@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.13.013</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.13.014</span>
       </span>
     </div>
 
@@ -359,7 +359,7 @@
 <div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">graph_sub</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dodgr_sample.html">dodgr_sample</a></span> <span class="op">(</span><span class="va">graph</span>, nverts <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph_sub</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## [1] 197</span></code></pre>
+<pre><code><span class="co">## [1] 211</span></code></pre>
 <p>The random sample has around twice as many edges as vertices, in accordance with the statistics calculated above.</p>
 <div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="fu"><a href="../reference/dodgr_vertices.html">dodgr_vertices</a></span> <span class="op">(</span><span class="va">graph_sub</span><span class="op">)</span><span class="op">)</span></code></pre></div>
@@ -450,17 +450,17 @@
 <pre><code><span class="co">## <span style="color: #949494;"># A tibble: 11 × 6</span></span>
 <span class="co">##    expression                 min   median `itr/sec` mem_alloc `gc/sec`</span>
 <span class="co">##    <span style="color: #949494; font-style: italic;">&lt;bch:expr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;bch:tm&gt;</span> <span style="color: #949494; font-style: italic;">&lt;bch:tm&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;bch:byt&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">## <span style="color: #BCBCBC;"> 1</span> BHeap                   1.45ms   1.95ms      490.   38.83KB     2.03</span>
-<span class="co">## <span style="color: #BCBCBC;"> 2</span> FHeap                   1.68ms   1.99ms      486.   38.83KB     4.12</span>
-<span class="co">## <span style="color: #BCBCBC;"> 3</span> TriHeap                 1.62ms   1.95ms      504.   38.83KB     4.24</span>
-<span class="co">## <span style="color: #BCBCBC;"> 4</span> TriHeapExt              1.31ms   1.69ms      588.   41.88KB     4.11</span>
-<span class="co">## <span style="color: #BCBCBC;"> 5</span> Heap23                  1.68ms      2ms      492.   38.83KB     4.11</span>
-<span class="co">## <span style="color: #BCBCBC;"> 6</span> BHeap_contracted        1.24ms   1.55ms      624.    8.09KB     4.11</span>
-<span class="co">## <span style="color: #BCBCBC;"> 7</span> FHeap_contracted        1.19ms   1.61ms      616.    8.09KB     4.11</span>
-<span class="co">## <span style="color: #BCBCBC;"> 8</span> TriHeap_contracted      1.13ms   1.55ms      633.    8.09KB     4.10</span>
-<span class="co">## <span style="color: #BCBCBC;"> 9</span> TriHeapExt_contracted   1.05ms    1.4ms      718.    8.09KB     4.10</span>
-<span class="co">## <span style="color: #BCBCBC;">10</span> Heap23_contracted       1.39ms   1.63ms      598.    8.09KB     4.11</span>
-<span class="co">## <span style="color: #BCBCBC;">11</span> igraph                 687.2µs 923.06µs     <span style="text-decoration: underline;">1</span>062.  439.44KB     6.29</span></code></pre>
+<span class="co">## <span style="color: #BCBCBC;"> 1</span> BHeap                   1.94ms   2.26ms      427.   37.12KB     2.03</span>
+<span class="co">## <span style="color: #BCBCBC;"> 2</span> FHeap                   1.94ms   2.19ms      453.   37.12KB     4.12</span>
+<span class="co">## <span style="color: #BCBCBC;"> 3</span> TriHeap                 2.02ms   2.27ms      415.   37.12KB     2.11</span>
+<span class="co">## <span style="color: #BCBCBC;"> 4</span> TriHeapExt              1.49ms   1.88ms      527.   40.18KB     4.13</span>
+<span class="co">## <span style="color: #BCBCBC;"> 5</span> Heap23                  1.68ms   2.05ms      484.   37.12KB     4.12</span>
+<span class="co">## <span style="color: #BCBCBC;"> 6</span> BHeap_contracted        1.57ms    1.8ms      539.    3.83KB     4.12</span>
+<span class="co">## <span style="color: #BCBCBC;"> 7</span> FHeap_contracted        1.59ms   1.81ms      537.    3.83KB     4.10</span>
+<span class="co">## <span style="color: #BCBCBC;"> 8</span> TriHeap_contracted      1.49ms   1.78ms      550.    3.83KB     4.10</span>
+<span class="co">## <span style="color: #BCBCBC;"> 9</span> TriHeapExt_contracted   1.28ms   1.56ms      629.    3.83KB     4.11</span>
+<span class="co">## <span style="color: #BCBCBC;">10</span> Heap23_contracted       1.54ms   1.76ms      556.    3.83KB     4.12</span>
+<span class="co">## <span style="color: #BCBCBC;">11</span> igraph                  1.01ms   1.19ms      819.  439.15KB     4.16</span></code></pre>
 <p>The key column of that <code>data.frame</code> is <code>relative</code>, which quantifies the relative performance of each test in relation to the best which is given a score of 1. <code>dodgr</code> using the default <code>heap = "BHeap"</code>, which is a binary heap priority queue, performs faster than <a href="https://igraph.org" class="external-link"><code>igraph</code></a> <span class="citation">(Csardi and Nepusz 2006)</span> for these graphs. Different kind of graphs will perform differently with different priority queue structures, and this function enables users to empirically discern the optimal heap for their kind of graph.</p>
 <p>Note, however, that this is not an entirely fair comparison, because <code>dodgr</code> calculates dual-weighted distances, whereas <a href="https://igraph.org" class="external-link"><code>igraph</code></a>—and indeed all other <strong>R</strong> packages—only directly calculate distances based on a single set of weights. Implementing dual-weighted routing in these cases requires explicitly re-tracing all paths and summing the second set of weights along each path. A time comparison in that case would be very strongly in favour of <code>dodgr</code>. Moreover, <code>dodgr</code> can convert graphs to contracted form through removing redundant vertices, as detailed in the following section. Doing so greatly improves performance with respect to <a href="https://igraph.org" class="external-link"><code>igraph</code></a>.</p>
 <p>For those wishing to do explicit comparisons themselves, the following code generates the <a href="https://igraph.org" class="external-link"><code>igraph</code></a> equivalent of <a href="https://atfutures.github.io/dodgr/reference/dodgr_distances.html" class="external-link"><code>dodgr_distances()</code></a>, although of course for single-weighted graphs only:</p>
@@ -498,8 +498,8 @@
 <pre><code><span class="co">## <span style="color: #949494;"># A tibble: 2 × 6</span></span>
 <span class="co">##   expression      min   median `itr/sec` mem_alloc `gc/sec`</span>
 <span class="co">##   <span style="color: #949494; font-style: italic;">&lt;bch:expr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;bch:tm&gt;</span> <span style="color: #949494; font-style: italic;">&lt;bch:tm&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;bch:byt&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">## <span style="color: #BCBCBC;">1</span> full        20.42ms  21.71ms      45.3    1.32MB     2.06</span>
-<span class="co">## <span style="color: #BCBCBC;">2</span> contracted   2.74ms   3.58ms     277.    365.3KB     2.07</span></code></pre>
+<span class="co">## <span style="color: #BCBCBC;">1</span> full        23.68ms  24.64ms      40.0    1.32MB     0   </span>
+<span class="co">## <span style="color: #BCBCBC;">2</span> contracted   3.44ms   3.95ms     248.    365.3KB     2.04</span></code></pre>
 <p>And contracting the graph has a similar effect of speeding up pairwise routing between these 100 points. All routing algorithms scale non-linearly with size, and relative improvements in efficiency will be even greater for larger graphs.</p>
 <div class="section level3">
 <h3 id="routing-on-contracted-graphs">5.1 Routing on Contracted Graphs<a class="anchor" aria-label="anchor" href="#routing-on-contracted-graphs"></a>
@@ -513,12 +513,12 @@
 <div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">verts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span> <span class="op">(</span><span class="fu"><a href="../reference/dodgr_vertices.html">dodgr_vertices</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span><span class="op">$</span><span class="va">id</span>, size <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span> <span class="op">(</span><span class="va">verts</span><span class="op">)</span> <span class="co"># a character vector</span></code></pre></div>
-<pre><code><span class="co">## [1] "571423880"  "286632895"  "7799710985" "3697942884" "4474520501"</span>
-<span class="co">## [6] "7793105242"</span></code></pre>
+<pre><code><span class="co">## [1] "5351820913" "1143452257" "571423773"  "2588155751" "1148815031"</span>
+<span class="co">## [6] "3697942886"</span></code></pre>
 <div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">grc</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dodgr_contract_graph.html">dodgr_contract_graph</a></span> <span class="op">(</span><span class="va">graph</span>, <span class="va">verts</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">grc</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## [1] 942</span></code></pre>
+<pre><code><span class="co">## [1] 950</span></code></pre>
 <p>Retaining the nominated vertices yields a graph with considerably more edges than the fully contracted graph excluding these vertices. The <a href="https://atfutures.github.io/dodgr/reference/dodgr_distances.html" class="external-link"><code>dodgr_distances()</code></a> function can be applied to the latter graph to obtain accurate distances precisely routed between these points, yet using the speed advantages of graph contraction.</p>
 </div>
 </div>
@@ -556,20 +556,44 @@
 <p>The result (<code>dp</code>) is a list of 10 items, each of which contains 5 vectors. An example is,</p>
 <div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dp</span> <span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></code></pre></div>
-<pre><code><span class="co">## [1] "5525252565" "2588155742" "2588155709" "2588155736" "1143452537"</span>
-<span class="co">## [6] "5351394459" "977472658"  "1715830667"</span></code></pre>
+<pre><code><span class="co">##   [1] "8618022285" "8618022289" "8618022283" "8618022288" "8618022284"</span>
+<span class="co">##   [6] "8618022287" "8618022299" "8618022277" "8618022298" "8618022282"</span>
+<span class="co">##  [11] "8618022281" "8618022276" "8618022297" "8618022296" "8618022286"</span>
+<span class="co">##  [16] "8618022302" "1668645441" "8618022260" "1668645436" "8615501945"</span>
+<span class="co">##  [21] "339574837"  "339577272"  "1148815093" "339577274"  "8632923846"</span>
+<span class="co">##  [26] "339574829"  "8615528134" "1376768626" "8615528135" "1376768985"</span>
+<span class="co">##  [31] "8615528133" "1376768324" "1376768690" "8615528132" "1376769039"</span>
+<span class="co">##  [36] "8615528130" "8615528131" "8615528129" "1376768478" "8615528128"</span>
+<span class="co">##  [41] "1560930407" "8615528126" "8615528125" "8615528127" "1376768586"</span>
+<span class="co">##  [46] "1376768946" "8615528124" "1376768369" "8615528121" "8615528122"</span>
+<span class="co">##  [51] "8615528123" "1376768738" "2717241312" "2717241323" "2717241306"</span>
+<span class="co">##  [56] "2717241321" "2717241309" "2717241332" "2717241339" "2717241317"</span>
+<span class="co">##  [61] "2717241331" "2717241300" "2717241302" "6410121124" "1376768559"</span>
+<span class="co">##  [66] "1376768918" "1376769209" "1376768614" "1376768975" "1376768398"</span>
+<span class="co">##  [71] "7794426716" "1376768862" "1376768464" "1376768828" "1376769110"</span>
+<span class="co">##  [76] "3697937607" "3697937608" "3697937609" "3697937616" "3697937612"</span>
+<span class="co">##  [81] "3697937611" "3697937613" "3697937614" "3697937615" "3697937610"</span>
+<span class="co">##  [86] "3697937571" "3697938325" "3697938326" "3697938327" "3697938328"</span>
+<span class="co">##  [91] "3697938332" "3697938329" "3697938330" "3697938331" "3697938336"</span>
+<span class="co">##  [96] "3697938337" "3697938338" "3697938333" "3697938334" "3697938335"</span>
+<span class="co">## [101] "3697938022" "3697938021" "8616917039" "8616917040" "3697938023"</span>
+<span class="co">## [106] "8616917041" "3697938024" "338904455"  "2398957843" "338908589" </span>
+<span class="co">## [111] "8616917042" "8616917043" "8616917044" "1148814896" "286632900" </span>
+<span class="co">## [116] "2398957865" "7808713128" "286632901"  "2398957883" "2398957885"</span>
+<span class="co">## [121] "339574320"  "286632902"  "6161027560" "980400323"  "2398957878"</span>
+<span class="co">## [126] "2398957876"</span></code></pre>
 <p>For spatial graphs, the coordinates of these paths can be obtained by extracting the vertices with <code><a href="../reference/dodgr_vertices.html">dodgr_vertices()</a></code> and matching the vertex IDs:</p>
 <div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">verts</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dodgr_vertices.html">dodgr_vertices</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span>
 <span class="va">path1</span> <span class="op">&lt;-</span> <span class="va">verts</span> <span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/match.html" class="external-link">match</a></span> <span class="op">(</span><span class="va">dp</span> <span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, <span class="va">verts</span><span class="op">$</span><span class="va">id</span><span class="op">)</span>, <span class="op">]</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span> <span class="op">(</span><span class="va">path1</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">##              id        x        y component    n</span>
-<span class="co">## 3212 5525252565 76.45465 15.33921         2 1614</span>
-<span class="co">## 5811 2588155742 76.45416 15.33938         2 2868</span>
-<span class="co">## 5812 2588155709 76.45432 15.34012         2 2869</span>
-<span class="co">## 1348 2588155736 76.45444 15.34058         2  685</span>
-<span class="co">## 1350 1143452537 76.45427 15.34065         2  686</span>
-<span class="co">## 1352 5351394459 76.45408 15.34073         2  687</span></code></pre>
+<span class="co">## 6568 8618022285 76.46864 15.31794         1 3229</span>
+<span class="co">## 6570 8618022289 76.46865 15.31795         1 3230</span>
+<span class="co">## 6572 8618022283 76.46876 15.31795         1 3231</span>
+<span class="co">## 6574 8618022288 76.46877 15.31794         1 3232</span>
+<span class="co">## 6576 8618022284 76.46878 15.31793         1 3233</span>
+<span class="co">## 6578 8618022287 76.46880 15.31793         1 3234</span></code></pre>
 <p>Paths calculated on contracted graphs will of course have fewer vertices than those calculated on full graphs.</p>
 </div>
 <div class="section level2">
