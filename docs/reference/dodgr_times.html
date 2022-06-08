@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.13.016</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.13.018</span>
       </span>
     </div>
 
@@ -82,6 +82,46 @@ Fibonacci Heap (default; <code>FHeap</code>), Binary Heap (<code>BHeap</code>),
     <div id="value">
     <h2>Value</h2>
     <p>square matrix of distances between nodes</p>
+    </div>
+    <div id="note">
+    <h2>Note</h2>
+    <p><code>graph</code> must minimally contain three columns of <code>from</code>,
+<code>to</code>, <code>dist</code>. If an additional column named <code>weight</code> or
+<code>wt</code> is present, shortest paths are calculated according to values
+specified in that column; otherwise according to <code>dist</code> values. Either
+way, final distances between <code>from</code> and <code>to</code> points are calculated
+by default according to values of <code>dist</code>. That is, paths between any pair of
+points will be calculated according to the minimal total sum of <code>weight</code>
+values (if present), while reported distances will be total sums of <code>dist</code>
+values.</p>
+<p>For street networks produced with <a href="weight_streetnet.html">weight_streetnet</a>, distances may also
+be calculated along the <em>fastest</em> routes with the <code>shortest = FALSE</code>
+option. Graphs must in this case have columns of <code>time</code> and <code>time_weighted</code>.
+Note that the fastest routes will only be approximate when derived from
+<span class="pkg">sf</span>-format data generated with the <span class="pkg">osmdata</span> function
+<code><a href="https://docs.ropensci.org/osmdata/reference/osmdata_sf.html" class="external-link">osmdata_sf()</a></code>, and will be much more accurate when derived from <code>sc</code>-format
+data generated with <code><a href="https://docs.ropensci.org/osmdata/reference/osmdata_sc.html" class="external-link">osmdata_sc()</a></code>. See <a href="weight_streetnet.html">weight_streetnet</a> for details.</p>
+<p>The <code>from</code> and <code>to</code> columns of <code>graph</code> may be either single
+columns of numeric or character values specifying the numbers or names of
+graph vertices, or combinations to two columns specifying geographical
+(longitude and latitude) coordinates. In the latter case, almost any sensible
+combination of names will be accepted (for example, <code>fromx, fromy</code>,
+<code>from_x, from_y</code>, or <code>fr_lat, fr_lon</code>.)</p>
+<p><code>from</code> and <code>to</code> values can be either two-column matrices of
+equivalent of longitude and latitude coordinates, or else single columns
+precisely matching node numbers or names given in <code>graph$from</code> or
+<code>graph$to</code>. If <code>to</code> is <code>NULL</code>, pairwise distances are calculated
+between all points specified in <code>from</code>. If both <code>from</code> and <code>to</code> are <code>NULL</code>,
+pairwise distances are calculated between all nodes in <code>graph</code>.</p>
+<p>Calculations in parallel (<code>parallel = TRUE</code>) ought very generally be
+advantageous. For small graphs, calculating distances in parallel is likely
+to offer relatively little gain in speed, but increases from parallel
+computation will generally markedly increase with increasing graph sizes.
+By default, parallel computation uses the maximal number of available cores
+or threads. This number can be reduced by specifying a value via
+<code>RcppParallel::setThreadOptions (numThreads = &lt;desired_number&gt;)</code>. Parallel
+calculations are, however, not able to be interrupted (for example, by
+<code>Ctrl-C</code>), and can only be stopped by killing the R process.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>

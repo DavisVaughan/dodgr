@@ -21,7 +21,7 @@ relative amount of expand."><!-- mathjax --><script src="https://cdnjs.cloudflar
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.13.016</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.13.018</span>
       </span>
     </div>
 
@@ -84,6 +84,16 @@ limits defined by pts (only if <code>bbox</code> not given).</p></dd>
     <h2>Value</h2>
     <p>A Simple Features (<code>sf</code>) object with coordinates of all lines in
 the street network.</p>
+    </div>
+    <div id="note">
+    <h2>Note</h2>
+    <p>Calls to this function may return "General overpass server error" with
+a note that "Query timed out." The overpass served used to access the data
+has a sophisticated queueing system which prioritises requests that are
+likely to require little time. These timeout errors can thus generally <em>not</em>
+be circumvented by changing "timeout" options on the HTTP requests, and
+should rather be interpreted to indicate that a request is too large, and may
+need to be refined, or somehow broken up into smaller queries.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>

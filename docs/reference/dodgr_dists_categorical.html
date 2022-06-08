@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.13.016</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.13.018</span>
       </span>
     </div>
 
@@ -149,7 +149,7 @@ and can only be stopped by killing the R process.</p>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">$</span><span class="va">edge_type</span><span class="op">)</span><span class="op">)</span> <span class="co"># Number of categories</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 8</span>
 <span class="r-in"><span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="dodgr_vertices.html">dodgr_vertices</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">from</span> <span class="op">&lt;-</span> <span class="va">to</span> <span class="op">&lt;-</span> <span class="va">v</span><span class="op">$</span><span class="va">id</span></span>
+<span class="r-in"><span class="va">from</span> <span class="op">&lt;-</span> <span class="va">to</span> <span class="op">&lt;-</span> <span class="va">v</span><span class="op">$</span><span class="va">id</span> <span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">100</span><span class="op">]</span></span>
 <span class="r-in"><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu">dodgr_dists_categorical</span> <span class="op">(</span><span class="va">graph</span>, <span class="va">from</span>, <span class="va">to</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span> <span class="op">(</span><span class="va">d</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "list"                    "dodgr_dists_categorical"</span>
@@ -157,11 +157,11 @@ and can only be stopped by killing the R process.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 9</span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span> <span class="op">(</span><span class="va">d</span>, <span class="va">dim</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      distances path primary residential secondary service steps track</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]      2270 2270    2270        2270      2270    2270  2270  2270</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]      2270 2270    2270        2270      2270    2270  2270  2270</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]       100  100     100         100       100     100   100   100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]       100  100     100         100       100     100   100   100</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      unclassified</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]         2270</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]         2270</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]          100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]          100</span>
 <span class="r-in"><span class="co"># 9 distance matrices, all of same dimensions, first of which is standard</span></span>
 <span class="r-in"><span class="co"># distance matrix</span></span>
 <span class="r-in"><span class="co"># s &lt;- summary (d) # print summary as proportions along each "edge_type"</span></span>
@@ -169,16 +169,16 @@ and can only be stopped by killing the R process.</p>
 <span class="r-in"><span class="fu">dodgr_dists_categorical</span> <span class="op">(</span><span class="va">graph</span>, <span class="va">from</span>, <span class="va">to</span>,</span>
 <span class="r-in">                         proportions_only <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         path      primary  residential    secondary      service        steps </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 0.5133387472 0.0159931421 0.0004095266 0.1558683424 0.0607239796 0.0018185703 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.89405281   0.00000000   0.00000000   0.01591671   0.05719922   0.00000000 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        track unclassified </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 0.1018482816 0.1499994102 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.00000000   0.03283126 </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># The 'dlimit' parameter can be used to calculate total distances along each</span></span>
 <span class="r-in"><span class="co"># category of edges from a set of points:</span></span>
 <span class="r-in"><span class="va">dlimit</span> <span class="op">&lt;-</span> <span class="fl">2000</span> <span class="co"># in metres</span></span>
 <span class="r-in"><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu">dodgr_dists_categorical</span> <span class="op">(</span><span class="va">graph</span>, <span class="va">from</span>, dlimit <span class="op">=</span> <span class="va">dlimit</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span> <span class="op">(</span><span class="va">d</span><span class="op">)</span> <span class="co"># length(from), length(unique(edge_type)) + 1</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2270    9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 100   9</span>
 </code></pre></div>
     </div>
   </div>
