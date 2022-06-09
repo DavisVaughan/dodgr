@@ -81,7 +81,14 @@ dodgr_paths <- function (graph,
     # cols are (edge_id, from, to, d, w, component, xfr, yfr, xto, yto)
     vert_map <- make_vert_map (graph, gr_cols)
 
+    if (missing (from)) {
+        from <- vert_map$vert
+    }
     from_index <- get_path_indices (graph, gr_cols, vert_map, from)
+
+    if (missing (to)) {
+        to <- vert_map$vert
+    }
     to_index <- get_path_indices (graph, gr_cols, vert_map, to)
 
     graph <- convert_graph (graph, gr_cols)
@@ -123,10 +130,11 @@ dodgr_paths <- function (graph,
     # name path lists
     if (!is.null (from_index$id) & !is.null (to_index$id)) {
         if (!pairwise) {
-            for (i in seq (from_index$id))
+            for (i in seq_along (from_index$id)) {
                 names (paths [[i]]) <- paste0 (from_index$id [i],
                                                "-",
-                                               to_index$id [i])
+                                               to_index$id)
+            }
         }
         names (paths) <- from_index$id
     }

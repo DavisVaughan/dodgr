@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.14</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.14.003</span>
       </span>
     </div>
 
@@ -155,7 +155,7 @@
 <span class="co">##   expression   min median</span>
 <span class="co">##   <span style="color: #949494; font-style: italic;">&lt;bch:expr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="co">## <span style="color: #BCBCBC;">1</span> full       1.14   1.14 </span>
-<span class="co">## <span style="color: #BCBCBC;">2</span> prop_only  0.486  0.488</span></code></pre>
+<span class="co">## <span style="color: #BCBCBC;">2</span> prop_only  0.426  0.436</span></code></pre>
 <p>The default value of <code>proportions_only = FALSE</code> should be used only if additional information from the distance matrices themselves is required or desired. Examples of such additional information include parameters quantifying the distributions of the various distance metrics, as further examined below.</p>
 </div>
 <div class="section level2">
@@ -206,9 +206,9 @@
 <pre><code><span class="co">## <span style="color: #949494;"># A tibble: 3 × 3</span></span>
 <span class="co">##   expression   min median</span>
 <span class="co">##   <span style="color: #949494; font-style: italic;">&lt;bch:expr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">## <span style="color: #BCBCBC;">1</span> full       1.14   1.14 </span>
-<span class="co">## <span style="color: #BCBCBC;">2</span> prop_only  0.493  0.499</span>
-<span class="co">## <span style="color: #BCBCBC;">3</span> dlimit     0.125  0.125</span></code></pre>
+<span class="co">## <span style="color: #BCBCBC;">1</span> full       1.12   1.12 </span>
+<span class="co">## <span style="color: #BCBCBC;">2</span> prop_only  0.441  0.447</span>
+<span class="co">## <span style="color: #BCBCBC;">3</span> dlimit     0.109  0.121</span></code></pre>
 <p>Finally, note that the efficiency of distance-threshold queries scales non-linearly with increases in <code>dlimit</code>, with queries quickly becoming less efficient for larger values of <code>dlimit</code>.</p>
 </div>
   </div>
