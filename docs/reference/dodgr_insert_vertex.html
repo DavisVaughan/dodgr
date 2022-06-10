@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.14.003</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.14.031</span>
       </span>
     </div>
 
@@ -109,8 +109,9 @@ vertices split into two edges either side of new vertex.</p>
 <span class="r-in"><span class="va">v2</span> <span class="op">&lt;-</span> <span class="va">graph</span><span class="op">$</span><span class="va">to_id</span> <span class="op">[</span><span class="va">e1</span><span class="op">]</span></span>
 <span class="r-in"><span class="co"># insert new vertex in the middle of that randomly-selected edge:</span></span>
 <span class="r-in"><span class="va">graph2</span> <span class="op">&lt;-</span> <span class="fu">dodgr_insert_vertex</span> <span class="op">(</span><span class="va">graph</span>, <span class="va">v1</span>, <span class="va">v2</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph2</span><span class="op">)</span> <span class="co"># new edges added to graph2</span></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 6813</span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph2</span><span class="op">)</span> <span class="co"># new edges added to graph2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 6815</span>
 </code></pre></div>
     </div>

@@ -18,7 +18,7 @@ edge-based form."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.14.003</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.14.031</span>
       </span>
     </div>
 
@@ -184,8 +184,12 @@ specifying a value via
 <span class="r-in"><span class="co"># and 'id' column.</span></span>
 <span class="r-in"><span class="va">r</span><span class="op">$</span><span class="va">type</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
 <span class="r-in"><span class="va">r</span><span class="op">$</span><span class="va">id</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">r</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">graph_full</span> <span class="op">&lt;-</span> <span class="fu"><a href="weight_streetnet.html">weight_streetnet</a></span> <span class="op">(</span><span class="va">r</span>, type_col <span class="op">=</span> <span class="st">"type"</span>, id_col <span class="op">=</span> <span class="st">"id"</span>,</span>
-<span class="r-in">                                wt_profile <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">graph_full</span> <span class="op">&lt;-</span> <span class="fu"><a href="weight_streetnet.html">weight_streetnet</a></span> <span class="op">(</span></span>
+<span class="r-in">    <span class="va">r</span>,</span>
+<span class="r-in">    type_col <span class="op">=</span> <span class="st">"type"</span>,</span>
+<span class="r-in">    id_col <span class="op">=</span> <span class="st">"id"</span>,</span>
+<span class="r-in">    wt_profile <span class="op">=</span> <span class="fl">1</span></span>
+<span class="r-in"><span class="op">)</span></span>
 <span class="r-in"><span class="co"># convert to contracted form, retaining junction vertices only, and append</span></span>
 <span class="r-in"><span class="co"># 'centrality' column</span></span>
 <span class="r-in"><span class="va">graph</span> <span class="op">&lt;-</span> <span class="fu"><a href="dodgr_contract_graph.html">dodgr_contract_graph</a></span> <span class="op">(</span><span class="va">graph_full</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>

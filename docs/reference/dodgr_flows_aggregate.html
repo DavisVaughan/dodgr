@@ -18,7 +18,7 @@ between all pairs of from and to points."><!-- mathjax --><script src="https://c
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.14.003</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.14.031</span>
       </span>
     </div>
 
@@ -160,16 +160,18 @@ specifying a value via
 <span class="r-in"><span class="va">to</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">$</span><span class="va">to_id</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">to</span> <span class="op">&lt;-</span> <span class="va">to</span> <span class="op">[</span><span class="op">!</span><span class="va">to</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">from</span><span class="op">]</span></span>
 <span class="r-in"><span class="va">flows</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span> <span class="op">(</span><span class="fl">10</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">from</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">to</span><span class="op">)</span><span class="op">)</span>,</span>
-<span class="r-in">                 nrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">from</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in">    nrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">from</span><span class="op">)</span></span>
+<span class="r-in"><span class="op">)</span></span>
 <span class="r-in"><span class="va">graph</span> <span class="op">&lt;-</span> <span class="fu">dodgr_flows_aggregate</span> <span class="op">(</span><span class="va">graph</span>, from <span class="op">=</span> <span class="va">from</span>, to <span class="op">=</span> <span class="va">to</span>, flows <span class="op">=</span> <span class="va">flows</span><span class="op">)</span></span>
 <span class="r-in"><span class="co"># graph then has an additonal 'flows' column of aggregate flows along all</span></span>
 <span class="r-in"><span class="co"># edges. These flows are directed, and can be aggregated to equivalent</span></span>
 <span class="r-in"><span class="co"># undirected flows on an equivalent undirected graph with:</span></span>
 <span class="r-in"><span class="va">graph_undir</span> <span class="op">&lt;-</span> <span class="fu"><a href="merge_directed_graph.html">merge_directed_graph</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span></span>
 <span class="r-in"><span class="co"># This graph will only include those edges having non-zero flows, and so:</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph_undir</span><span class="op">)</span> <span class="co"># the latter is much smaller</span></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 6813</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 888</span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph_undir</span><span class="op">)</span> <span class="co"># the latter is much smaller</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 968</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># The following code can be used to convert the resultant graph to an `sf`</span></span>
 <span class="r-in"><span class="co"># object suitable for plotting</span></span>
@@ -196,9 +198,12 @@ specifying a value via
 <span class="r-in"><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">st_as_sf</a></span> <span class="op">(</span><span class="va">r</span><span class="op">)</span></span>
 <span class="r-in"><span class="co"># then extract the start and end points of each of the original 'routes_fast'</span></span>
 <span class="r-in"><span class="co"># lines and use these for routing with `dodgr`</span></span>
-<span class="r-in"><span class="va">l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span> <span class="op">(</span><span class="va">routes_fast</span><span class="op">@</span><span class="va">lines</span>, <span class="kw">function</span> <span class="op">(</span><span class="va">i</span><span class="op">)</span></span>
-<span class="r-in">             <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span> <span class="op">(</span><span class="fu">sp</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/sp/man/coordinates.html" class="external-link">coordinates</a></span> <span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="op">[</span><span class="fl">1</span>, <span class="op">]</span>,</span>
-<span class="r-in">                <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span> <span class="op">(</span><span class="fu">sp</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/sp/man/coordinates.html" class="external-link">coordinates</a></span> <span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span> <span class="op">(</span><span class="va">routes_fast</span><span class="op">@</span><span class="va">lines</span>, <span class="kw">function</span> <span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="op">{</span></span>
+<span class="r-in">    <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span> <span class="op">(</span></span>
+<span class="r-in">        <span class="fu">sp</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/sp/man/coordinates.html" class="external-link">coordinates</a></span> <span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="op">[</span><span class="fl">1</span>, <span class="op">]</span>,</span>
+<span class="r-in">        <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span> <span class="op">(</span><span class="fu">sp</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/sp/man/coordinates.html" class="external-link">coordinates</a></span> <span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, <span class="fl">1</span><span class="op">)</span></span>
+<span class="r-in">    <span class="op">)</span></span>
+<span class="r-in"><span class="op">}</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span> <span class="op">(</span><span class="va">rbind</span>, <span class="va">l</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">xy_start</span> <span class="op">&lt;-</span> <span class="va">l</span> <span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span></span>
 <span class="r-in"><span class="va">xy_end</span> <span class="op">&lt;-</span> <span class="va">l</span> <span class="op">[</span>, <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span></span>
@@ -208,10 +213,18 @@ specifying a value via
 <span class="r-in"><span class="co"># \link{weight_streetnet} function.</span></span>
 <span class="r-in"><span class="va">r</span><span class="op">$</span><span class="va">type</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
 <span class="r-in"><span class="va">r</span><span class="op">$</span><span class="va">id</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">r</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">graph</span> <span class="op">&lt;-</span> <span class="fu"><a href="weight_streetnet.html">weight_streetnet</a></span> <span class="op">(</span><span class="va">r</span>, type_col <span class="op">=</span> <span class="st">"type"</span>, id_col <span class="op">=</span> <span class="st">"id"</span>,</span>
-<span class="r-in">                           wt_profile <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu">dodgr_flows_aggregate</span> <span class="op">(</span><span class="va">graph</span>, from <span class="op">=</span> <span class="va">xy_start</span>, to <span class="op">=</span> <span class="va">xy_end</span>,</span>
-<span class="r-in">                            flows <span class="op">=</span> <span class="va">flows</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">graph</span> <span class="op">&lt;-</span> <span class="fu"><a href="weight_streetnet.html">weight_streetnet</a></span> <span class="op">(</span></span>
+<span class="r-in">    <span class="va">r</span>,</span>
+<span class="r-in">    type_col <span class="op">=</span> <span class="st">"type"</span>,</span>
+<span class="r-in">    id_col <span class="op">=</span> <span class="st">"id"</span>,</span>
+<span class="r-in">    wt_profile <span class="op">=</span> <span class="fl">1</span></span>
+<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu">dodgr_flows_aggregate</span> <span class="op">(</span></span>
+<span class="r-in">    <span class="va">graph</span>,</span>
+<span class="r-in">    from <span class="op">=</span> <span class="va">xy_start</span>,</span>
+<span class="r-in">    to <span class="op">=</span> <span class="va">xy_end</span>,</span>
+<span class="r-in">    flows <span class="op">=</span> <span class="va">flows</span></span>
+<span class="r-in"><span class="op">)</span></span>
 <span class="r-in"><span class="co"># Then merge directed flows and convert to \pkg{sf} for plotting as before:</span></span>
 <span class="r-in"><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu"><a href="merge_directed_graph.html">merge_directed_graph</a></span> <span class="op">(</span><span class="va">f</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">geoms</span> <span class="op">&lt;-</span> <span class="fu"><a href="dodgr_to_sfc.html">dodgr_to_sfc</a></span> <span class="op">(</span><span class="va">f</span><span class="op">)</span></span>

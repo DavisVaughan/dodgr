@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dodgr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.14.003</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.14.031</span>
       </span>
     </div>
 
@@ -104,16 +104,16 @@ matching.</p></dd>
 <span class="r-in"><span class="co"># Then generate some random points to match to graph</span></span>
 <span class="r-in"><span class="va">npts</span> <span class="op">&lt;-</span> <span class="fl">10</span></span>
 <span class="r-in"><span class="va">xy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span> <span class="op">(</span></span>
-<span class="r-in">                  x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span> <span class="op">(</span><span class="va">verts</span><span class="op">$</span><span class="va">x</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span> <span class="op">(</span><span class="va">npts</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/diff.html" class="external-link">diff</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span> <span class="op">(</span><span class="va">verts</span><span class="op">$</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>,</span>
-<span class="r-in">                  y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span> <span class="op">(</span><span class="va">verts</span><span class="op">$</span><span class="va">y</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span> <span class="op">(</span><span class="va">npts</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/diff.html" class="external-link">diff</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span> <span class="op">(</span><span class="va">verts</span><span class="op">$</span><span class="va">y</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in">                  <span class="op">)</span></span>
+<span class="r-in">    x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span> <span class="op">(</span><span class="va">verts</span><span class="op">$</span><span class="va">x</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span> <span class="op">(</span><span class="va">npts</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/diff.html" class="external-link">diff</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span> <span class="op">(</span><span class="va">verts</span><span class="op">$</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>,</span>
+<span class="r-in">    y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span> <span class="op">(</span><span class="va">verts</span><span class="op">$</span><span class="va">y</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span> <span class="op">(</span><span class="va">npts</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/diff.html" class="external-link">diff</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span> <span class="op">(</span><span class="va">verts</span><span class="op">$</span><span class="va">y</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span class="op">)</span></span>
 <span class="r-in"><span class="va">pts</span> <span class="op">&lt;-</span> <span class="fu"><a href="match_pts_to_graph.html">match_pts_to_graph</a></span> <span class="op">(</span><span class="va">verts</span>, <span class="va">xy</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">pts</span> <span class="co"># an index into verts</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 3051 1704 2393 3058 2903 1881  502 1810  605 3075</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1451 3081 3064 1800 2903 2381 1704  997 1704 1810</span>
 <span class="r-in"><span class="va">pts</span> <span class="op">&lt;-</span> <span class="va">verts</span><span class="op">$</span><span class="va">id</span> <span class="op">[</span><span class="va">pts</span><span class="op">]</span></span>
 <span class="r-in"><span class="va">pts</span> <span class="co"># names of those vertices</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "6025347259" "2588119056" "6071931424" "1204772772" "313796427" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "2588155760" "1390214918" "7794286101" "571423820"  "1204772780"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "1398748009" "1388481903" "1204772661" "2588155744" "313796427" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "676875267"  "2588119056" "3697940688" "2588119056" "7794286101"</span>
 </code></pre></div>
     </div>
   </div>
