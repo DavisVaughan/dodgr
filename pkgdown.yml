@@ -1,10 +1,13 @@
-pandoc: 2.7.3
-pkgdown: 2.0.1
-pkgdown_sha: ~
+pandoc: 2.14.2
+pkgdown: 2.0.4.9000
+pkgdown_sha: 5203a63f002405e99b8510debe809ff3d9f18b02
 articles:
   dists-categorical: dists-categorical.html
   dodgr: dodgr.html
   flows: flows.html
   times: times.html
-last_built: 2022-01-09T21:22Z
+last_built: 2022-06-22T14:30Z
+urls:
+  reference: https://atfutures.github.io/dodgr/reference
+  article: https://atfutures.github.io/dodgr/articles
 
