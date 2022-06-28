@@ -18,7 +18,7 @@ expand."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mat
     
     <a class="navbar-brand me-2" href="../index.html">dodgr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.14.043</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.14.050</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,7 +66,7 @@ be constructed by expanding the range of <code>pts</code> by the relative amount
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">dodgr_streetnet</span><span class="op">(</span><span class="va">bbox</span>, pts <span class="op">=</span> <span class="cn">NULL</span>, expand <span class="op">=</span> <span class="fl">0.05</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">dodgr_streetnet</span><span class="op">(</span><span class="va">bbox</span>, pts <span class="op">=</span> <span class="cn">NULL</span>, expand <span class="op">=</span> <span class="fl">0.05</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -116,39 +116,39 @@ need to be refined, or somehow broken up into smaller queries.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="va">streetnet</span> <span class="op">&lt;-</span> <span class="fu">dodgr_streetnet</span> <span class="op">(</span><span class="st">"hampi india"</span>, expand <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span>
-<span class="r-in"><span class="co"># convert to form needed for `dodgr` functions:</span></span>
-<span class="r-in"><span class="va">graph</span> <span class="op">&lt;-</span> <span class="fu"><a href="weight_streetnet.html">weight_streetnet</a></span> <span class="op">(</span><span class="va">streetnet</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span> <span class="co"># around 5,900 edges</span></span>
-<span class="r-in"><span class="co"># Alternative ways of extracting street networks by using a small selection</span></span>
-<span class="r-in"><span class="co"># of graph vertices to define bounding box:</span></span>
-<span class="r-in"><span class="va">verts</span> <span class="op">&lt;-</span> <span class="fu"><a href="dodgr_vertices.html">dodgr_vertices</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">verts</span> <span class="op">&lt;-</span> <span class="va">verts</span> <span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">verts</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">200</span><span class="op">)</span>, <span class="op">]</span></span>
-<span class="r-in"><span class="va">streetnet</span> <span class="op">&lt;-</span> <span class="fu">dodgr_streetnet</span> <span class="op">(</span>pts <span class="op">=</span> <span class="va">verts</span>, expand <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">graph</span> <span class="op">&lt;-</span> <span class="fu"><a href="weight_streetnet.html">weight_streetnet</a></span> <span class="op">(</span><span class="va">streetnet</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span></span>
-<span class="r-in"><span class="co"># This will generally have many more rows because most street networks</span></span>
-<span class="r-in"><span class="co"># include streets that extend considerably beyond the specified bounding box.</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># bbox can also be a polygon:</span></span>
-<span class="r-in"><span class="va">bb</span> <span class="op">&lt;-</span> <span class="fu">osmdata</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/osmdata/reference/getbb.html" class="external-link">getbb</a></span> <span class="op">(</span><span class="st">"gent belgium"</span><span class="op">)</span> <span class="co"># rectangular bbox</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="fu">dodgr_streetnet</span> <span class="op">(</span>bbox <span class="op">=</span> <span class="va">bb</span><span class="op">)</span><span class="op">)</span> <span class="co"># around 30,000</span></span>
-<span class="r-in"><span class="va">bb</span> <span class="op">&lt;-</span> <span class="fu">osmdata</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/osmdata/reference/getbb.html" class="external-link">getbb</a></span> <span class="op">(</span><span class="st">"gent belgium"</span>, format_out <span class="op">=</span> <span class="st">"polygon"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="fu">dodgr_streetnet</span> <span class="op">(</span>bbox <span class="op">=</span> <span class="va">bb</span><span class="op">)</span><span class="op">)</span> <span class="co"># around 17,000</span></span>
-<span class="r-in"><span class="co"># The latter has fewer rows because only edges within polygon are returned</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Example with access restrictions</span></span>
-<span class="r-in"><span class="va">bbox</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span> <span class="op">(</span><span class="op">-</span><span class="fl">122.2935</span>, <span class="fl">47.62663</span>, <span class="op">-</span><span class="fl">122.28</span>, <span class="fl">47.63289</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="dodgr_streetnet_sc.html">dodgr_streetnet_sc</a></span> <span class="op">(</span><span class="va">bbox</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">net</span> <span class="op">&lt;-</span> <span class="fu"><a href="weight_streetnet.html">weight_streetnet</a></span> <span class="op">(</span><span class="va">x</span>, keep_cols <span class="op">=</span> <span class="st">"access"</span>, turn_penalty <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"><span class="co"># has many streets with "access" = "private"; these can be removed like this:</span></span>
-<span class="r-in"><span class="va">net2</span> <span class="op">&lt;-</span> <span class="va">net</span> <span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span> <span class="op">(</span><span class="op">!</span><span class="va">net</span><span class="op">$</span><span class="va">access</span> <span class="op">!=</span> <span class="st">"private"</span><span class="op">)</span>, <span class="op">]</span></span>
-<span class="r-in"><span class="co"># or modified in some other way such as strongly penalizing use of those</span></span>
-<span class="r-in"><span class="co"># streets:</span></span>
-<span class="r-in"><span class="va">index</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span> <span class="op">(</span><span class="va">net</span><span class="op">$</span><span class="va">access</span> <span class="op">==</span> <span class="st">"private"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">net</span><span class="op">$</span><span class="va">time_weighted</span> <span class="op">[</span><span class="va">index</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">net</span><span class="op">$</span><span class="va">time_weighted</span> <span class="op">[</span><span class="va">index</span><span class="op">]</span> <span class="op">*</span> <span class="fl">100</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="va">streetnet</span> <span class="op">&lt;-</span> <span class="fu">dodgr_streetnet</span> <span class="op">(</span><span class="st">"hampi india"</span>, expand <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># convert to form needed for `dodgr` functions:</span></span></span>
+<span class="r-in"><span><span class="va">graph</span> <span class="op">&lt;-</span> <span class="fu"><a href="weight_streetnet.html">weight_streetnet</a></span> <span class="op">(</span><span class="va">streetnet</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span> <span class="co"># around 5,900 edges</span></span></span>
+<span class="r-in"><span><span class="co"># Alternative ways of extracting street networks by using a small selection</span></span></span>
+<span class="r-in"><span><span class="co"># of graph vertices to define bounding box:</span></span></span>
+<span class="r-in"><span><span class="va">verts</span> <span class="op">&lt;-</span> <span class="fu"><a href="dodgr_vertices.html">dodgr_vertices</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">verts</span> <span class="op">&lt;-</span> <span class="va">verts</span> <span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">verts</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">200</span><span class="op">)</span>, <span class="op">]</span></span></span>
+<span class="r-in"><span><span class="va">streetnet</span> <span class="op">&lt;-</span> <span class="fu">dodgr_streetnet</span> <span class="op">(</span>pts <span class="op">=</span> <span class="va">verts</span>, expand <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">graph</span> <span class="op">&lt;-</span> <span class="fu"><a href="weight_streetnet.html">weight_streetnet</a></span> <span class="op">(</span><span class="va">streetnet</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># This will generally have many more rows because most street networks</span></span></span>
+<span class="r-in"><span><span class="co"># include streets that extend considerably beyond the specified bounding box.</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># bbox can also be a polygon:</span></span></span>
+<span class="r-in"><span><span class="va">bb</span> <span class="op">&lt;-</span> <span class="fu">osmdata</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/osmdata/reference/getbb.html" class="external-link">getbb</a></span> <span class="op">(</span><span class="st">"gent belgium"</span><span class="op">)</span> <span class="co"># rectangular bbox</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="fu">dodgr_streetnet</span> <span class="op">(</span>bbox <span class="op">=</span> <span class="va">bb</span><span class="op">)</span><span class="op">)</span> <span class="co"># around 30,000</span></span></span>
+<span class="r-in"><span><span class="va">bb</span> <span class="op">&lt;-</span> <span class="fu">osmdata</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/osmdata/reference/getbb.html" class="external-link">getbb</a></span> <span class="op">(</span><span class="st">"gent belgium"</span>, format_out <span class="op">=</span> <span class="st">"polygon"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="fu">dodgr_streetnet</span> <span class="op">(</span>bbox <span class="op">=</span> <span class="va">bb</span><span class="op">)</span><span class="op">)</span> <span class="co"># around 17,000</span></span></span>
+<span class="r-in"><span><span class="co"># The latter has fewer rows because only edges within polygon are returned</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Example with access restrictions</span></span></span>
+<span class="r-in"><span><span class="va">bbox</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span> <span class="op">(</span><span class="op">-</span><span class="fl">122.2935</span>, <span class="fl">47.62663</span>, <span class="op">-</span><span class="fl">122.28</span>, <span class="fl">47.63289</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="dodgr_streetnet_sc.html">dodgr_streetnet_sc</a></span> <span class="op">(</span><span class="va">bbox</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">net</span> <span class="op">&lt;-</span> <span class="fu"><a href="weight_streetnet.html">weight_streetnet</a></span> <span class="op">(</span><span class="va">x</span>, keep_cols <span class="op">=</span> <span class="st">"access"</span>, turn_penalty <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># has many streets with "access" = "private"; these can be removed like this:</span></span></span>
+<span class="r-in"><span><span class="va">net2</span> <span class="op">&lt;-</span> <span class="va">net</span> <span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span> <span class="op">(</span><span class="op">!</span><span class="va">net</span><span class="op">$</span><span class="va">access</span> <span class="op">!=</span> <span class="st">"private"</span><span class="op">)</span>, <span class="op">]</span></span></span>
+<span class="r-in"><span><span class="co"># or modified in some other way such as strongly penalizing use of those</span></span></span>
+<span class="r-in"><span><span class="co"># streets:</span></span></span>
+<span class="r-in"><span><span class="va">index</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span> <span class="op">(</span><span class="va">net</span><span class="op">$</span><span class="va">access</span> <span class="op">==</span> <span class="st">"private"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">net</span><span class="op">$</span><span class="va">time_weighted</span> <span class="op">[</span><span class="va">index</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">net</span><span class="op">$</span><span class="va">time_weighted</span> <span class="op">[</span><span class="va">index</span><span class="op">]</span> <span class="op">*</span> <span class="fl">100</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -160,7 +160,7 @@ need to be refined, or somehow broken up into smaller queries.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.9000.</p>
 </div>
 
     </footer></div>

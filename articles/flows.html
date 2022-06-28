@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">dodgr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.14.043</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.14.050</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,7 +71,7 @@
       <img src="" class="logo" alt=""><h1>dodgr flows</h1>
                         <h4 data-toc-skip class="author">Mark Padgham</h4>
             
-            <h4 data-toc-skip class="date">2022-06-22</h4>
+            <h4 data-toc-skip class="date">2022-06-28</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ATFutures/dodgr/blob/HEAD/vignettes/flows.Rmd" class="external-link"><code>vignettes/flows.Rmd</code></a></small>
       <div class="d-none name"><code>flows.Rmd</code></div>
@@ -86,65 +86,65 @@
 <p>The first of the above functions aggregates ‘’flows’’ throughout a network from a set of origin (<code>from</code>) and destination (<code>to</code>) points. Flows commonly arise in origin-destination matrices used in transport studies, but may be any kind of generic flows on graphs. A flow matrix specifies the flow between each pair of origin and destination points, and the <a href="https://atfutures.github.io/dodgr/reference/dodgr_flows_aggregate.html"><code>dodgr_flows_aggregate()</code></a> function aggregates all of these flows throughout a network and assigns a resultant aggregate flow to each edge.</p>
 <p>For a set of <code>nf</code> points of origin and <code>nt</code> points of destination, flows are defined by a simple <code>nf</code>-by-<code>nt</code> matrix of values, as in the following code:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">graph</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/weight_streetnet.html">weight_streetnet</a></span> <span class="op">(</span><span class="va">hampi</span>, wt_profile <span class="op">=</span> <span class="st">"foot"</span><span class="op">)</span>
-<span class="va">from</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">$</span><span class="va">from_id</span>, size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>
-<span class="va">to</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">$</span><span class="va">to_id</span>, size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>
-<span class="va">flows</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span> <span class="op">(</span><span class="fl">10</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">from</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">to</span><span class="op">)</span><span class="op">)</span>,
-                 nrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">from</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">graph</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/weight_streetnet.html">weight_streetnet</a></span> <span class="op">(</span><span class="va">hampi</span>, wt_profile <span class="op">=</span> <span class="st">"foot"</span><span class="op">)</span></span>
+<span><span class="va">from</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">$</span><span class="va">from_id</span>, size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="va">to</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">$</span><span class="va">to_id</span>, size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="va">flows</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span> <span class="op">(</span><span class="fl">10</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">from</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">to</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>                 nrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">from</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>This <code>flows</code> matrix is then submitted to <a href="https://atfutures.github.io/dodgr/reference/dodgr_flows_aggregate.html"><code>dodgr_flows_aggregate()</code></a>, which simply appends an additional column of <code>flows</code> to the submitted <code>graph</code>:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">graph_f</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dodgr_flows_aggregate.html">dodgr_flows_aggregate</a></span> <span class="op">(</span><span class="va">graph</span>, from <span class="op">=</span> <span class="va">from</span>, to <span class="op">=</span> <span class="va">to</span>, flows <span class="op">=</span> <span class="va">flows</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span> <span class="op">(</span><span class="va">graph_f</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">##   geom_num edge_id    from_id from_lon from_lat      to_id   to_lon   to_lat</span>
-<span class="co">## 1        1       1  339318500 76.47491 15.34167  339318502 76.47612 15.34173</span>
-<span class="co">## 2        1       2  339318502 76.47612 15.34173  339318500 76.47491 15.34167</span>
-<span class="co">## 3        1       3  339318502 76.47612 15.34173 2398958028 76.47621 15.34174</span>
-<span class="co">## 4        1       4 2398958028 76.47621 15.34174  339318502 76.47612 15.34173</span>
-<span class="co">## 5        1       5 2398958028 76.47621 15.34174 1427116077 76.47628 15.34179</span>
-<span class="co">## 6        1       6 1427116077 76.47628 15.34179 2398958028 76.47621 15.34174</span>
-<span class="co">##            d d_weighted highway   way_id component      time time_weighted flow</span>
-<span class="co">## 1 130.000241 130.000241    path 28565950         1 93.600174     93.600174    0</span>
-<span class="co">## 2 130.000241 130.000241    path 28565950         1 93.600174     93.600174    0</span>
-<span class="co">## 3   8.890622   8.890622    path 28565950         1  6.401248      6.401248    0</span>
-<span class="co">## 4   8.890622   8.890622    path 28565950         1  6.401248      6.401248    0</span>
-<span class="co">## 5   9.307736   9.307736    path 28565950         1  6.701570      6.701570    0</span>
-<span class="co">## 6   9.307736   9.307736    path 28565950         1  6.701570      6.701570    0</span></code></pre>
+<code class="sourceCode R"><span><span class="va">graph_f</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dodgr_flows_aggregate.html">dodgr_flows_aggregate</a></span> <span class="op">(</span><span class="va">graph</span>, from <span class="op">=</span> <span class="va">from</span>, to <span class="op">=</span> <span class="va">to</span>, flows <span class="op">=</span> <span class="va">flows</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span> <span class="op">(</span><span class="va">graph_f</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">##   geom_num edge_id    from_id from_lon from_lat      to_id   to_lon   to_lat</span></span>
+<span><span class="co">## 1        1       1  339318500 76.47491 15.34167  339318502 76.47612 15.34173</span></span>
+<span><span class="co">## 2        1       2  339318502 76.47612 15.34173  339318500 76.47491 15.34167</span></span>
+<span><span class="co">## 3        1       3  339318502 76.47612 15.34173 2398958028 76.47621 15.34174</span></span>
+<span><span class="co">## 4        1       4 2398958028 76.47621 15.34174  339318502 76.47612 15.34173</span></span>
+<span><span class="co">## 5        1       5 2398958028 76.47621 15.34174 1427116077 76.47628 15.34179</span></span>
+<span><span class="co">## 6        1       6 1427116077 76.47628 15.34179 2398958028 76.47621 15.34174</span></span>
+<span><span class="co">##            d d_weighted highway   way_id component      time time_weighted flow</span></span>
+<span><span class="co">## 1 130.000241 130.000241    path 28565950         1 93.600174     93.600174    0</span></span>
+<span><span class="co">## 2 130.000241 130.000241    path 28565950         1 93.600174     93.600174    0</span></span>
+<span><span class="co">## 3   8.890622   8.890622    path 28565950         1  6.401248      6.401248    0</span></span>
+<span><span class="co">## 4   8.890622   8.890622    path 28565950         1  6.401248      6.401248    0</span></span>
+<span><span class="co">## 5   9.307736   9.307736    path 28565950         1  6.701570      6.701570    0</span></span>
+<span><span class="co">## 6   9.307736   9.307736    path 28565950         1  6.701570      6.701570    0</span></span></code></pre>
 <p>Most flows are zero because they have only been calculated between very few points in the graph.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span> <span class="op">(</span><span class="va">graph_f</span><span class="op">$</span><span class="va">flow</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span>
-<span class="co">##  0.0000  0.0000  0.0000  0.4050  0.2521  6.1823</span></code></pre>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span> <span class="op">(</span><span class="va">graph_f</span><span class="op">$</span><span class="va">flow</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span></span>
+<span><span class="co">##  0.0000  0.0000  0.0000  0.4519  0.0000  4.7496</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="flow-dispersal">2 Flow Dispersal<a class="anchor" aria-label="anchor" href="#flow-dispersal"></a>
 </h2>
 <p>The second function, <a href="https://atfutures.github.io/dodgr/reference/dodgr_flows_disperse.html"><code>dodgr_flows_disperse()</code></a>, uses only a vector a origin (<code>from</code>) points, and aggregates flows as they disperse throughout the network according to a simple exponential model. In place of the matrix of flows required by <a href="https://atfutures.github.io/dodgr/reference/dodgr_flows_aggregate.html"><code>dodgr_flows_aggregate()</code></a>, dispersal requires an equivalent vector of densities dispersing from all origin (<code>from</code>) points. This is illustrated in the following code, using the same graph as the previous example.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dens</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span> <span class="op">(</span><span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">from</span><span class="op">)</span><span class="op">)</span> <span class="co"># uniform densities</span>
-<span class="va">graph_f</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dodgr_flows_disperse.html">dodgr_flows_disperse</a></span> <span class="op">(</span><span class="va">graph</span>, from <span class="op">=</span> <span class="va">from</span>, dens <span class="op">=</span> <span class="va">dens</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span> <span class="op">(</span><span class="va">graph_f</span><span class="op">$</span><span class="va">flow</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. </span>
-<span class="co">## 0.0000000 0.0000000 0.0002134 0.0014678 0.0015955 0.0254162</span></code></pre>
+<code class="sourceCode R"><span><span class="va">dens</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span> <span class="op">(</span><span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">from</span><span class="op">)</span><span class="op">)</span> <span class="co"># uniform densities</span></span>
+<span><span class="va">graph_f</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dodgr_flows_disperse.html">dodgr_flows_disperse</a></span> <span class="op">(</span><span class="va">graph</span>, from <span class="op">=</span> <span class="va">from</span>, dens <span class="op">=</span> <span class="va">dens</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span> <span class="op">(</span><span class="va">graph_f</span><span class="op">$</span><span class="va">flow</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. </span></span>
+<span><span class="co">## 0.0000000 0.0000000 0.0007007 0.0119723 0.0066728 0.9766082</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="merging-directed-flows">3 Merging directed flows<a class="anchor" aria-label="anchor" href="#merging-directed-flows"></a>
 </h2>
 <p>Note that flows from both <a href="https://atfutures.github.io/dodgr/reference/dodgr_flows_aggregate.html"><code>dodgr_flows_aggregate()</code></a> and <a href="https://atfutures.github.io/dodgr/reference/dodgr_flows_aggregate.html"><code>dodgr_flows_disperse()</code></a> are <em>directed</em>, so the flow from ‘A’ to ‘B’ will not necessarily equal the flow from ‘B’ to ‘A’. It is often desirable to aggregate flows in an undirected manner, for example for visualisations where plotting pairs of directed flows between each edge if often not feasible for large graphs. Directed flows can be aggregated to equivalent undirected flows with the <code><a href="../reference/merge_directed_graph.html">merge_directed_graph()</a></code> function:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">graph_undir</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/merge_directed_graph.html">merge_directed_graph</a></span> <span class="op">(</span><span class="va">graph_f</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">graph_undir</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/merge_directed_graph.html">merge_directed_graph</a></span> <span class="op">(</span><span class="va">graph_f</span><span class="op">)</span></span></code></pre></div>
 <p>Resultant graphs produced by <a href="https://atfutures.github.io/dodgr/reference/merge_directed_graph.html"><code>merge_directed_graph()</code></a> only include those edges having non-zero flows, and so:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph_f</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph_undir</span><span class="op">)</span> <span class="co"># the latter is much smaller</span></code></pre></div>
-<pre><code><span class="co">## [1] 6813</span></code></pre>
-<pre><code><span class="co">## [1] 3335</span></code></pre>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph_f</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph_undir</span><span class="op">)</span> <span class="co"># the latter is much smaller</span></span></code></pre></div>
+<pre><code><span><span class="co">## [1] 6813</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 2975</span></span></code></pre>
 <p>The resultant graph can readily be merged with the original graph to regain the original data on vertex coordinates through</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">graph</span> <span class="op">&lt;-</span> <span class="va">graph</span> <span class="op">[</span><span class="va">graph_undir</span><span class="op">$</span><span class="va">edge_id</span>, <span class="op">]</span>
-<span class="va">graph</span><span class="op">$</span><span class="va">flow</span> <span class="op">&lt;-</span> <span class="va">graph_undir</span><span class="op">$</span><span class="va">flow</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">graph</span> <span class="op">&lt;-</span> <span class="va">graph</span> <span class="op">[</span><span class="va">graph_undir</span><span class="op">$</span><span class="va">edge_id</span>, <span class="op">]</span></span>
+<span><span class="va">graph</span><span class="op">$</span><span class="va">flow</span> <span class="op">&lt;-</span> <span class="va">graph_undir</span><span class="op">$</span><span class="va">flow</span></span></code></pre></div>
 <p>This graph may then be used to visualise flows with the <a href="https://atfutures.github.io/dodgr/reference/dodgr_flowmap.html"><code>dodgr_flowmap()</code></a> function:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">graph_f</span> <span class="op">&lt;-</span> <span class="va">graph_f</span> <span class="op">[</span><span class="va">graph_f</span><span class="op">$</span><span class="va">flow</span> <span class="op">&gt;</span> <span class="fl">0</span>, <span class="op">]</span>
-<span class="fu"><a href="../reference/dodgr_flowmap.html">dodgr_flowmap</a></span> <span class="op">(</span><span class="va">graph_f</span>, linescale <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">graph_f</span> <span class="op">&lt;-</span> <span class="va">graph_f</span> <span class="op">[</span><span class="va">graph_f</span><span class="op">$</span><span class="va">flow</span> <span class="op">&gt;</span> <span class="fl">0</span>, <span class="op">]</span></span>
+<span><span class="fu"><a href="../reference/dodgr_flowmap.html">dodgr_flowmap</a></span> <span class="op">(</span><span class="va">graph_f</span>, linescale <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <p><img src="hampi-flowmap.png"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -160,7 +160,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.9000.</p>
 </div>
 
     </footer>

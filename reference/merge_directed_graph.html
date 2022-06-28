@@ -18,7 +18,7 @@ return columns of aggregated flows directed along each edge of a graph."><!-- ma
     
     <a class="navbar-brand me-2" href="../index.html">dodgr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.14.043</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.14.050</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,7 +66,7 @@ return columns of aggregated flows directed along each edge of a graph.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">merge_directed_graph</span><span class="op">(</span><span class="va">graph</span>, col_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"flow"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">merge_directed_graph</span><span class="op">(</span><span class="va">graph</span>, col_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"flow"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -110,23 +110,23 @@ aggregated across directions to undirected values.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">graph</span> <span class="op">&lt;-</span> <span class="fu"><a href="weight_streetnet.html">weight_streetnet</a></span> <span class="op">(</span><span class="va">hampi</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">from</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">$</span><span class="va">from_id</span>, size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">to</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">$</span><span class="va">to_id</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">to</span> <span class="op">&lt;-</span> <span class="va">to</span> <span class="op">[</span><span class="op">!</span><span class="va">to</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">from</span><span class="op">]</span></span>
-<span class="r-in"><span class="va">flows</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span> <span class="op">(</span><span class="fl">10</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">from</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">to</span><span class="op">)</span><span class="op">)</span>,</span>
-<span class="r-in">    nrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">from</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"><span class="va">graph</span> <span class="op">&lt;-</span> <span class="fu"><a href="dodgr_flows_aggregate.html">dodgr_flows_aggregate</a></span> <span class="op">(</span><span class="va">graph</span>, from <span class="op">=</span> <span class="va">from</span>, to <span class="op">=</span> <span class="va">to</span>, flows <span class="op">=</span> <span class="va">flows</span><span class="op">)</span></span>
-<span class="r-in"><span class="co"># graph then has an additonal 'flows` column of aggregate flows along all</span></span>
-<span class="r-in"><span class="co"># edges. These flows are directed, and can be aggregated to equivalent</span></span>
-<span class="r-in"><span class="co"># undirected flows on an equivalent undirected graph with:</span></span>
-<span class="r-in"><span class="va">graph_undir</span> <span class="op">&lt;-</span> <span class="fu">merge_directed_graph</span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span></span>
-<span class="r-in"><span class="co"># This graph will only include those edges having non-zero flows, and so:</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">graph</span> <span class="op">&lt;-</span> <span class="fu"><a href="weight_streetnet.html">weight_streetnet</a></span> <span class="op">(</span><span class="va">hampi</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">from</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">$</span><span class="va">from_id</span>, size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">to</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">$</span><span class="va">to_id</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">to</span> <span class="op">&lt;-</span> <span class="va">to</span> <span class="op">[</span><span class="op">!</span><span class="va">to</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">from</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="va">flows</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span> <span class="op">(</span><span class="fl">10</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">from</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">to</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    nrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">from</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">graph</span> <span class="op">&lt;-</span> <span class="fu"><a href="dodgr_flows_aggregate.html">dodgr_flows_aggregate</a></span> <span class="op">(</span><span class="va">graph</span>, from <span class="op">=</span> <span class="va">from</span>, to <span class="op">=</span> <span class="va">to</span>, flows <span class="op">=</span> <span class="va">flows</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># graph then has an additonal 'flows` column of aggregate flows along all</span></span></span>
+<span class="r-in"><span><span class="co"># edges. These flows are directed, and can be aggregated to equivalent</span></span></span>
+<span class="r-in"><span><span class="co"># undirected flows on an equivalent undirected graph with:</span></span></span>
+<span class="r-in"><span><span class="va">graph_undir</span> <span class="op">&lt;-</span> <span class="fu">merge_directed_graph</span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># This graph will only include those edges having non-zero flows, and so:</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 6813</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph_undir</span><span class="op">)</span> <span class="co"># the latter is much smaller</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 793</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph_undir</span><span class="op">)</span> <span class="co"># the latter is much smaller</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 590</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -138,7 +138,7 @@ aggregated across directions to undirected values.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.9000.</p>
 </div>
 
     </footer></div>
