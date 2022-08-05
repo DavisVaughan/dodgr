@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">dodgr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.14.054</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.14.071</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -113,7 +113,7 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span> <span class="op">(</span><span class="va">graph_f</span><span class="op">$</span><span class="va">flow</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span></span>
-<span><span class="co">##   0.000   0.000   0.000   0.355   0.000  11.762</span></span></code></pre>
+<span><span class="co">##  0.0000  0.0000  0.0000  0.3402  0.0000  7.5327</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="flow-dispersal">2 Flow Dispersal<a class="anchor" aria-label="anchor" href="#flow-dispersal"></a>
@@ -124,7 +124,7 @@
 <span><span class="va">graph_f</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dodgr_flows_disperse.html">dodgr_flows_disperse</a></span> <span class="op">(</span><span class="va">graph</span>, from <span class="op">=</span> <span class="va">from</span>, dens <span class="op">=</span> <span class="va">dens</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span> <span class="op">(</span><span class="va">graph_f</span><span class="op">$</span><span class="va">flow</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. </span></span>
-<span><span class="co">## 0.0000000 0.0000000 0.0000179 0.0129440 0.0076846 0.6518994</span></span></code></pre>
+<span><span class="co">## 0.0000000 0.0000000 0.0000088 0.0132077 0.0108099 0.6227649</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="merging-directed-flows">3 Merging directed flows<a class="anchor" aria-label="anchor" href="#merging-directed-flows"></a>
@@ -136,7 +136,7 @@
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph_f</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph_undir</span><span class="op">)</span> <span class="co"># the latter is much smaller</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] 6813</span></span></code></pre>
-<pre><code><span><span class="co">## [1] 2939</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 2989</span></span></code></pre>
 <p>The resultant graph can readily be merged with the original graph to regain the original data on vertex coordinates through</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">graph</span> <span class="op">&lt;-</span> <span class="va">graph</span> <span class="op">[</span><span class="va">graph_undir</span><span class="op">$</span><span class="va">edge_id</span>, <span class="op">]</span></span>
