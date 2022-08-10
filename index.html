@@ -40,7 +40,7 @@
     
     <a class="navbar-brand me-2" href="index.html">dodgr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.14.082</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.14.083</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -507,10 +507,10 @@
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">graph</span> <span class="op">&lt;-</span> <span class="va">graph</span> <span class="op">[</span><span class="va">graph</span><span class="op">$</span><span class="va">component</span> <span class="op">==</span> <span class="fl">1</span>, <span class="op">]</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span></span></code></pre></div>
-<p>or by explicitly using the <code><a href="reference/match_points_to_graph.html">match_points_to_graph()</a></code> function with the option <code>connected = TRUE</code>:</p>
+<p>or by explicitly using the <code><a href="reference/match_points_to_verts.html">match_points_to_verts()</a></code> function with the option <code>connected = TRUE</code>:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">from</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/match_points_to_graph.html">match_points_to_graph</a></span> <span class="op">(</span><span class="va">v</span>, <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span> <span class="op">(</span><span class="va">from_x</span>, <span class="va">from_y</span><span class="op">)</span>, connected <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="va">to</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/match_points_to_graph.html">match_points_to_graph</a></span> <span class="op">(</span><span class="va">v</span>, <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span> <span class="op">(</span><span class="va">to_x</span>, <span class="va">to_y</span><span class="op">)</span>, connected <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">from</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/match_points_to_verts.html">match_points_to_verts</a></span> <span class="op">(</span><span class="va">v</span>, <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span> <span class="op">(</span><span class="va">from_x</span>, <span class="va">from_y</span><span class="op">)</span>, connected <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">to</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/match_points_to_verts.html">match_points_to_verts</a></span> <span class="op">(</span><span class="va">v</span>, <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span> <span class="op">(</span><span class="va">to_x</span>, <span class="va">to_y</span><span class="op">)</span>, connected <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>This function returns an index into the result of <code>dodgr_vertices</code>, and so points to use for routing must then be extracted as follows:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">from</span> <span class="op">&lt;-</span> <span class="va">v</span><span class="op">$</span><span class="va">id</span> <span class="op">[</span><span class="va">from</span><span class="op">]</span> <span class="co"># or from &lt;- v [from, c ("x", "y")]</span></span>
