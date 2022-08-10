@@ -40,7 +40,7 @@
     
     <a class="navbar-brand me-2" href="index.html">dodgr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.14.077</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.14.079</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,7 +84,8 @@
 </h1></div>
 <p><code>dodgr</code> is an R package for efficient calculation of many-to-many pairwise distances on dual-weighted directed graphs, for aggregation of flows throughout networks, and for highly realistic routing through street networks (time-based routing considering incline, turn-angles, surface quality, everything).</p>
 <p>Note that most <code>dodgr</code> algorithms implement parallel computation with the <a href="https://rcppcore.github.io/RcppParallel/" class="external-link"><code>RcppParallel</code> library</a>, and by default use the maximal number of available cores or threads. If you do not wish <code>dodgr</code>to use all available threads, please reduce the number manually by first specifying a value via</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>RcppParallel<span class="sc">::</span><span class="fu">setThreadOptions</span> (<span class="at">numThreads =</span> <span class="sc">&lt;</span>desired_number<span class="sc">&gt;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">RcppParallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/RcppParallel/man/setThreadOptions.html" class="external-link">setThreadOptions</a></span> <span class="op">(</span>numThreads <span class="op">=</span> <span class="fl">1L</span><span class="op">)</span> <span class="co"># or desired number</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="whats-so-special">What’s so special?<a class="anchor" aria-label="anchor" href="#whats-so-special"></a>
 </h2>
@@ -110,7 +111,7 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span> <span class="op">(</span><span class="va"><a href="https://github.com/ATFutures/dodgr" class="external-link">dodgr</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span> <span class="op">(</span><span class="st">"dodgr"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] '0.2.12.27'</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] '0.2.14.46'</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="important-note">Important Note<a class="anchor" aria-label="anchor" href="#important-note"></a>
@@ -137,20 +138,20 @@
 <table class="table">
 <colgroup>
 <col width="6%">
-<col width="5%">
-<col width="7%">
-<col width="6%">
 <col width="6%">
 <col width="7%">
 <col width="6%">
 <col width="6%">
 <col width="7%">
+<col width="6%">
+<col width="6%">
 <col width="7%">
-<col width="5%">
+<col width="7%">
 <col width="6%">
 <col width="6%">
 <col width="6%">
-<col width="9%">
+<col width="6%">
+<col width="8%">
 </colgroup>
 <thead><tr class="header">
 <th align="right">geom_num</th>
@@ -179,13 +180,13 @@
 <td align="left">339318502</td>
 <td align="right">76.47612</td>
 <td align="right">15.34173</td>
-<td align="right">129.972181</td>
-<td align="right">129.972181</td>
+<td align="right">130.000241</td>
+<td align="right">130.000241</td>
 <td align="left">path</td>
 <td align="left">28565950</td>
 <td align="right">1</td>
-<td align="right">93.579970</td>
-<td align="right">93.579970</td>
+<td align="right">93.600174</td>
+<td align="right">93.600174</td>
 </tr>
 <tr class="even">
 <td align="right">1</td>
@@ -196,13 +197,13 @@
 <td align="left">339318500</td>
 <td align="right">76.47491</td>
 <td align="right">15.34167</td>
-<td align="right">129.972181</td>
-<td align="right">129.972181</td>
+<td align="right">130.000241</td>
+<td align="right">130.000241</td>
 <td align="left">path</td>
 <td align="left">28565950</td>
 <td align="right">1</td>
-<td align="right">93.579970</td>
-<td align="right">93.579970</td>
+<td align="right">93.600174</td>
+<td align="right">93.600174</td>
 </tr>
 <tr class="odd">
 <td align="right">1</td>
@@ -213,13 +214,13 @@
 <td align="left">2398958028</td>
 <td align="right">76.47621</td>
 <td align="right">15.34174</td>
-<td align="right">8.888670</td>
-<td align="right">8.888670</td>
+<td align="right">8.890622</td>
+<td align="right">8.890622</td>
 <td align="left">path</td>
 <td align="left">28565950</td>
 <td align="right">1</td>
-<td align="right">6.399843</td>
-<td align="right">6.399843</td>
+<td align="right">6.401248</td>
+<td align="right">6.401248</td>
 </tr>
 <tr class="even">
 <td align="right">1</td>
@@ -230,13 +231,13 @@
 <td align="left">339318502</td>
 <td align="right">76.47612</td>
 <td align="right">15.34173</td>
-<td align="right">8.888670</td>
-<td align="right">8.888670</td>
+<td align="right">8.890622</td>
+<td align="right">8.890622</td>
 <td align="left">path</td>
 <td align="left">28565950</td>
 <td align="right">1</td>
-<td align="right">6.399843</td>
-<td align="right">6.399843</td>
+<td align="right">6.401248</td>
+<td align="right">6.401248</td>
 </tr>
 <tr class="odd">
 <td align="right">1</td>
@@ -247,13 +248,13 @@
 <td align="left">1427116077</td>
 <td align="right">76.47628</td>
 <td align="right">15.34179</td>
-<td align="right">9.326536</td>
-<td align="right">9.326536</td>
+<td align="right">9.307736</td>
+<td align="right">9.307736</td>
 <td align="left">path</td>
 <td align="left">28565950</td>
 <td align="right">1</td>
-<td align="right">6.715106</td>
-<td align="right">6.715106</td>
+<td align="right">6.701570</td>
+<td align="right">6.701570</td>
 </tr>
 <tr class="even">
 <td align="right">1</td>
@@ -264,13 +265,13 @@
 <td align="left">2398958028</td>
 <td align="right">76.47621</td>
 <td align="right">15.34174</td>
-<td align="right">9.326536</td>
-<td align="right">9.326536</td>
+<td align="right">9.307736</td>
+<td align="right">9.307736</td>
 <td align="left">path</td>
 <td align="left">28565950</td>
 <td align="right">1</td>
-<td align="right">6.715106</td>
-<td align="right">6.715106</td>
+<td align="right">6.701570</td>
+<td align="right">6.701570</td>
 </tr>
 </tbody>
 </table>
@@ -281,20 +282,20 @@
 <table class="table">
 <colgroup>
 <col width="6%">
-<col width="5%">
-<col width="7%">
-<col width="6%">
 <col width="6%">
 <col width="7%">
 <col width="6%">
 <col width="6%">
 <col width="7%">
+<col width="6%">
+<col width="6%">
 <col width="7%">
-<col width="5%">
+<col width="7%">
 <col width="6%">
 <col width="6%">
 <col width="6%">
-<col width="9%">
+<col width="6%">
+<col width="8%">
 </colgroup>
 <thead><tr class="header">
 <th align="right">geom_num</th>
@@ -323,13 +324,13 @@
 <td align="left">339318502</td>
 <td align="right">76.47612</td>
 <td align="right">15.34173</td>
-<td align="right">129.972181</td>
-<td align="right">129.972181</td>
+<td align="right">130.000241</td>
+<td align="right">130.000241</td>
 <td align="left">path</td>
 <td align="left">28565950</td>
 <td align="right">1</td>
-<td align="right">93.579970</td>
-<td align="right">93.579970</td>
+<td align="right">93.600174</td>
+<td align="right">93.600174</td>
 </tr>
 <tr class="even">
 <td align="right">1</td>
@@ -340,13 +341,13 @@
 <td align="left">339318500</td>
 <td align="right">76.47491</td>
 <td align="right">15.34167</td>
-<td align="right">129.972181</td>
-<td align="right">129.972181</td>
+<td align="right">130.000241</td>
+<td align="right">130.000241</td>
 <td align="left">path</td>
 <td align="left">28565950</td>
 <td align="right">1</td>
-<td align="right">93.579970</td>
-<td align="right">93.579970</td>
+<td align="right">93.600174</td>
+<td align="right">93.600174</td>
 </tr>
 <tr class="odd">
 <td align="right">1</td>
@@ -357,13 +358,13 @@
 <td align="left">2398958028</td>
 <td align="right">76.47621</td>
 <td align="right">15.34174</td>
-<td align="right">8.888670</td>
-<td align="right">8.888670</td>
+<td align="right">8.890622</td>
+<td align="right">8.890622</td>
 <td align="left">path</td>
 <td align="left">28565950</td>
 <td align="right">1</td>
-<td align="right">6.399843</td>
-<td align="right">6.399843</td>
+<td align="right">6.401248</td>
+<td align="right">6.401248</td>
 </tr>
 <tr class="even">
 <td align="right">1</td>
@@ -374,13 +375,13 @@
 <td align="left">339318502</td>
 <td align="right">76.47612</td>
 <td align="right">15.34173</td>
-<td align="right">8.888670</td>
-<td align="right">8.888670</td>
+<td align="right">8.890622</td>
+<td align="right">8.890622</td>
 <td align="left">path</td>
 <td align="left">28565950</td>
 <td align="right">1</td>
-<td align="right">6.399843</td>
-<td align="right">6.399843</td>
+<td align="right">6.401248</td>
+<td align="right">6.401248</td>
 </tr>
 <tr class="odd">
 <td align="right">1</td>
@@ -391,13 +392,13 @@
 <td align="left">1427116077</td>
 <td align="right">76.47628</td>
 <td align="right">15.34179</td>
-<td align="right">9.326536</td>
-<td align="right">9.326536</td>
+<td align="right">9.307736</td>
+<td align="right">9.307736</td>
 <td align="left">path</td>
 <td align="left">28565950</td>
 <td align="right">1</td>
-<td align="right">6.715106</td>
-<td align="right">6.715106</td>
+<td align="right">6.701570</td>
+<td align="right">6.701570</td>
 </tr>
 <tr class="even">
 <td align="right">1</td>
@@ -408,13 +409,13 @@
 <td align="left">2398958028</td>
 <td align="right">76.47621</td>
 <td align="right">15.34174</td>
-<td align="right">9.326536</td>
-<td align="right">9.326536</td>
+<td align="right">9.307736</td>
+<td align="right">9.307736</td>
 <td align="left">path</td>
 <td align="left">28565950</td>
 <td align="right">1</td>
-<td align="right">6.715106</td>
-<td align="right">6.715106</td>
+<td align="right">6.701570</td>
+<td align="right">6.701570</td>
 </tr>
 </tbody>
 </table>
@@ -530,23 +531,23 @@
 <p>The result is simply the input <code>graph</code> with an additional column quantifying the aggregate flows along each edge:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span> <span class="op">(</span><span class="va">f</span><span class="op">)</span></span></code></pre></div>
-<table style="width:100%;" class="table">
+<table class="table">
 <colgroup>
-<col width="5%">
-<col width="5%">
 <col width="6%">
-<col width="5%">
-<col width="5%">
-<col width="6%">
-<col width="5%">
 <col width="5%">
 <col width="6%">
 <col width="6%">
-<col width="5%">
+<col width="6%">
+<col width="6%">
+<col width="6%">
+<col width="6%">
+<col width="6%">
+<col width="6%">
 <col width="5%">
 <col width="6%">
 <col width="6%">
-<col width="8%">
+<col width="6%">
+<col width="7%">
 <col width="6%">
 </colgroup>
 <thead><tr class="header">
@@ -577,14 +578,14 @@
 <td align="left">339318502</td>
 <td align="right">76.47612</td>
 <td align="right">15.34173</td>
-<td align="right">129.972181</td>
-<td align="right">129.972181</td>
+<td align="right">130.000241</td>
+<td align="right">130.000241</td>
 <td align="left">path</td>
 <td align="left">28565950</td>
 <td align="right">1</td>
-<td align="right">93.579970</td>
-<td align="right">93.579970</td>
-<td align="right">0.1046131</td>
+<td align="right">93.600174</td>
+<td align="right">93.600174</td>
+<td align="right">2.1365350</td>
 </tr>
 <tr class="even">
 <td align="right">1</td>
@@ -595,14 +596,14 @@
 <td align="left">339318500</td>
 <td align="right">76.47491</td>
 <td align="right">15.34167</td>
-<td align="right">129.972181</td>
-<td align="right">129.972181</td>
+<td align="right">130.000241</td>
+<td align="right">130.000241</td>
 <td align="left">path</td>
 <td align="left">28565950</td>
 <td align="right">1</td>
-<td align="right">93.579970</td>
-<td align="right">93.579970</td>
-<td align="right">0.1310037</td>
+<td align="right">93.600174</td>
+<td align="right">93.600174</td>
+<td align="right">0.8081778</td>
 </tr>
 <tr class="odd">
 <td align="right">1</td>
@@ -613,14 +614,14 @@
 <td align="left">2398958028</td>
 <td align="right">76.47621</td>
 <td align="right">15.34174</td>
-<td align="right">8.888670</td>
-<td align="right">8.888670</td>
+<td align="right">8.890622</td>
+<td align="right">8.890622</td>
 <td align="left">path</td>
 <td align="left">28565950</td>
 <td align="right">1</td>
-<td align="right">6.399843</td>
-<td align="right">6.399843</td>
-<td align="right">0.1046131</td>
+<td align="right">6.401248</td>
+<td align="right">6.401248</td>
+<td align="right">2.1365350</td>
 </tr>
 <tr class="even">
 <td align="right">1</td>
@@ -631,14 +632,14 @@
 <td align="left">339318502</td>
 <td align="right">76.47612</td>
 <td align="right">15.34173</td>
-<td align="right">8.888670</td>
-<td align="right">8.888670</td>
+<td align="right">8.890622</td>
+<td align="right">8.890622</td>
 <td align="left">path</td>
 <td align="left">28565950</td>
 <td align="right">1</td>
-<td align="right">6.399843</td>
-<td align="right">6.399843</td>
-<td align="right">0.1310037</td>
+<td align="right">6.401248</td>
+<td align="right">6.401248</td>
+<td align="right">0.8081778</td>
 </tr>
 <tr class="odd">
 <td align="right">1</td>
@@ -649,14 +650,14 @@
 <td align="left">1427116077</td>
 <td align="right">76.47628</td>
 <td align="right">15.34179</td>
-<td align="right">9.326536</td>
-<td align="right">9.326536</td>
+<td align="right">9.307736</td>
+<td align="right">9.307736</td>
 <td align="left">path</td>
 <td align="left">28565950</td>
 <td align="right">1</td>
-<td align="right">6.715106</td>
-<td align="right">6.715106</td>
-<td align="right">0.1046131</td>
+<td align="right">6.701570</td>
+<td align="right">6.701570</td>
+<td align="right">2.1365350</td>
 </tr>
 <tr class="even">
 <td align="right">1</td>
@@ -667,14 +668,14 @@
 <td align="left">2398958028</td>
 <td align="right">76.47621</td>
 <td align="right">15.34174</td>
-<td align="right">9.326536</td>
-<td align="right">9.326536</td>
+<td align="right">9.307736</td>
+<td align="right">9.307736</td>
 <td align="left">path</td>
 <td align="left">28565950</td>
 <td align="right">1</td>
-<td align="right">6.715106</td>
-<td align="right">6.715106</td>
-<td align="right">0.1310037</td>
+<td align="right">6.701570</td>
+<td align="right">6.701570</td>
+<td align="right">0.8081778</td>
 </tr>
 </tbody>
 </table>
@@ -742,7 +743,7 @@
 <a href="https://github.com/fzenoni" class="external-link"> <img src="https://avatars.githubusercontent.com/u/6040873?u=bf32b8c1bc7ffc30c34bb09a1b0ae0f851414a48&amp;v=4" width="100px;" alt=""></a><br><a href="https://github.com/ATFutures/dodgr/issues?q=is%3Aissue+author%3Afzenoni" class="external-link">fzenoni</a>
 </td>
 <td align="center">
-<a href="https://github.com/mdsumner" class="external-link"> <img src="https://avatars.githubusercontent.com/u/4107631?u=c04c3e58dcca3b8c7a49ef4a3ccc6552df195e1b&amp;v=4" width="100px;" alt=""></a><br><a href="https://github.com/ATFutures/dodgr/issues?q=is%3Aissue+author%3Amdsumner" class="external-link">mdsumner</a>
+<a href="https://github.com/mdsumner" class="external-link"> <img src="https://avatars.githubusercontent.com/u/4107631?u=77e928f4bb904a5c2e8927a02194b86662408329&amp;v=4" width="100px;" alt=""></a><br><a href="https://github.com/ATFutures/dodgr/issues?q=is%3Aissue+author%3Amdsumner" class="external-link">mdsumner</a>
 </td>
 </tr>
 <tr>
@@ -751,9 +752,6 @@
 </td>
 <td align="center">
 <a href="https://github.com/mkvasnicka" class="external-link"> <img src="https://avatars.githubusercontent.com/u/8019045?u=16ba8f6406bcb20ade64481fbc177998bd1549fb&amp;v=4" width="100px;" alt=""></a><br><a href="https://github.com/ATFutures/dodgr/issues?q=is%3Aissue+author%3Amkvasnicka" class="external-link">mkvasnicka</a>
-</td>
-<td align="center">
-<a href="https://github.com/lga455" class="external-link"> <img src="https://avatars.githubusercontent.com/u/8452822?u=498a6b3125470c20e4057b0f12b794571cfd49e1&amp;v=4" width="100px;" alt=""></a><br><a href="https://github.com/ATFutures/dodgr/issues?q=is%3Aissue+author%3Alga455" class="external-link">lga455</a>
 </td>
 <td align="center">
 <a href="https://github.com/Maschette" class="external-link"> <img src="https://avatars.githubusercontent.com/u/14663215?u=93694159d02e924e6413bd067d7746f1d16d64c1&amp;v=4" width="100px;" alt=""></a><br><a href="https://github.com/ATFutures/dodgr/issues?q=is%3Aissue+author%3AMaschette" class="external-link">Maschette</a>
@@ -767,11 +765,11 @@
 <td align="center">
 <a href="https://github.com/douglascm" class="external-link"> <img src="https://avatars.githubusercontent.com/u/29764356?v=4" width="100px;" alt=""></a><br><a href="https://github.com/ATFutures/dodgr/issues?q=is%3Aissue+author%3Adouglascm" class="external-link">douglascm</a>
 </td>
-</tr>
-<tr>
 <td align="center">
 <a href="https://github.com/darinchristensen" class="external-link"> <img src="https://avatars.githubusercontent.com/u/6937320?u=dcb5b57ddc41cfd15aac6145c80efbfbfcab734d&amp;v=4" width="100px;" alt=""></a><br><a href="https://github.com/ATFutures/dodgr/issues?q=is%3Aissue+author%3Adarinchristensen" class="external-link">darinchristensen</a>
 </td>
+</tr>
+<tr>
 <td align="center">
 <a href="https://github.com/romainFr" class="external-link"> <img src="https://avatars.githubusercontent.com/u/1626262?v=4" width="100px;" alt=""></a><br><a href="https://github.com/ATFutures/dodgr/issues?q=is%3Aissue+author%3AromainFr" class="external-link">romainFr</a>
 </td>
@@ -785,24 +783,27 @@
 <a href="https://github.com/sigmafelix" class="external-link"> <img src="https://avatars.githubusercontent.com/u/25448786?u=fe2158c4bd573cf9aeb7efb7cf5c2c6bca2d8560&amp;v=4" width="100px;" alt=""></a><br><a href="https://github.com/ATFutures/dodgr/issues?q=is%3Aissue+author%3Asigmafelix" class="external-link">sigmafelix</a>
 </td>
 <td align="center">
-<a href="https://github.com/JBSP-code" class="external-link"> <img src="https://avatars.githubusercontent.com/u/28879598?u=13dda47f088a55bc2c0f62ac2e23c264d6397a2c&amp;v=4" width="100px;" alt=""></a><br><a href="https://github.com/ATFutures/dodgr/issues?q=is%3Aissue+author%3AJBSP-code" class="external-link">JBSP-code</a>
-</td>
-<td align="center">
 <a href="https://github.com/polettif" class="external-link"> <img src="https://avatars.githubusercontent.com/u/17431069?u=757eac2821736acbb02e7c90b456411d256d5780&amp;v=4" width="100px;" alt=""></a><br><a href="https://github.com/ATFutures/dodgr/issues?q=is%3Aissue+author%3Apolettif" class="external-link">polettif</a>
 </td>
-</tr>
-<tr>
 <td align="center">
 <a href="https://github.com/edzer" class="external-link"> <img src="https://avatars.githubusercontent.com/u/520851?u=9bc892c3523be428dc211f2ccbcf04e8e0e564ff&amp;v=4" width="100px;" alt=""></a><br><a href="https://github.com/ATFutures/dodgr/issues?q=is%3Aissue+author%3Aedzer" class="external-link">edzer</a>
 </td>
 <td align="center">
 <a href="https://github.com/FlxPo" class="external-link"> <img src="https://avatars.githubusercontent.com/u/5145583?u=cbd02ee0a0fa0447429f38bd7e3a1da57c841239&amp;v=4" width="100px;" alt=""></a><br><a href="https://github.com/ATFutures/dodgr/issues?q=is%3Aissue+author%3AFlxPo" class="external-link">FlxPo</a>
 </td>
+</tr>
+<tr>
 <td align="center">
 <a href="https://github.com/LeshunXu" class="external-link"> <img src="https://avatars.githubusercontent.com/u/48538622?v=4" width="100px;" alt=""></a><br><a href="https://github.com/ATFutures/dodgr/issues?q=is%3Aissue+author%3ALeshunXu" class="external-link">LeshunXu</a>
 </td>
 <td align="center">
 <a href="https://github.com/deanmarchiori" class="external-link"> <img src="https://avatars.githubusercontent.com/u/9559770?u=5abd6534fd7f1cf94a54f894cdb12e017db1a9af&amp;v=4" width="100px;" alt=""></a><br><a href="https://github.com/ATFutures/dodgr/issues?q=is%3Aissue+author%3Adeanmarchiori" class="external-link">deanmarchiori</a>
+</td>
+<td align="center">
+<a href="https://github.com/demcortillas" class="external-link"> <img src="https://avatars.githubusercontent.com/u/41303271?u=de6dad5177d4a0db395a751ba9a4f9acb32c9ef7&amp;v=4" width="100px;" alt=""></a><br><a href="https://github.com/ATFutures/dodgr/issues?q=is%3Aissue+author%3Ademcortillas" class="external-link">demcortillas</a>
+</td>
+<td align="center">
+<a href="https://github.com/Urban-JonathanCohen" class="external-link"> <img src="https://avatars.githubusercontent.com/u/51330244?u=b67ded6a42ccf69116ed9999ba183b8523e8fde9&amp;v=4" width="100px;" alt=""></a><br><a href="https://github.com/ATFutures/dodgr/issues?q=is%3Aissue+author%3AUrban-JonathanCohen" class="external-link">Urban-JonathanCohen</a>
 </td>
 </tr>
 </table>
