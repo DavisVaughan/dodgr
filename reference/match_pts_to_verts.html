@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">dodgr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.14.083</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.14.085</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,7 +44,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>match_pts_to_verts</h1>
-      <small class="dont-index">Source: <a href="https://github.com/ATFutures/dodgr/blob/HEAD/R/graph-match-points.R" class="external-link"><code>R/graph-match-points.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/ATFutures/dodgr/blob/HEAD/R/match-points.R" class="external-link"><code>R/match-points.R</code></a></small>
       <div class="d-none name"><code>match_pts_to_verts.Rd</code></div>
     </div>
 
@@ -96,7 +96,9 @@ matching.</p></dd>
 <code><a href="dodgr_sample.html">dodgr_sample</a>()</code>,
 <code><a href="dodgr_sflines_to_poly.html">dodgr_sflines_to_poly</a>()</code>,
 <code><a href="dodgr_vertices.html">dodgr_vertices</a>()</code>,
+<code><a href="match_points_to_graph.html">match_points_to_graph</a>()</code>,
 <code><a href="match_points_to_verts.html">match_points_to_verts</a>()</code>,
+<code><a href="match_pts_to_graph.html">match_pts_to_graph</a>()</code>,
 <code><a href="merge_directed_graph.html">merge_directed_graph</a>()</code>,
 <code><a href="summary.dodgr_dists_categorical.html">summary.dodgr_dists_categorical</a>()</code>,
 <code><a href="write_dodgr_wt_profile.html">write_dodgr_wt_profile</a>()</code></p></div>
@@ -114,11 +116,11 @@ matching.</p></dd>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">pts</span> <span class="op">&lt;-</span> <span class="fu">match_pts_to_verts</span> <span class="op">(</span><span class="va">verts</span>, <span class="va">xy</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">pts</span> <span class="co"># an index into verts</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 2082 3053 3051 2615 1724 3075 3052 1406 3051 1449</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 2342 2596 1406 3053  561 2900 3071 1704  655 1323</span>
 <span class="r-in"><span><span class="va">pts</span> <span class="op">&lt;-</span> <span class="va">verts</span><span class="op">$</span><span class="va">id</span> <span class="op">[</span><span class="va">pts</span><span class="op">]</span></span></span>
 <span class="r-in"><span><span class="va">pts</span> <span class="co"># names of those vertices</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "2627461395" "7769190961" "6025347259" "7794286140" "2588146132"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "1204772780" "7769271419" "8615528120" "6025347259" "1398747927"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "2398957616" "5351564647" "8615528120" "7769190961" "1204772888"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "1128374495" "1388482647" "2588119056" "1206252310" "1376768856"</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
