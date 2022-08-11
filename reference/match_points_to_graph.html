@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">dodgr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.14.085</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.14.088</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -90,6 +90,7 @@ identify and suitably process matching edge pairs.</p>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other misc: 
+<code><a href="add_nodes_to_graph.html">add_nodes_to_graph</a>()</code>,
 <code><a href="compare_heaps.html">compare_heaps</a>()</code>,
 <code><a href="dodgr_flowmap.html">dodgr_flowmap</a>()</code>,
 <code><a href="dodgr_full_cycles.html">dodgr_full_cycles</a>()</code>,
@@ -108,18 +109,49 @@ identify and suitably process matching edge pairs.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">net</span> <span class="op">&lt;-</span> <span class="fu"><a href="weight_streetnet.html">weight_streetnet</a></span> <span class="op">(</span><span class="va">hampi</span>, wt_profile <span class="op">=</span> <span class="st">"foot"</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">graph</span> <span class="op">&lt;-</span> <span class="fu"><a href="weight_streetnet.html">weight_streetnet</a></span> <span class="op">(</span><span class="va">hampi</span>, wt_profile <span class="op">=</span> <span class="st">"foot"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># Then generate some random points to match to graph</span></span></span>
+<span class="r-in"><span><span class="va">verts</span> <span class="op">&lt;-</span> <span class="fu"><a href="dodgr_vertices.html">dodgr_vertices</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">npts</span> <span class="op">&lt;-</span> <span class="fl">10</span></span></span>
 <span class="r-in"><span><span class="va">xy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span> <span class="op">(</span></span></span>
 <span class="r-in"><span>    x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span> <span class="op">(</span><span class="va">verts</span><span class="op">$</span><span class="va">x</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span> <span class="op">(</span><span class="va">npts</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/diff.html" class="external-link">diff</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span> <span class="op">(</span><span class="va">verts</span><span class="op">$</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>    y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span> <span class="op">(</span><span class="va">verts</span><span class="op">$</span><span class="va">y</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span> <span class="op">(</span><span class="va">npts</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/diff.html" class="external-link">diff</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span> <span class="op">(</span><span class="va">verts</span><span class="op">$</span><span class="va">y</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in data.frame(x = min(verts$x) + runif(npts) * diff(range(verts$x)),     y = min(verts$y) + runif(npts) * diff(range(verts$y))):</span> object 'verts' not found</span>
 <span class="r-in"><span><span class="va">edges</span> <span class="op">&lt;-</span> <span class="fu"><a href="match_pts_to_graph.html">match_pts_to_graph</a></span> <span class="op">(</span><span class="va">graph</span>, <span class="va">xy</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in match_pts_to_graph(graph, xy):</span> object 'xy' not found</span>
 <span class="r-in"><span><span class="va">graph</span> <span class="op">[</span><span class="va">edges</span>, <span class="op">]</span> <span class="co"># The edges of the graph closest to `xy`</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in graph[edges, ]:</span> object of type 'closure' is not subsettable</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      geom_num edge_id    from_id from_lon from_lat      to_id   to_lon   to_lat</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5830      183    5830 1128374373 76.48920 15.32237 1128374467 76.49147 15.32310</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3395       89    3395 2588119056 76.42341 15.31717 2588146107 76.42349 15.31746</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6226      203    6226 1204772759 76.39828 15.35260 1204772661 76.39213 15.35169</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 830        34     830 2398957483 76.44801 15.30435 2398957480 76.44803 15.30407</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6248      203    6248 1204772868 76.41809 15.35157 1204772780 76.40951 15.35236</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6202      203    6202 7769190961 76.38203 15.34708 7769271419 76.37263 15.34499</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5676      171    5676 5351820892 76.44350 15.31399 5974426256 76.44354 15.31398</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6244      203    6244 1204772708 76.40809 15.35245 1204772877 76.40606 15.35237</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6246      203    6246 1204772780 76.40951 15.35236 1204772708 76.40809 15.35245</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5908      183    5908 2398957555 76.47629 15.30996  313796432 76.47632 15.31009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                d  d_weighted      highway    way_id component       time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5830  257.090703  514.181407      primary 652570479         1 185.105307</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3395   33.008446   41.260558 unclassified 252786290         1  23.766081</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6226  667.359739 1334.719477      primary 835018468         2 480.499012</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 830    30.140358   50.233931    secondary  53626074         1  21.701058</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6248  925.873570 1851.747140      primary 835018468         2 666.628970</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6202 1035.681414 2071.362827      primary 835018468         2 745.690618</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5676    4.550499    5.688124 unclassified 554572321         1   3.276359</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6244  218.614975  437.229949      primary 835018468         2 157.402782</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6246  151.916453  303.832905      primary 835018468         2 109.379846</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5908   14.272600   28.545199      primary 652570479         1  10.276272</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      time_weighted</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5830    370.210613</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3395     29.707601</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6226    960.998024</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 830      36.168430</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6248   1333.257941</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6202   1491.381236</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5676      4.095449</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6244    314.805564</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6246    218.759692</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5908     20.552544</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
