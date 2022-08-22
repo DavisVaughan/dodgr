@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">dodgr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.14.093</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.15</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,7 +71,7 @@
       <img src="" class="logo" alt=""><h1>dodgr flows</h1>
                         <h4 data-toc-skip class="author">Mark Padgham</h4>
             
-            <h4 data-toc-skip class="date">2022-08-11</h4>
+            <h4 data-toc-skip class="date">2022-08-22</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ATFutures/dodgr/blob/HEAD/vignettes/flows.Rmd" class="external-link"><code>vignettes/flows.Rmd</code></a></small>
       <div class="d-none name"><code>flows.Rmd</code></div>
@@ -102,18 +102,25 @@
 <span><span class="co">## 4        1       4 2398958028 76.47621 15.34174  339318502 76.47612 15.34173</span></span>
 <span><span class="co">## 5        1       5 2398958028 76.47621 15.34174 1427116077 76.47628 15.34179</span></span>
 <span><span class="co">## 6        1       6 1427116077 76.47628 15.34179 2398958028 76.47621 15.34174</span></span>
-<span><span class="co">##            d d_weighted highway   way_id component      time time_weighted flow</span></span>
-<span><span class="co">## 1 130.000241 130.000241    path 28565950         1 93.600174     93.600174    0</span></span>
-<span><span class="co">## 2 130.000241 130.000241    path 28565950         1 93.600174     93.600174    0</span></span>
-<span><span class="co">## 3   8.890622   8.890622    path 28565950         1  6.401248      6.401248    0</span></span>
-<span><span class="co">## 4   8.890622   8.890622    path 28565950         1  6.401248      6.401248    0</span></span>
-<span><span class="co">## 5   9.307736   9.307736    path 28565950         1  6.701570      6.701570    0</span></span>
-<span><span class="co">## 6   9.307736   9.307736    path 28565950         1  6.701570      6.701570    0</span></span></code></pre>
+<span><span class="co">##            d d_weighted highway   way_id component      time time_weighted</span></span>
+<span><span class="co">## 1 130.000241 130.000241    path 28565950         1 93.600174     93.600174</span></span>
+<span><span class="co">## 2 130.000241 130.000241    path 28565950         1 93.600174     93.600174</span></span>
+<span><span class="co">## 3   8.890622   8.890622    path 28565950         1  6.401248      6.401248</span></span>
+<span><span class="co">## 4   8.890622   8.890622    path 28565950         1  6.401248      6.401248</span></span>
+<span><span class="co">## 5   9.307736   9.307736    path 28565950         1  6.701570      6.701570</span></span>
+<span><span class="co">## 6   9.307736   9.307736    path 28565950         1  6.701570      6.701570</span></span>
+<span><span class="co">##       flow</span></span>
+<span><span class="co">## 1 0.000000</span></span>
+<span><span class="co">## 2 1.276298</span></span>
+<span><span class="co">## 3 0.000000</span></span>
+<span><span class="co">## 4 1.276298</span></span>
+<span><span class="co">## 5 0.000000</span></span>
+<span><span class="co">## 6 1.276298</span></span></code></pre>
 <p>Most flows are zero because they have only been calculated between very few points in the graph.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span> <span class="op">(</span><span class="va">graph_f</span><span class="op">$</span><span class="va">flow</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span></span>
-<span><span class="co">##  0.0000  0.0000  0.0000  0.4254  0.0000  8.7119</span></span></code></pre>
+<span><span class="co">##   0.000   0.000   0.000   0.264   0.000   5.468</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="flow-dispersal">2 Flow Dispersal<a class="anchor" aria-label="anchor" href="#flow-dispersal"></a>
@@ -124,7 +131,7 @@
 <span><span class="va">graph_f</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dodgr_flows_disperse.html">dodgr_flows_disperse</a></span> <span class="op">(</span><span class="va">graph</span>, from <span class="op">=</span> <span class="va">from</span>, dens <span class="op">=</span> <span class="va">dens</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span> <span class="op">(</span><span class="va">graph_f</span><span class="op">$</span><span class="va">flow</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. </span></span>
-<span><span class="co">## 0.0000000 0.0000000 0.0001407 0.0150697 0.0093646 0.8612814</span></span></code></pre>
+<span><span class="co">## 0.0000000 0.0000000 0.0003122 0.0153992 0.0076148 0.7598805</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="merging-directed-flows">3 Merging directed flows<a class="anchor" aria-label="anchor" href="#merging-directed-flows"></a>
@@ -136,7 +143,7 @@
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph_f</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span> <span class="op">(</span><span class="va">graph_undir</span><span class="op">)</span> <span class="co"># the latter is much smaller</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] 6813</span></span></code></pre>
-<pre><code><span><span class="co">## [1] 3028</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 3067</span></span></code></pre>
 <p>The resultant graph can readily be merged with the original graph to regain the original data on vertex coordinates through</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">graph</span> <span class="op">&lt;-</span> <span class="va">graph</span> <span class="op">[</span><span class="va">graph_undir</span><span class="op">$</span><span class="va">edge_id</span>, <span class="op">]</span></span>
