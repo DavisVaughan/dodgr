@@ -12,7 +12,7 @@ edge-based form."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax
     
     <a class="navbar-brand me-2" href="../index.html">dodgr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.15.023</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.15.027</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -149,6 +149,7 @@ specifying a value via
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">graph_full</span> <span class="op">&lt;-</span> <span class="fu"><a href="weight_streetnet.html">weight_streetnet</a></span> <span class="op">(</span><span class="va">hampi</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">graph</span> <span class="op">&lt;-</span> <span class="fu"><a href="dodgr_contract_graph.html">dodgr_contract_graph</a></span> <span class="op">(</span><span class="va">graph_full</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">graph</span> <span class="op">&lt;-</span> <span class="fu">dodgr_centrality</span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>graph has duplicated edges; only the first will be used here.</span>
 <span class="r-in"><span><span class="co"># 'graph' is then the contracted graph with an additional 'centrality' column</span></span></span>
 <span class="r-in"><span><span class="co"># Same calculation via 'igraph':</span></span></span>
 <span class="r-in"><span><span class="va">igr</span> <span class="op">&lt;-</span> <span class="fu"><a href="dodgr_to_igraph.html">dodgr_to_igraph</a></span> <span class="op">(</span><span class="va">graph</span><span class="op">)</span></span></span>
