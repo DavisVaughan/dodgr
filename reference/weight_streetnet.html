@@ -16,7 +16,7 @@ version dervied from those."><!-- mathjax --><script src="https://cdnjs.cloudfla
     
     <a class="navbar-brand me-2" href="../index.html">dodgr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.15.034</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.15.035</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -187,7 +187,7 @@ the name of this file passed as the <code>wt_profile_file</code> parameter.</p>
 <p>Realistic routing include factors such as access restrictions, turn
 penalties, and effects of incline, can only be implemented when the objects
 passed to <code>weight_streetnet</code> are of <span class="pkg">sc</span> ("silicate") format, generated
-with <a href="dodgr_streetnet_sc.html">dodgr_streetnet_sc</a>. Restrictions applies to ways (in Open
+with <a href="dodgr_streetnet_sc.html">dodgr_streetnet_sc</a>. Restrictions applied to ways (in Open
 Streetmap Terminology) may be controlled by ensuring specific columns are
 retained in the <code>dodgr</code> network with the <code>keep_cols</code> argument. For example,
 restrictions on access are generally specified by specifying a value for the
@@ -197,14 +197,15 @@ easily be removed or modified, as demonstrated in the examples.</p>
 <p>The additional Open Street Map (OSM) keys which can be used to specify
 restrictions are which are automatically extracted with
 <a href="dodgr_streetnet_sc.html">dodgr_streetnet_sc</a>, and so may be added to the <code>keep_cols</code> argument,
-include:</p><ul><li><p>"highway"</p></li>
-<li><p>"restriction"</p></li>
-<li><p>"access"</p></li>
+include:</p><ul><li><p>"access"</p></li>
 <li><p>"bicycle"</p></li>
+<li><p>"foot"</p></li>
+<li><p>"highway"</p></li>
 <li><p>"motorcar"</p></li>
 <li><p>"motor_vehicle"</p></li>
-<li><p>"vehicle"</p></li>
+<li><p>"restriction"</p></li>
 <li><p>"toll"</p></li>
+<li><p>"vehicle"</p></li>
 </ul><p>Restrictions and time-penalties on turns can be implemented from such
 objects by setting <code>turn_penalty = TRUE</code>. Resultant graphs are fundamentally
 different from the default for distance-based routing. The result of
