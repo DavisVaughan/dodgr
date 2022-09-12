@@ -16,7 +16,7 @@ version dervied from those."><!-- mathjax --><script src="https://cdnjs.cloudfla
     
     <a class="navbar-brand me-2" href="../index.html">dodgr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.15.041</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.15.053</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -207,14 +207,18 @@ include:</p><ul><li><p>"access"</p></li>
 <li><p>"toll"</p></li>
 <li><p>"vehicle"</p></li>
 </ul><p>Restrictions and time-penalties on turns can be implemented from such
-objects by setting <code>turn_penalty = TRUE</code>. Resultant graphs are fundamentally
-different from the default for distance-based routing. The result of
-<code>weight_streetnet(..., turn_penalty = TRUE)</code> should thus <em>only</em> be used
-to submit to the <a href="dodgr_times.html">dodgr_times</a> function, and not for any other <code>dodgr</code>
-functions nor forms of network analysis. Setting <code>turn_penalty = TRUE</code> will
+objects by setting <code>turn_penalty = TRUE</code>. Setting <code>turn_penalty = TRUE</code> will
 honour turn restrictions specified in Open Street Map (unless the "penalties"
 table of <a href="weighting_profiles.html">weighting_profiles</a> has <code>restrictions = FALSE</code> for a specified
-<code>wt_profile</code>).</p>
+<code>wt_profile</code>). Resultant graphs are fundamentally different from the default
+for distance-based routing. These graphs may be used directly in the
+<a href="dodgr_dists.html">dodgr_dists</a> function. Use in any other functions requires additional
+information obtained in a file in the temporary directory of the current R
+session with a name starting with "dodgr_junctions_", and including the
+value of <code>attr(graph, "hash")</code>. If graphs with turn penalties are to be used
+in subsequent R sessions, this "dodgr_junctions_" file will need to be moved
+to a more permanent storage location, and then replaced in the temporary
+directory of any subsequent R sessions.</p>
 <p>The resultant graph includes only those edges for which the given
 weighting profile specifies finite edge weights. Any edges of types not
 present in a given weighting profile are automatically removed from the
