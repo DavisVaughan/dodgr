@@ -40,7 +40,7 @@
     
     <a class="navbar-brand me-2" href="index.html">dodgr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.16.006</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.16.007</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,19 +99,20 @@
 </h2>
 <p>You can install latest stable version of <code>dodgr</code> from CRAN with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"dodgr"</span><span class="op">)</span> <span class="co"># current CRAN version</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span> <span class="op">(</span><span class="st">"dodgr"</span><span class="op">)</span> <span class="co"># current CRAN version</span></span></code></pre></div>
 <p>Alternatively, current development versions can be installed using any of the following options:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_git</span><span class="op">(</span><span class="st">"https://git.sr.ht/~mpadge/dodgr"</span><span class="op">)</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_bitbucket</span><span class="op">(</span><span class="st">"atfutures/dodgr"</span><span class="op">)</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_gitlab</span><span class="op">(</span><span class="st">"atfutures1/dodgr"</span><span class="op">)</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"ATFutures/dodgr"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_git</span> <span class="op">(</span><span class="st">"https://git.sr.ht/~mpadge/dodgr"</span><span class="op">)</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_git</span> <span class="op">(</span><span class="st">"https://codeberg.org/ATFutures/dodgr"</span><span class="op">)</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_bitbucket</span> <span class="op">(</span><span class="st">"atfutures/dodgr"</span><span class="op">)</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_gitlab</span> <span class="op">(</span><span class="st">"atfutures1/dodgr"</span><span class="op">)</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span> <span class="op">(</span><span class="st">"ATFutures/dodgr"</span><span class="op">)</span></span></code></pre></div>
 <p>Then load with</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span> <span class="op">(</span><span class="va"><a href="https://github.com/ATFutures/dodgr" class="external-link">dodgr</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span> <span class="op">(</span><span class="st">"dodgr"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] '0.2.14.46'</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] '0.2.16.6'</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="important-note">Important Note<a class="anchor" aria-label="anchor" href="#important-note"></a>
@@ -138,7 +139,7 @@
 <table class="table">
 <colgroup>
 <col width="6%">
-<col width="6%">
+<col width="5%">
 <col width="7%">
 <col width="6%">
 <col width="6%">
@@ -147,11 +148,11 @@
 <col width="6%">
 <col width="7%">
 <col width="7%">
+<col width="5%">
 <col width="6%">
 <col width="6%">
 <col width="6%">
-<col width="6%">
-<col width="8%">
+<col width="9%">
 </colgroup>
 <thead><tr class="header">
 <th align="right">geom_num</th>
@@ -282,7 +283,7 @@
 <table class="table">
 <colgroup>
 <col width="6%">
-<col width="6%">
+<col width="5%">
 <col width="7%">
 <col width="6%">
 <col width="6%">
@@ -291,11 +292,11 @@
 <col width="6%">
 <col width="7%">
 <col width="7%">
+<col width="5%">
 <col width="6%">
 <col width="6%">
 <col width="6%">
-<col width="6%">
-<col width="8%">
+<col width="9%">
 </colgroup>
 <thead><tr class="header">
 <th align="right">geom_num</th>
@@ -523,31 +524,33 @@
 <p>Flow aggregation refers to the procedure of routing along multiple ways according to specified densities of flow between defined origin and destination points, and aggregating flows along each edge of the network. The procedure is functionally similar to the above procedure for distances, with the addition of a matrix specifying pairwise flow densities between the input set of origin (<code>from</code>) and destination (<code>to</code>) points. The following example illustrates use with a random “flow matrix”:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">flows</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">from</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">to</span><span class="op">)</span><span class="op">)</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">from</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">to</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">from</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">to</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span> <span class="op">(</span><span class="va">flows</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">from</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 20</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span> <span class="op">(</span><span class="va">to</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 50</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span> <span class="op">(</span><span class="va">flows</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 20 50</span></span>
 <span><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/dodgr_flows_aggregate.html">dodgr_flows_aggregate</a></span> <span class="op">(</span>graph <span class="op">=</span> <span class="va">graph</span>, from <span class="op">=</span> <span class="va">from</span>, to <span class="op">=</span> <span class="va">to</span>, flows <span class="op">=</span> <span class="va">flows</span><span class="op">)</span></span></code></pre></div>
 <p>The result is simply the input <code>graph</code> with an additional column quantifying the aggregate flows along each edge:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span> <span class="op">(</span><span class="va">f</span><span class="op">)</span></span></code></pre></div>
-<table class="table">
+<table style="width:100%;" class="table">
 <colgroup>
+<col width="5%">
+<col width="5%">
 <col width="6%">
+<col width="5%">
+<col width="5%">
+<col width="6%">
+<col width="5%">
 <col width="5%">
 <col width="6%">
 <col width="6%">
-<col width="6%">
-<col width="6%">
-<col width="6%">
-<col width="6%">
-<col width="6%">
-<col width="6%">
+<col width="5%">
 <col width="5%">
 <col width="6%">
 <col width="6%">
-<col width="6%">
-<col width="7%">
+<col width="8%">
 <col width="6%">
 </colgroup>
 <thead><tr class="header">
@@ -585,7 +588,7 @@
 <td align="right">1</td>
 <td align="right">93.600174</td>
 <td align="right">93.600174</td>
-<td align="right">2.1365350</td>
+<td align="right">0.9960589</td>
 </tr>
 <tr class="even">
 <td align="right">1</td>
@@ -603,7 +606,7 @@
 <td align="right">1</td>
 <td align="right">93.600174</td>
 <td align="right">93.600174</td>
-<td align="right">0.8081778</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="right">1</td>
@@ -621,7 +624,7 @@
 <td align="right">1</td>
 <td align="right">6.401248</td>
 <td align="right">6.401248</td>
-<td align="right">2.1365350</td>
+<td align="right">0.9960589</td>
 </tr>
 <tr class="even">
 <td align="right">1</td>
@@ -639,7 +642,7 @@
 <td align="right">1</td>
 <td align="right">6.401248</td>
 <td align="right">6.401248</td>
-<td align="right">0.8081778</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="right">1</td>
@@ -657,7 +660,7 @@
 <td align="right">1</td>
 <td align="right">6.701570</td>
 <td align="right">6.701570</td>
-<td align="right">2.1365350</td>
+<td align="right">0.9960589</td>
 </tr>
 <tr class="even">
 <td align="right">1</td>
@@ -675,7 +678,7 @@
 <td align="right">1</td>
 <td align="right">6.701570</td>
 <td align="right">6.701570</td>
-<td align="right">0.8081778</td>
+<td align="right">0.0000000</td>
 </tr>
 </tbody>
 </table>
