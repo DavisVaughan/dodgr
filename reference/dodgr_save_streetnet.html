@@ -26,7 +26,7 @@ weighted network."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/aja
     
     <a class="navbar-brand me-2" href="../index.html">dodgr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.16.020</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.16.021</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -114,11 +114,9 @@ if it has not previously been automatically cached.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">net</span> <span class="op">&lt;-</span> <span class="fu"><a href="weight_streetnet.html">weight_streetnet</a></span> <span class="op">(</span><span class="va">hampi</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span> <span class="op">(</span><span class="op">)</span>, <span class="st">"streetnet.Rds"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">dodgr_save_streetnet</span> <span class="op">(</span><span class="va">net</span>, <span class="va">f</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in dodgr_save_streetnet(net, f):</span> edge_map was not cached; unable to save network.</span>
 <span class="r-in"><span><span class="fu"><a href="clear_dodgr_cache.html">clear_dodgr_cache</a></span> <span class="op">(</span><span class="op">)</span> <span class="co"># rm cached objects from tempdir</span></span></span>
 <span class="r-in"><span><span class="co"># at some later time, or in a new R session:</span></span></span>
 <span class="r-in"><span><span class="va">net</span> <span class="op">&lt;-</span> <span class="fu"><a href="dodgr_load_streetnet.html">dodgr_load_streetnet</a></span> <span class="op">(</span><span class="va">f</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in dodgr_load_streetnet(f):</span> filename [/tmp/Rtmpgn8gwZ/streetnet.Rds] not found.</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
