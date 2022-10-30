@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">dodgr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.16.015</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.16.016</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,9 +69,10 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Parallel computation</h1>
-                        <h4 data-toc-skip class="author">Mark Padgham</h4>
+                        <h4 data-toc-skip class="author">Mark
+Padgham</h4>
             
-            <h4 data-toc-skip class="date">2022-10-21</h4>
+            <h4 data-toc-skip class="date">2022-10-30</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ATFutures/dodgr/blob/HEAD/vignettes/parallel.Rmd" class="external-link"><code>vignettes/parallel.Rmd</code></a></small>
       <div class="d-none name"><code>parallel.Rmd</code></div>
@@ -79,14 +80,23 @@
 
     
     
-<p>The <code>dodgr</code> package implements most calculations by default in parallel, using the maximum number of available threads or cores. Numbers of available threads can be determined with either of the following two functions:</p>
+<p>The <code>dodgr</code> package implements most calculations by
+default in parallel, using the maximum number of available threads or
+cores. Numbers of available threads can be determined with either of the
+following two functions:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/detectCores.html" class="external-link">detectCores</a></span> <span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] 2</span></span></code></pre>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">RcppParallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/RcppParallel/man/setThreadOptions.html" class="external-link">defaultNumThreads</a></span> <span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] 2</span></span></code></pre>
-<p>Numbers of cores used in calculations can be controlled by specifying the <code>numThread</code> parameter passed to <a href="https://rcppcore.github.io/RcppParallel/#threads_used" class="external-link">the <code>RcppParallel</code> function <code>setThreadOptions</code></a>. For control over numbers of threads used, this function must be called prior to calling any <code>dodgr</code> functions. For example, single-threaded processing can be ensured by first making the following call:</p>
+<p>Numbers of cores used in calculations can be controlled by specifying
+the <code>numThread</code> parameter passed to <a href="https://rcppcore.github.io/RcppParallel/#threads_used" class="external-link">the
+<code>RcppParallel</code> function <code>setThreadOptions</code></a>.
+For control over numbers of threads used, this function must be called
+prior to calling any <code>dodgr</code> functions. For example,
+single-threaded processing can be ensured by first making the following
+call:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">RcppParallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/RcppParallel/man/setThreadOptions.html" class="external-link">setThreadOptions</a></span> <span class="op">(</span>numThreads <span class="op">=</span> <span class="fl">1L</span><span class="op">)</span></span></code></pre></div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
