@@ -12,7 +12,7 @@ vertices."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/m
     
     <a class="navbar-brand me-2" href="../index.html">dodgr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.16.040</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.16.042</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,7 +57,7 @@ vertices.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">dodgr_contract_graph</span><span class="op">(</span><span class="va">graph</span>, verts <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">dodgr_contract_graph</span><span class="op">(</span><span class="va">graph</span>, verts <span class="op">=</span> <span class="cn">NULL</span>, nocache <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -72,6 +72,12 @@ similarly labelled columns of spatial coordinates (for example
 <dt>verts</dt>
 <dd><p>Optional list of vertices to be retained as routing points.
 These must match the <code>from</code> and <code>to</code> columns of <code>graph</code>.</p></dd>
+
+
+<dt>nocache</dt>
+<dd><p>If <code>FALSE</code> (default), load cached version of contracted graph
+if previously calculated and cached. If <code>TRUE</code>, then re-contract graph even
+if previously calculated version has been stored in cache.</p></dd>
 
 </dl></div>
     <div class="section level2">
